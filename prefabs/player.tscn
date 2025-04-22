@@ -21,6 +21,11 @@ mesh = SubResource("CapsuleMesh_72ieh")
 [node name="head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
+[node name="light" type="SpotLight3D" parent="head"]
+light_energy = 2.0
+spot_range = 15.0
+spot_angle = 60.0
+
 [node name="camera" type="Camera3D" parent="head"]
 
 [node name="raycast" type="RayCast3D" parent="head"]

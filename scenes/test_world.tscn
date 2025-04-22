@@ -1,12 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://cq113sne14ppl"]
+[gd_scene load_steps=12 format=3 uid="uid://cq113sne14ppl"]
 
 [ext_resource type="PackedScene" uid="uid://bnjj0kig7k7u8" path="res://prefabs/player.tscn" id="1_kyfjp"]
 [ext_resource type="Texture2D" uid="uid://bqk0580vm0qbf" path="res://textures/kenny_prototype_ground.png" id="2_amxg5"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="3_3263u"]
+[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="3_umbte"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kyfjp"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+sky_top_color = Color(0.188115, 0.121453, 0.043984, 1)
+sky_horizon_color = Color(0.0808998, 0.0503925, 0.0113437, 1)
+ground_bottom_color = Color(0.02, 0.0168267, 0.0132, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Sky" id="Sky_amxg5"]
 sky_material = SubResource("ProceduralSkyMaterial_kyfjp")
@@ -14,18 +17,38 @@ sky_material = SubResource("ProceduralSkyMaterial_kyfjp")
 [sub_resource type="Environment" id="Environment_3263u"]
 background_mode = 2
 sky = SubResource("Sky_amxg5")
-tonemap_mode = 2
+tonemap_mode = 3
 glow_enabled = true
 fog_enabled = true
+fog_light_color = Color(0.092791, 0.0138685, 0.00497115, 1)
 fog_density = 0.05
-volumetric_fog_density = 0.1553
+volumetric_fog_albedo = Color(0.125911, 0.125911, 0.125911, 1)
+volumetric_fog_emission = Color(0.156819, 0.0279754, 0.0118907, 1)
+adjustment_enabled = true
+adjustment_brightness = 1.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyfjp"]
 albedo_texture = ExtResource("2_amxg5")
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amxg5"]
-albedo_color = Color(0.294118, 1, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3263u"]
+albedo_color = Color(0.425728, 0.483166, 0.931182, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_umbte"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynswa"]
+render_priority = 0
+shader = ExtResource("3_umbte")
+shader_parameter/albedo = SubResource("ImageTexture_umbte")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(0.242563, 0.579066, 0.716311, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 
 [node name="world" type="Node3D"]
 
@@ -33,6 +56,7 @@ albedo_color = Color(0.294118, 1, 1, 1)
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 light_energy = 0.4
 shadow_enabled = true
+sky_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3263u")
@@ -49,10 +73,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
 use_collision = true
 collision_layer = 3
 size = Vector3(2, 2, 2)
+material = SubResource("StandardMaterial3D_3263u")
 
 [node name="blue_box2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 2, -8)
-material_override = SubResource("StandardMaterial3D_amxg5")
+material_override = SubResource("ShaderMaterial_ynswa")
 use_collision = true
 size = Vector3(4, 4, 4)
 
