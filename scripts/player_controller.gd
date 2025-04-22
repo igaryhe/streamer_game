@@ -20,6 +20,8 @@ var gravity = 9.8
 
 @onready var head = $head
 @onready var camera = $head/camera
+@onready var raycast = $head/raycast
+@onready var hand = $hand
 
 
 func _ready():
@@ -31,7 +33,6 @@ func _unhandled_input(event):
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -72,6 +73,13 @@ func _physics_process(delta):
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
+	
+	if raycast.is_colliding():
+		hand.visible = true
+		if Input.is_action_just_pressed("interact"):
+			print("interacting")
+	else:
+		hand.visible = false
 
 
 func _headbob(time) -> Vector3:
