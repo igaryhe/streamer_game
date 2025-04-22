@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnpe5v6l03600"]
+
+[ext_resource type="Texture2D" uid="uid://dd3hi6qyu8gna" path="res://textures/hand.png" id="1_8bk7x"]
+[ext_resource type="Script" uid="uid://c0spjbirk7bpo" path="res://scripts/item.gd" id="1_h1t07"]
+[ext_resource type="Script" uid="uid://oh8su7birtfl" path="res://scripts/signal.gd" id="3_p364l"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_h1t07"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab8qe"]
+albedo_texture = ExtResource("1_8bk7x")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lopi8"]
+
+[node name="item" type="Node3D"]
+script = ExtResource("1_h1t07")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("QuadMesh_h1t07")
+surface_material_override/0 = SubResource("StandardMaterial3D_ab8qe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CapsuleShape3D_lopi8")
+
+[node name="signal" type="Node" parent="StaticBody3D"]
+script = ExtResource("3_p364l")
+
+[connection signal="on_interact" from="StaticBody3D/signal" to="." method="_on_interact"]

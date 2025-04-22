@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 var speed
-const WALK_SPEED = 5.0
-const SPRINT_SPEED = 8.0
+const WALK_SPEED = 2.0
+const SPRINT_SPEED = 4.0
 const JUMP_VELOCITY = 4.8
 const SENSITIVITY = 0.004
 
@@ -15,6 +15,11 @@ var t_bob = 0.0
 const BASE_FOV = 75.0
 const FOV_CHANGE = 1.5
 
+const interaction_layer = 2
+const interact_signal = "on_interact"
+
+var holding_object: int = 0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
@@ -23,10 +28,8 @@ var gravity = 9.8
 @onready var raycast = $head/raycast
 @onready var hand = $hand
 
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -74,13 +77,19 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	# interaction
 	if raycast.is_colliding():
 		hand.visible = true
 		if Input.is_action_just_pressed("interact"):
+			var collider = raycast.get_collider()
+			if collider is CSGShape3D:
+				collider.set_collision_layer_value(interaction_layer, false)
+			elif collider is CollisionObject3D:
+				collider.set_collision_layer_value(interaction_layer, false)
 			print("interacting")
+			collider.get_child(1).emit_signal(interact_signal)
 	else:
 		hand.visible = false
-
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
