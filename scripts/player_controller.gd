@@ -18,15 +18,19 @@ const FOV_CHANGE = 1.5
 const interaction_layer = 2
 const interact_signal = "on_interact"
 
-var holding_object: int = 0
+var holding_item: int = -1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
+
+@export var items: Items
+@export var item_prefab: PackedScene
 
 @onready var head = $head
 @onready var camera = $head/camera
 @onready var raycast = $head/raycast
 @onready var hand = $hand
+@onready var holding_item_view: TextureRect = $holding_item
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -85,14 +89,33 @@ func _physics_process(delta):
 			if collider is CSGShape3D:
 				collider.set_collision_layer_value(interaction_layer, false)
 			elif collider is CollisionObject3D:
-				collider.set_collision_layer_value(interaction_layer, false)
-			print("interacting")
-			collider.get_child(1).emit_signal(interact_signal)
+				# collider.set_collision_layer_value(interaction_layer, false)
+				if collider.is_in_group("item"):
+					var item: Item = collider.get_parent() as Item
+					var item_id = item.id
+					if holding_item >= 0:
+						# drop current holding item
+						var mat: StandardMaterial3D = item.mesh.get_surface_override_material(0) as StandardMaterial3D
+						mat.albedo_texture = items.items[holding_item].texture
+						item.id = holding_item
+						print("dropping")
+					else:
+						item.queue_free()
+					holding_item = item_id
+				collider.get_child(1).emit_signal(interact_signal)
 	else:
 		hand.visible = false
+		
+	# change holding item
+	if holding_item >= 0:
+		holding_item_view.texture = items.items[holding_item].texture
+	else:
+		holding_item_view.texture = null
+	# TODO(dan): adjust hand state
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cq113sne14ppl"]
+[gd_scene load_steps=13 format=3 uid="uid://cq113sne14ppl"]
 
 [ext_resource type="PackedScene" uid="uid://bnjj0kig7k7u8" path="res://prefabs/player.tscn" id="1_kyfjp"]
 [ext_resource type="Texture2D" uid="uid://bqk0580vm0qbf" path="res://textures/kenny_prototype_ground.png" id="2_amxg5"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="3_3263u"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="3_umbte"]
+[ext_resource type="Script" uid="uid://oh8su7birtfl" path="res://scripts/signal.gd" id="3_ynswa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kyfjp"]
 sky_top_color = Color(0.188115, 0.121453, 0.043984, 1)
@@ -75,11 +76,18 @@ collision_layer = 3
 size = Vector3(2, 2, 2)
 material = SubResource("StandardMaterial3D_3263u")
 
+[node name="signal" type="Node" parent="blue_box"]
+script = ExtResource("3_ynswa")
+
 [node name="blue_box2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 2, -8)
 material_override = SubResource("ShaderMaterial_ynswa")
 use_collision = true
 size = Vector3(4, 4, 4)
+
+[node name="item2" parent="." instance=ExtResource("3_3263u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.909333, 0.0010004, -6.43404)
+id = 1
 
 [node name="item" parent="." instance=ExtResource("3_3263u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50303, 0.0010004, -4.09093)

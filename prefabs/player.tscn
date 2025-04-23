@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnjj0kig7k7u8"]
+[gd_scene load_steps=7 format=3 uid="uid://bnjj0kig7k7u8"]
 
 [ext_resource type="Script" uid="uid://ygc8ipys21vv" path="res://scripts/player_controller.gd" id="1_72ieh"]
 [ext_resource type="Texture2D" uid="uid://dd3hi6qyu8gna" path="res://textures/hand.png" id="2_4dohe"]
+[ext_resource type="Resource" uid="uid://bvvk02t76vnti" path="res://data/items.tres" id="2_r66lb"]
+[ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="3_1txc5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fp3wc"]
 
@@ -9,6 +11,8 @@
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_72ieh")
+items = ExtResource("2_r66lb")
+item_prefab = ExtResource("3_1txc5")
 
 [node name="collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -52,3 +56,10 @@ pivot_offset = Vector2(256, 256)
 layout_mode = 2
 texture = ExtResource("2_4dohe")
 stretch_mode = 3
+
+[node name="holding_item" type="TextureRect" parent="."]
+offset_left = 400.0
+offset_top = 200.0
+offset_right = 528.0
+offset_bottom = 328.0
+expand_mode = 1
