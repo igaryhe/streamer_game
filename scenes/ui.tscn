@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	time += delta
 	if (time - message_time > interval):
 		count += 1
-		chat_window.add_message(\"测试\"+str(count), 0)
+		chat_window.add_message(\"测试\"+str(count), randi_range(0,2))
 		message_time = time
 	
 "

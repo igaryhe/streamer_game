@@ -2,13 +2,16 @@
 
 [ext_resource type="Script" uid="uid://clxqixbqxb1q2" path="res://scripts/chat/chat_message.gd" id="1_ee8u7"]
 
-[node name="ChatMessage" type="Control" node_paths=PackedStringArray("content_label")]
+[node name="ChatMessage" type="Control" node_paths=PackedStringArray("bg_0", "bg_1", "bg_2", "content_label")]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 300.0
 offset_bottom = 40.0
 script = ExtResource("1_ee8u7")
+bg_0 = NodePath("ColorRect")
+bg_1 = NodePath("ColorRect2")
+bg_2 = NodePath("ColorRect3")
 content_label = NodePath("ChatName")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -19,6 +22,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.336608, 0.336608, 0.336608, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.789102, 0.678829, 0.32972, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.825988, 0.171619, 0.352017, 1)
 
 [node name="ChatName" type="RichTextLabel" parent="."]
 layout_mode = 1
