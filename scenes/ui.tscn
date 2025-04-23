@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://db7tphsqrtse5"]
+[gd_scene load_steps=5 format=3 uid="uid://db7tphsqrtse5"]
 
 [ext_resource type="Script" uid="uid://dyi0cd8ko2s2o" path="res://scripts/chat/chat_window.gd" id="1_nt7q6"]
 [ext_resource type="PackedScene" uid="uid://bhw73ka4drv60" path="res://prefabs/chat_message.tscn" id="2_x4jx1"]
+[ext_resource type="Script" uid="uid://dacou1axop0p3" path="res://scripts/chat/message_flow.gd" id="3_yev5y"]
 
 [sub_resource type="GDScript" id="GDScript_x4jx1"]
 script/source = "extends Control
@@ -67,6 +68,42 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DEV" type="Control" parent="."]
+process_mode = 4
 anchors_preset = 0
 script = SubResource("GDScript_x4jx1")
 interval = 1.0
+
+[node name="FlowSteamStart" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_yev5y")
+script_uid = "uid://cgjng2pjne44o"
+
+[node name="FlowBoring" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_yev5y")
+script_uid = "uid://bsx22rpb6m7v7"
+
+[node name="FlowGhost" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_yev5y")
+script_uid = "uid://d0cswtbc12id6"
+
+[node name="FlowSelfi" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_yev5y")
+script_uid = "uid://duotvpk2xlj4n"
+
+[node name="FlowSacrific" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_yev5y")
+script_uid = "uid://hjeygow6b37m"

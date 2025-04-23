@@ -1,4 +1,5 @@
 extends Control
+class_name ChatMessage
 
 enum MessageType { MESSAGE, DONATION, DONATION_TEXT }
 
@@ -7,6 +8,8 @@ enum MessageType { MESSAGE, DONATION, DONATION_TEXT }
 @export var bg_2 : Control
 	
 @export var content_label : RichTextLabel
+
+@export var total_chars :int = 25
 var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 
@@ -22,11 +25,13 @@ func set_content(text: String, type: MessageType) -> void:
 		MessageType.DONATION_TEXT:
 			bg_2.visible = true
 			content_label.visible = true
-	content_label.text = random_name() + ": " + text
 	
-func random_name() -> String:
+	content_label.text = random_name(total_chars - len(text) - 2) + ": " + text
+	
+func random_name(force_total:int = -1) -> String:
 	var star_count = randi_range(2,5)
 	var first = chars[randi() % len(chars)]
 	var last = chars[randi() % len(chars)]
-	var stars = "*".repeat(randi_range(2, 8))
+	var max_count = 8 if force_total >= 2 else force_total
+	var stars = "*".repeat(randi_range(1, max_count))
 	return first + stars + last
