@@ -16,7 +16,11 @@ const BASE_FOV = 75.0
 const FOV_CHANGE = 1.5
 
 const interaction_layer = 2
+const obsersvation_layer = 3
+
 const interact_signal = "on_interact"
+var observation_timer: float = 0
+@export var observation_threshold: float
 
 var holding_item: int = -1
 
@@ -29,6 +33,7 @@ var gravity = 9.8
 @onready var head = $head
 @onready var camera = $head/camera
 @onready var raycast = $head/raycast
+@onready var observer = $head/observer
 @onready var hand = $hand
 @onready var holding_item_view: TextureRect = $holding_item
 
@@ -106,6 +111,15 @@ func _physics_process(delta):
 	else:
 		hand.visible = false
 		
+	if observer.is_colliding():
+		observation_timer += delta
+		if (observation_timer >= observation_threshold):
+			observation_timer = 0
+			observer.get_collider().set_collision_layer_value(obsersvation_layer, false)
+			print("anomaly observed")
+	elif observation_timer > 0:
+		observation_timer = 0
+	
 	# change holding item
 	if holding_item >= 0:
 		holding_item_view.texture = items.items[holding_item].texture

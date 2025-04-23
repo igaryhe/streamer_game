@@ -72,7 +72,7 @@ size = Vector3(100, 0.002, 100)
 [node name="blue_box" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
 use_collision = true
-collision_layer = 3
+collision_layer = 7
 size = Vector3(2, 2, 2)
 material = SubResource("StandardMaterial3D_3263u")
 

@@ -11,6 +11,7 @@
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_72ieh")
+observation_threshold = 1.0
 items = ExtResource("2_r66lb")
 item_prefab = ExtResource("3_1txc5")
 
@@ -36,6 +37,11 @@ spot_angle = 60.0
 target_position = Vector3(0, 0, -3)
 collision_mask = 2
 debug_shape_custom_color = Color(1, 0, 0.766666, 1)
+
+[node name="observer" type="RayCast3D" parent="head"]
+target_position = Vector3(0, 0, -8)
+collision_mask = 4
+debug_shape_custom_color = Color(4.62055e-06, 0.985123, 0.885574, 1)
 
 [node name="hand" type="CenterContainer" parent="."]
 anchors_preset = 8
