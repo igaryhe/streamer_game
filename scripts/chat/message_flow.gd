@@ -33,7 +33,7 @@ func _ready() -> void:
 # Debug usage
 func _process(delta: float) -> void:
 	time += delta
-	if (weight == 0 ): pass
+	if (weight == 0 ): return
 	var interval = remap(weight, 0, 1, max_interval, min_interval)
 	if (time - message_time > interval):
 		var index = rng.rand_weighted(arr_weight)
