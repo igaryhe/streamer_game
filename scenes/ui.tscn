@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://db7tphsqrtse5"]
+
+[ext_resource type="Script" uid="uid://dyi0cd8ko2s2o" path="res://scripts/chat/chat_window.gd" id="1_nt7q6"]
+[ext_resource type="PackedScene" uid="uid://bhw73ka4drv60" path="res://prefabs/chat_message.tscn" id="2_x4jx1"]
+
+[sub_resource type="GDScript" id="GDScript_x4jx1"]
+script/source = "extends Control
+
+@export var interval : float = 0.5
+@onready var chat_window  = $\"../ChatWindow\"
+var time : float = 0
+var message_time : float = 0
+var count = 0
+
+# Debug usage
+func _process(delta: float) -> void:
+	time += delta
+	if (time - message_time > interval):
+		count += 1
+		chat_window.add_message(\"测试\"+str(count), 0)
+		message_time = time
+	
+"
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ChatWindow" type="Control" parent="." node_paths=PackedStringArray("target")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -333.305
+offset_top = 49.0
+offset_right = -33.3049
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_nt7q6")
+message_scene = ExtResource("2_x4jx1")
+target = NodePath("MessageContainer")
+
+[node name="ColorRect" type="ColorRect" parent="ChatWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.352941)
+
+[node name="MessageContainer" type="Control" parent="ChatWindow"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DEV" type="Control" parent="."]
+anchors_preset = 0
+script = SubResource("GDScript_x4jx1")
+interval = 1.0
