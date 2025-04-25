@@ -9,6 +9,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab8qe"]
 resource_local_to_scene = true
+transparency = 1
 albedo_texture = ExtResource("1_8bk7x")
 billboard_mode = 1
 billboard_keep_scale = true

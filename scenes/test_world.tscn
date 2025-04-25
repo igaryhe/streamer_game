@@ -1,11 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cq113sne14ppl"]
+[gd_scene load_steps=19 format=3 uid="uid://cq113sne14ppl"]
 
 [ext_resource type="PackedScene" uid="uid://bnjj0kig7k7u8" path="res://prefabs/player.tscn" id="1_kyfjp"]
 [ext_resource type="Texture2D" uid="uid://bqk0580vm0qbf" path="res://textures/kenny_prototype_ground.png" id="2_amxg5"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="3_3263u"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="3_umbte"]
 [ext_resource type="Script" uid="uid://oh8su7birtfl" path="res://scripts/signal.gd" id="3_ynswa"]
-[ext_resource type="PackedScene" uid="uid://db7tphsqrtse5" path="res://scenes/ui.tscn" id="6_dvny0"]
+[ext_resource type="Texture2D" uid="uid://dd3hi6qyu8gna" path="res://textures/hand.png" id="6_7448y"]
+[ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="6_dvny0"]
+[ext_resource type="Script" uid="uid://b3gaqd6u0gf7d" path="res://scripts/trigger.gd" id="7_xwrkq"]
+[ext_resource type="Script" uid="uid://baqfbibv6psyj" path="res://scripts/transparent.gd" id="9_ar7ra"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kyfjp"]
 sky_top_color = Color(0.188115, 0.121453, 0.043984, 1)
@@ -52,6 +55,15 @@ shader_parameter/albedo_color = Color(0.242563, 0.579066, 0.716311, 1)
 shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/texture_size = Vector2(1, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixgyf"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("6_7448y")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dvny0"]
+
 [node name="world" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -87,10 +99,30 @@ use_collision = true
 size = Vector3(4, 4, 4)
 
 [node name="item2" parent="." instance=ExtResource("3_3263u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.909333, 0.0010004, -6.43404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74294, 0.0010004, -12.4834)
 id = 1
+
+[node name="mesh" parent="item2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ixgyf")
 
 [node name="item" parent="." instance=ExtResource("3_3263u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50303, 0.0010004, -4.09093)
 
 [node name="UI" parent="." instance=ExtResource("6_dvny0")]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("objects_to_hide")]
+script = ExtResource("7_xwrkq")
+objects_to_hide = [NodePath("../blue_box2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.50595, 0.5, -7.76413)
+shape = SubResource("BoxShape3D_dvny0")
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("mesh", "player")]
+script = ExtResource("9_ar7ra")
+range = Vector2(9, 12)
+mesh = NodePath("../item2/mesh")
+player = NodePath("../player")
+
+[editable path="item2"]

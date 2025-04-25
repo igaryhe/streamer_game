@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://nfnch3gdtyet"]
+
+[ext_resource type="Script" uid="uid://8kq7oh1wkb3k" path="res://scripts/obstacle.gd" id="1_oqdh3"]
+[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_u2pes"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_woc2f"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqdh3"]
+render_priority = 0
+shader = ExtResource("1_u2pes")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_woc2f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_woc2f"]
+size = Vector3(1, 2, 1)
+
+[node name="obstacle" type="Node3D"]
+script = ExtResource("1_oqdh3")
+
+[node name="closed" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_woc2f")
+surface_material_override/0 = SubResource("ShaderMaterial_oqdh3")
+
+[node name="opened" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("QuadMesh_woc2f")
+
+[node name="collider" type="StaticBody3D" parent="." groups=["obstacle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collider"]
+shape = SubResource("BoxShape3D_woc2f")
+
+[node name="sfx" type="AudioStreamPlayer3D" parent="."]

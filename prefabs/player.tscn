@@ -9,7 +9,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_72ieh"]
 
-[node name="player" type="CharacterBody3D"]
+[node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_72ieh")
 observation_threshold = 1.0
 items = ExtResource("2_r66lb")
@@ -27,8 +27,8 @@ mesh = SubResource("CapsuleMesh_72ieh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="light" type="SpotLight3D" parent="head"]
-light_energy = 2.0
-spot_range = 15.0
+light_energy = 16.0
+spot_range = 50.0
 spot_angle = 60.0
 
 [node name="camera" type="Camera3D" parent="head"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://db7tphsqrtse5"]
+[gd_scene load_steps=5 format=3 uid="uid://b8pa6mj0aemre"]
 
 [ext_resource type="Script" uid="uid://dyi0cd8ko2s2o" path="res://scripts/chat/chat_window.gd" id="1_nt7q6"]
 [ext_resource type="PackedScene" uid="uid://bhw73ka4drv60" path="res://prefabs/chat_message.tscn" id="2_x4jx1"]
@@ -78,32 +78,32 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_yev5y")
-script_uid = "uid://cgjng2pjne44o"
+script_uid = "res://data/chats_stream_begin.gd"
 
 [node name="FlowBoring" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_yev5y")
-script_uid = "uid://bsx22rpb6m7v7"
+script_uid = "res://data/chats_boring.gd"
 
 [node name="FlowGhost" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_yev5y")
-script_uid = "uid://d0cswtbc12id6"
+script_uid = "res://data/chats_ghost.gd"
 
 [node name="FlowSelfi" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_yev5y")
-script_uid = "uid://duotvpk2xlj4n"
+script_uid = "res://data/chats_selfi.gd"
 
 [node name="FlowSacrific" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_yev5y")
-script_uid = "uid://hjeygow6b37m"
+script_uid = "res://data/chats_sacrific.gd"
