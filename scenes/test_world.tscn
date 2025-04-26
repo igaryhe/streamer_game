@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cq113sne14ppl"]
+[gd_scene load_steps=21 format=3 uid="uid://cq113sne14ppl"]
 
 [ext_resource type="PackedScene" uid="uid://bnjj0kig7k7u8" path="res://prefabs/player.tscn" id="1_kyfjp"]
 [ext_resource type="Texture2D" uid="uid://bqk0580vm0qbf" path="res://textures/kenny_prototype_ground.png" id="2_amxg5"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="6_dvny0"]
 [ext_resource type="Script" uid="uid://b3gaqd6u0gf7d" path="res://scripts/trigger.gd" id="7_xwrkq"]
 [ext_resource type="Script" uid="uid://baqfbibv6psyj" path="res://scripts/transparent.gd" id="9_ar7ra"]
+[ext_resource type="Script" uid="uid://ce2pi8ld4wsso" path="res://scripts/quantum_shard.gd" id="10_ar7ra"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kyfjp"]
 sky_top_color = Color(0.188115, 0.121453, 0.043984, 1)
@@ -64,6 +65,8 @@ billboard_keep_scale = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dvny0"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_ar7ra"]
+
 [node name="world" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -111,18 +114,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50303, 0.0010004, -4.09093
 [node name="UI" parent="." instance=ExtResource("6_dvny0")]
 visible = false
 
-[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("objects_to_hide")]
+[node name="area_trigger" type="Area3D" parent="." node_paths=PackedStringArray("objects_to_hide")]
 script = ExtResource("7_xwrkq")
 objects_to_hide = [NodePath("../blue_box2")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area_trigger"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.50595, 0.5, -7.76413)
 shape = SubResource("BoxShape3D_dvny0")
 
-[node name="Node" type="Node" parent="." node_paths=PackedStringArray("mesh", "player")]
+[node name="transparent_manager" type="Node" parent="." node_paths=PackedStringArray("mesh", "player")]
 script = ExtResource("9_ar7ra")
 range = Vector2(9, 12)
 mesh = NodePath("../item2/mesh")
 player = NodePath("../player")
+
+[node name="quantum_shards_manager" type="Node" parent="." node_paths=PackedStringArray("shards", "meshes")]
+script = ExtResource("10_ar7ra")
+shards = [NodePath("VisibleOnScreenNotifier3D"), NodePath("VisibleOnScreenNotifier3D2"), NodePath("VisibleOnScreenNotifier3D3")]
+meshes = [NodePath("VisibleOnScreenNotifier3D/MeshInstance3D"), NodePath("VisibleOnScreenNotifier3D2/MeshInstance3D"), NodePath("VisibleOnScreenNotifier3D3/MeshInstance3D")]
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="quantum_shards_manager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59078, 0, -9.19205)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="quantum_shards_manager/VisibleOnScreenNotifier3D"]
+mesh = SubResource("BoxMesh_ar7ra")
+
+[node name="VisibleOnScreenNotifier3D2" type="VisibleOnScreenNotifier3D" parent="quantum_shards_manager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.01508, -9.53674e-07, 0.422176)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="quantum_shards_manager/VisibleOnScreenNotifier3D2"]
+mesh = SubResource("BoxMesh_ar7ra")
+
+[node name="VisibleOnScreenNotifier3D3" type="VisibleOnScreenNotifier3D" parent="quantum_shards_manager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.90968, -1.90735e-06, -2.64469)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="quantum_shards_manager/VisibleOnScreenNotifier3D3"]
+mesh = SubResource("BoxMesh_ar7ra")
 
 [editable path="item2"]
