@@ -27,7 +27,7 @@ mesh = SubResource("CapsuleMesh_72ieh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="light" type="SpotLight3D" parent="head"]
-light_energy = 16.0
+light_energy = 5.0
 spot_range = 50.0
 spot_angle = 60.0
 

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="streamer"
-run/main_scene="uid://cq113sne14ppl"
+run/main_scene="uid://db7tbedfgpq4e"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
