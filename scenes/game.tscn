@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=12 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="ArrayMesh" uid="uid://di4lkpo47522g" path="res://meshes/terrain.res" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://cionlm1323k06" path="res://scripts/terrain_collision_register.gd" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bnjj0kig7k7u8" path="res://prefabs/player.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://byl77bf5hw41q" path="res://Meshes/well.glb" id="4_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://ct4whlc0heb68" path="res://Meshes/tunnel.glb" id="5_vtaks"]
+[ext_resource type="PackedScene" uid="uid://dfn0ktpfm8uyl" path="res://Meshes/tree.glb" id="6_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://dg1oaxq1u7ihl" path="res://Meshes/graves.glb" id="7_dinhu"]
+[ext_resource type="PackedScene" uid="uid://bqlixb1fbc6g3" path="res://Meshes/cave.glb" id="8_kvuet"]
+[ext_resource type="PackedScene" uid="uid://cd8883cr6m8jo" path="res://Meshes/altar.glb" id="9_trtic"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqjtg"]
 
@@ -27,3 +33,25 @@ height_map_path = "res://Meshes/mapheight.exr"
 height_max = 127.0
 
 [node name="player" parent="." instance=ExtResource("3_lnu2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3885, 0, 91.0163)
+
+[node name="well" parent="." instance=ExtResource("4_0tnpc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9713, 2.30485, 7.37343)
+
+[node name="tunnel" parent="." instance=ExtResource("5_vtaks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.9632, 0.00439358, 111.154)
+
+[node name="tree" parent="." instance=ExtResource("6_kvpfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.5889, 0.0354724, 83.097)
+
+[node name="tunnel2" parent="." instance=ExtResource("5_vtaks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8267, -0.252851, 110.301)
+
+[node name="graves" parent="." instance=ExtResource("7_dinhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.045, 26.6647, -10.9064)
+
+[node name="cave" parent="." instance=ExtResource("8_kvuet")]
+transform = Transform3D(0.82272, 0, 0.568447, 0, 1, 0, -0.568447, 0, 0.82272, -83.5929, 36.0726, -74.369)
+
+[node name="altar" parent="." instance=ExtResource("9_trtic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.1778, 1.3067, 28.4739)
