@@ -24,14 +24,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_72ieh")
 
 [node name="head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="light" type="SpotLight3D" parent="head"]
+[node name="camera" type="Camera3D" parent="head"]
+
+[node name="light" type="SpotLight3D" parent="head/camera"]
 light_energy = 5.0
 spot_range = 50.0
 spot_angle = 60.0
-
-[node name="camera" type="Camera3D" parent="head"]
 
 [node name="raycast" type="RayCast3D" parent="head"]
 target_position = Vector3(0, 0, -3)

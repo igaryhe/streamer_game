@@ -1,19 +1,19 @@
 extends CharacterBody3D
 
 var speed
-const WALK_SPEED = 2.0
+const WALK_SPEED = 3.0
 const SPRINT_SPEED = 4.0
 const JUMP_VELOCITY = 4.8
 const SENSITIVITY = 0.004
 
 #bob variables
-const BOB_FREQ = 2.4
+const BOB_FREQ = 3.2
 const BOB_AMP = 0.08
 var t_bob = 0.0
 
 #fov variables
-const BASE_FOV = 75.0
-const FOV_CHANGE = 1.5
+#const BASE_FOV = 75.0
+#const FOV_CHANGE = 1.5
 
 const interaction_layer = 2
 const obsersvation_layer = 3
@@ -80,9 +80,9 @@ func _physics_process(delta):
 	camera.transform.origin = _headbob(t_bob)
 	
 	# FOV
-	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
-	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
-	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	#var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
+	#var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
+	#camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
 	
