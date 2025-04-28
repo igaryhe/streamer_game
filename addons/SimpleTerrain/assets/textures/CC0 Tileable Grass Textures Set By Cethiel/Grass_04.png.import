@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chsl10pcpgsae"
-path.s3tc="res://.godot/imported/hatchet.png-5db1b0b6150f584be859afe04d19cdc3.s3tc.ctex"
+uid="uid://cgb0umtia0mu8"
+path.s3tc="res://.godot/imported/Grass_04.png-2bb94313b8e29e6d04a3fce235a8955f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/hatchet.png"
-dest_files=["res://.godot/imported/hatchet.png-5db1b0b6150f584be859afe04d19cdc3.s3tc.ctex"]
+source_file="res://addons/SimpleTerrain/assets/textures/CC0 Tileable Grass Textures Set By Cethiel/Grass_04.png"
+dest_files=["res://.godot/imported/Grass_04.png-2bb94313b8e29e6d04a3fce235a8955f.s3tc.ctex"]
 
 [params]
 
