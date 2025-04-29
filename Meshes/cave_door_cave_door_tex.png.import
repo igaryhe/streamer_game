@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deogpil65ouwb"
-path.s3tc="res://.godot/imported/altar_altar_tex.png-83f0c6ceb9f40c0aa492e2d7b25807fa.s3tc.ctex"
+uid="uid://c2mdy2vafq8aq"
+path.s3tc="res://.godot/imported/cave_door_cave_door_tex.png-878dd4095e26ca26f904c604badf172f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "69ef02c6641b2a2cb4ec9dd9b02b0173"
+"md5": "05c2f6b80929a711e664b847c0976f09"
 }
 
 [deps]
 
-source_file="res://Meshes/altar_altar_tex.png"
-dest_files=["res://.godot/imported/altar_altar_tex.png-83f0c6ceb9f40c0aa492e2d7b25807fa.s3tc.ctex"]
+source_file="res://Meshes/cave_door_cave_door_tex.png"
+dest_files=["res://.godot/imported/cave_door_cave_door_tex.png-878dd4095e26ca26f904c604badf172f.s3tc.ctex"]
 
 [params]
 
