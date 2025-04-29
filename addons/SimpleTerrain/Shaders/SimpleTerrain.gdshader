@@ -1,5 +1,6 @@
 shader_type spatial;
-render_mode depth_draw_always, skip_vertex_transform; // Needed because we set alpha for holes
+render_mode depth_draw_always, skip_vertex_transform,
+			specular_schlick_ggx, diffuse_lambert_wrap; // Needed because we set alpha for holes
 //render_mode unshaded,wireframe,cull_disabled;
 
 #include "TerrainShaderUtils.gdshaderinc"
@@ -115,6 +116,9 @@ void vertex() {
 	float i = (1.0 - jitter) * min(VIEWPORT_SIZE.x, VIEWPORT_SIZE.y) / 2.0;
 	float w = (PROJECTION_MATRIX * vec4(VERTEX, 1.0)).w;
 	VERTEX = round(VERTEX / w * i) / i * w;
+
+	v_vert_pos_local.x *= (1.0 + (VERTEX.z * affine_texture_intensity));
+	v_vert_pos_local.y *= (1.0 + (VERTEX.z * affine_texture_intensity));
 }
 
 void fragment() {
@@ -131,10 +135,16 @@ void fragment() {
     tex_2_weight /= total_weight;
     tex_3_weight /= total_weight;
 	
-	vec3 normal0 = unpack_normal(texture(texture_0_normal, v_vert_pos_local.xz / texture_0_uv_scale));
-	vec3 normal1 = unpack_normal(texture(texture_1_normal, v_vert_pos_local.xz / texture_1_uv_scale));
-	vec3 normal2 = unpack_normal(texture(texture_2_normal, v_vert_pos_local.xz / texture_2_uv_scale));
-	vec3 normal3 = unpack_normal(texture(texture_3_normal, v_vert_pos_local.xz / texture_3_uv_scale));
+	float affine_texture_intensity = -0.2;
+	vec3 vert_pos_local = v_vert_pos_local;
+
+	vert_pos_local.x /= (1.0 + (VERTEX.z * affine_texture_intensity));
+	vert_pos_local.y /= (1.0 + (VERTEX.z * affine_texture_intensity));
+
+	vec3 normal0 = unpack_normal(texture(texture_0_normal, vert_pos_local.xz / texture_0_uv_scale));
+	vec3 normal1 = unpack_normal(texture(texture_1_normal, vert_pos_local.xz / texture_1_uv_scale));
+	vec3 normal2 = unpack_normal(texture(texture_2_normal, vert_pos_local.xz / texture_2_uv_scale));
+	vec3 normal3 = unpack_normal(texture(texture_3_normal, vert_pos_local.xz / texture_3_uv_scale));
 
     // Blend the normal maps in the same way as the textures
     vec3 ground_normal = normal0 * tex_0_weight +
@@ -153,10 +163,10 @@ void fragment() {
 	vec3 terrain_normal_world = normalize(inv_normal_basis * terrain_and_ground_normal);
 	
     // Sample each of the four textures. Only doing triplanar on the first one.
-	vec3 tex_0_color = texture_triplanar_if_enabled(0, texture_0_albedo, v_vert_pos_local, terrain_normal, texture_0_uv_scale).rgb;
-	vec3 tex_1_color = texture_triplanar_if_enabled(1, texture_1_albedo, v_vert_pos_local, terrain_normal, texture_1_uv_scale).rgb;
-	vec3 tex_2_color = texture_triplanar_if_enabled(2, texture_2_albedo, v_vert_pos_local, terrain_normal, texture_2_uv_scale).rgb;
-	vec3 tex_3_color = texture_triplanar_if_enabled(3, texture_3_albedo, v_vert_pos_local, terrain_normal, texture_3_uv_scale).rgb;
+	vec3 tex_0_color = texture_triplanar_if_enabled(0, texture_0_albedo, vert_pos_local, terrain_normal, texture_0_uv_scale).rgb;
+	vec3 tex_1_color = texture_triplanar_if_enabled(1, texture_1_albedo, vert_pos_local, terrain_normal, texture_1_uv_scale).rgb;
+	vec3 tex_2_color = texture_triplanar_if_enabled(2, texture_2_albedo, vert_pos_local, terrain_normal, texture_2_uv_scale).rgb;
+	vec3 tex_3_color = texture_triplanar_if_enabled(3, texture_3_albedo, vert_pos_local, terrain_normal, texture_3_uv_scale).rgb;
 
     // Blend the textures based on the weights
     vec3 final_color = tex_0_color * tex_0_weight +

@@ -59,7 +59,7 @@ int dithering_pattern(ivec2 fragcoord) {
 }
 
 void fragment() {
-	ivec2 uv = ivec2(FRAGCOORD.xy);
+	ivec2 uv = ivec2(UV / TEXTURE_PIXEL_SIZE);
 	vec3 color = texelFetch(TEXTURE, uv, 0).rgb;
 	
 	// Convert from 0 to 1 to 0 to 255.

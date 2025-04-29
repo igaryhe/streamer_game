@@ -36,7 +36,7 @@ SOFTWARE.
 *****************************************************************************/
 
 shader_type spatial;
-render_mode vertex_lighting, skip_vertex_transform, 
+render_mode skip_vertex_transform,
 			specular_schlick_ggx, diffuse_lambert_wrap;
 
 uniform sampler2D albedo: hint_default_black, filter_nearest;
@@ -93,6 +93,8 @@ void vertex() {
 		UV.x *= (1.0 + (VERTEX.z * affine_texture_intensity));
         UV.y *= (1.0 + (VERTEX.z * affine_texture_intensity));
 	}
+
+	NORMAL = normalize((MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz);
 }
 
 void fragment() {
