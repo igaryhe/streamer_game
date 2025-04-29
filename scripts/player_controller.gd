@@ -37,6 +37,9 @@ var gravity = 9.8
 @onready var hand = $hand
 @onready var holding_item_view: TextureRect = $holding_item
 
+@onready var camera_anim = $AnimationPlayer
+var is_front_camera: bool = true
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -47,6 +50,11 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("flip_camera") && !camera_anim.is_playing():
+		if is_front_camera : camera_anim.play("to_back_camera")
+		else: camera_anim.play("to_front_camera")
+		is_front_camera = !is_front_camera
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
