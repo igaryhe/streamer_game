@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://k1ab5gaaxu0c"]
+
+[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_ym1ve"]
+[ext_resource type="Texture2D" uid="uid://catfjy5oycmm4" path="res://Meshes/altar_altar_tex.png" id="2_swy7t"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ym1ve")
+shader_parameter/albedo = ExtResource("2_swy7t")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
