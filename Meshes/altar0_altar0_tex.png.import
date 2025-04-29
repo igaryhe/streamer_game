@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deogpil65ouwb"
-path.s3tc="res://.godot/imported/altar_altar_tex.png-83f0c6ceb9f40c0aa492e2d7b25807fa.s3tc.ctex"
+uid="uid://cvt80man6novl"
+path.s3tc="res://.godot/imported/altar0_altar0_tex.png-0fe0fd27586782a33ba617bb4aef9567.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/altar_altar_tex.png"
-dest_files=["res://.godot/imported/altar_altar_tex.png-83f0c6ceb9f40c0aa492e2d7b25807fa.s3tc.ctex"]
+source_file="res://Meshes/altar0_altar0_tex.png"
+dest_files=["res://.godot/imported/altar0_altar0_tex.png-0fe0fd27586782a33ba617bb4aef9567.s3tc.ctex"]
 
 [params]
 

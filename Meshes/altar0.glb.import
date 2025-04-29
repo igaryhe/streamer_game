@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcuk44oqnumvc"
-path="res://.godot/imported/altar.glb-2a6d7f75b012c5128ca9be5bdc97c3fe.scn"
+uid="uid://4mvybwygw6w4"
+path="res://.godot/imported/altar0.glb-cdce86c9429fae7061f55fffdf45f89f.scn"
 
 [deps]
 
-source_file="res://Meshes/altar.glb"
-dest_files=["res://.godot/imported/altar.glb-2a6d7f75b012c5128ca9be5bdc97c3fe.scn"]
+source_file="res://Meshes/altar0.glb"
+dest_files=["res://.godot/imported/altar0.glb-cdce86c9429fae7061f55fffdf45f89f.scn"]
 
 [params]
 
