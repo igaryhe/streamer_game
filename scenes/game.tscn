@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=45 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="Shader" uid="uid://bf7vnkmgjtkoe" path="res://shaders/psx_dither.gdshader" id="1_sww3w"]
 [ext_resource type="PackedScene" uid="uid://dsn33qdheab5d" path="res://Meshes/entrance.glb" id="2_1kice"]
@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://ccmb5rhtsciqs" path="res://Meshes/altar1.glb" id="4_bhx41"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="4_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://cvhgeherieem4" path="res://Meshes/altar2.glb" id="5_qnb83"]
-[ext_resource type="Texture2D" uid="uid://c0gifxpr5jqjy" path="res://Meshes/grass_grass_tex.png" id="5_qouja"]
 [ext_resource type="PackedScene" uid="uid://ct4whlc0heb68" path="res://Meshes/tunnel.glb" id="5_vtaks"]
 [ext_resource type="PackedScene" uid="uid://b1vlg5v8nkky3" path="res://Meshes/temple_door.glb" id="6_37s47"]
 [ext_resource type="PackedScene" uid="uid://cl4e63mby60tl" path="res://Meshes/altar3.glb" id="6_sww3w"]
 [ext_resource type="PackedScene" uid="uid://c316mq0xoki7u" path="res://Meshes/phone.glb" id="7_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://dqqdgbrgccj6e" path="res://Meshes/altar1_altar1_tex.png" id="7_qouja"]
 [ext_resource type="PackedScene" uid="uid://c6mo2bfyy4ega" path="res://Meshes/altar4.glb" id="7_suyxu"]
 [ext_resource type="PackedScene" uid="uid://bqlixb1fbc6g3" path="res://Meshes/cave.glb" id="8_kvuet"]
 [ext_resource type="PackedScene" uid="uid://brs72c55ptiht" path="res://Meshes/altar5.glb" id="8_sgl2t"]
@@ -67,7 +67,21 @@ adjustment_saturation = 0.71
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wljb1"]
 render_priority = 0
 shader = ExtResource("4_sgl2t")
-shader_parameter/albedo = ExtResource("5_qouja")
+shader_parameter/albedo = ExtResource("13_ca42v")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v2yb1"]
+render_priority = 0
+shader = ExtResource("4_sgl2t")
+shader_parameter/albedo = ExtResource("7_qouja")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
@@ -163,6 +177,9 @@ surface_material_override/0 = SubResource("ShaderMaterial_wljb1")
 [node name="altar" parent="." instance=ExtResource("9_trtic")]
 transform = Transform3D(0.438246, 0, 0.898855, 0, 1, 0, -0.898855, 0, 0.438246, 24.7357, 2.50724, -23.2338)
 
+[node name="altar" parent="altar" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_v2yb1")
+
 [node name="altar1" parent="." instance=ExtResource("4_bhx41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8794, 2.57088, -18.0087)
 
@@ -250,3 +267,4 @@ transform = Transform3D(-0.000882539, -0.981198, 0.192999, -0.00448673, 0.193002
 visible = false
 
 [editable path="entrance"]
+[editable path="altar"]
