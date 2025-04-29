@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -26,7 +27,7 @@ project/assembly_name="streamer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SimpleTerrain/plugin.cfg")
+enabled=PackedStringArray("res://addons/SimpleTerrain/plugin.cfg", "res://addons/snappy/plugin.cfg")
 
 [global_group]
 
