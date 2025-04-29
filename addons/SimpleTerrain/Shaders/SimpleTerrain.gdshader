@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode depth_draw_always; // Needed because we set alpha for holes
+render_mode depth_draw_always, skip_vertex_transform; // Needed because we set alpha for holes
 //render_mode unshaded,wireframe,cull_disabled;
 
 #include "TerrainShaderUtils.gdshaderinc"
@@ -106,6 +106,15 @@ void vertex() {
 	v_vert_pos_local.xz = (v_vert_pos_normalized.xz * vec2(chunk_count) * terrain_xz_scale);
 	
 	v_splat_color = sample_middle_of_pixel(splatmap, v_vert_pos_normalized.xz).rgba;
+
+	// wobble, copied from psx shader
+	float jitter = 0.5;
+	float affine_texture_intensity = -0.2;
+
+	VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	float i = (1.0 - jitter) * min(VIEWPORT_SIZE.x, VIEWPORT_SIZE.y) / 2.0;
+	float w = (PROJECTION_MATRIX * vec4(VERTEX, 1.0)).w;
+	VERTEX = round(VERTEX / w * i) / i * w;
 }
 
 void fragment() {
