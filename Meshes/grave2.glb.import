@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cj0p3eeii1vai"
-valid=false
+uid="uid://efel6kcad405"
+path="res://.godot/imported/grave2.glb-7161f7b3eb7fd9b19823b537d915169d.scn"
 
 [deps]
 
 source_file="res://Meshes/grave2.glb"
+dest_files=["res://.godot/imported/grave2.glb-7161f7b3eb7fd9b19823b537d915169d.scn"]
 
 [params]
 
@@ -31,6 +32,17 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"meshes": {
+"grave2_Cube_058": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Meshes/grave2.res"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
