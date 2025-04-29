@@ -14,10 +14,10 @@ uniform bool triplanar_on_texture_1 = false;
 uniform bool triplanar_on_texture_2 = false;
 uniform bool triplanar_on_texture_3 = false;
 
-uniform sampler2D texture_0_albedo : source_color;
-uniform sampler2D texture_1_albedo : source_color;
-uniform sampler2D texture_2_albedo : source_color;
-uniform sampler2D texture_3_albedo : source_color;
+uniform sampler2D texture_0_albedo : source_color, filter_nearest;
+uniform sampler2D texture_1_albedo : source_color, filter_nearest;
+uniform sampler2D texture_2_albedo : source_color, filter_nearest;
+uniform sampler2D texture_3_albedo : source_color, filter_nearest;
 
 uniform sampler2D texture_0_normal;
 uniform sampler2D texture_1_normal;
