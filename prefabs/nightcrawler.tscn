@@ -1,5 +1,6 @@
-[gd_scene load_steps=147 format=3 uid="uid://c4n6oh7g5kutg"]
+[gd_scene load_steps=148 format=3 uid="uid://c4n6oh7g5kutg"]
 
+[ext_resource type="Script" uid="uid://b41k8vqtxxong" path="res://scripts/nightcrawler.gd" id="1_2clp2"]
 [ext_resource type="Texture2D" uid="uid://dcmi8omi5o46e" path="res://textures/ani_nightcrawler.png" id="1_oyb46"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oyb46"]
@@ -1018,10 +1019,21 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="nightcrawler" type="Node3D"]
+[node name="nightcrawler" type="Node3D" node_paths=PackedStringArray("anim", "destination", "raycast")]
+script = ExtResource("1_2clp2")
+hold_duration = 2.4
+anim = NodePath("AnimatedSprite3D")
+destination = NodePath("destination")
+speed = 4.0
+raycast = NodePath("RayCast3D")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_ku803")
-autoplay = "default"
+
+[node name="destination" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.3408, 0, -20.651)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
