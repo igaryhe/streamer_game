@@ -54,3 +54,10 @@
 # Audio
 *.wav lfs
 *.ogg lfs
+
+# godot
+*.res lfs
+
+# video
+*.mp4 lfs
+*.mkv lfs
