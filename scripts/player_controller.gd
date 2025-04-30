@@ -95,12 +95,33 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# interaction
+	var interacted = Input.is_action_just_pressed("interact")
 	if raycast.is_colliding():
 		hand.visible = true
+		var collider = raycast.get_collider()
+		if collider is Well:
+			if holding_item == collider.expected_item_id:
+				if interacted:
+					collider.interact(self, holding_item)
+			else:
+				hand.visible = false
+		elif collider is CollisionObject3D and collider.is_in_group("item") and interacted:
+			var item: Item = collider.get_parent() as Item
+			var item_id = item.id
+			if holding_item >= 0:
+				# drop current holding item
+				var mat: StandardMaterial3D = item.mesh.get_surface_override_material(0) as StandardMaterial3D
+				mat.albedo_texture = items.items[holding_item].texture
+				item.id = holding_item
+			else:
+				item.queue_free()
+				holding_item = item_id
 		if Input.is_action_just_pressed("interact"):
-			var collider = raycast.get_collider()
-			if collider is CSGShape3D:
-				collider.set_collision_layer_value(interaction_layer, false)
+			if collider is Well:
+				if holding_item != collider.expected_item_id:
+					hand.visible = false
+				else:
+					collider.interact(self, holding_item)
 			elif collider is CollisionObject3D:
 				# collider.set_collision_layer_value(interaction_layer, false)
 				if collider.is_in_group("item"):
@@ -115,7 +136,6 @@ func _physics_process(delta):
 					else:
 						item.queue_free()
 					holding_item = item_id
-				collider.get_child(1).emit_signal(interact_signal)
 	else:
 		hand.visible = false
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=77 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="1_rm0al"]
 [ext_resource type="PackedScene" uid="uid://dsn33qdheab5d" path="res://Meshes/entrance.glb" id="2_1kice"]
@@ -51,6 +51,8 @@
 [ext_resource type="ArrayMesh" uid="uid://bwkscsv66k7qn" path="res://Meshes/dollbig_3.res" id="46_q8j3a"]
 [ext_resource type="ArrayMesh" uid="uid://b57kgmw7cvv4m" path="res://Meshes/dollbig_4.res" id="47_ms3bu"]
 [ext_resource type="PackedScene" uid="uid://dtppmmvd8rvc5" path="res://Meshes/dollbig_weird.glb" id="48_fedci"]
+[ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="52_pf7vy"]
+[ext_resource type="PackedScene" uid="uid://2mic4s312506" path="res://prefabs/well.tscn" id="53_o8ni1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dinhu"]
 sky_top_color = Color(0.0376, 0.0616267, 0.08, 1)
@@ -443,6 +445,13 @@ multimesh = SubResource("MultiMesh_pf7vy")
 script = ExtResource("12_trtic")
 foliage_mesh = ExtResource("38_8qswn")
 metadata/_custom_type_script = "uid://b1v8ou20sltc5"
+
+[node name="item" parent="." instance=ExtResource("52_pf7vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9115, 2.66914, 41.2637)
+id = 1
+
+[node name="well2" parent="." instance=ExtResource("53_o8ni1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9528, 0, 41.3705)
 
 [editable path="nightcrawler"]
 [editable path="entrance"]
