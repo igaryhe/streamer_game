@@ -11,33 +11,33 @@
 [ext_resource type="PackedScene" uid="uid://cl4e63mby60tl" path="res://Meshes/altar3.glb" id="6_sww3w"]
 [ext_resource type="PackedScene" uid="uid://c316mq0xoki7u" path="res://Meshes/phone.glb" id="7_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://c6mo2bfyy4ega" path="res://Meshes/altar4.glb" id="7_suyxu"]
-[ext_resource type="Material" uid="uid://k1ab5gaaxu0c" path="res://materials/altar0.tres" id="7_wljb1"]
+[ext_resource type="Material" path="res://materials/altar0.tres" id="7_wljb1"]
 [ext_resource type="PackedScene" uid="uid://bqlixb1fbc6g3" path="res://Meshes/cave.glb" id="8_kvuet"]
 [ext_resource type="PackedScene" uid="uid://brs72c55ptiht" path="res://Meshes/altar5.glb" id="8_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://c4ebgnpf3vsx6" path="res://Meshes/shrine.glb" id="9_1kice"]
 [ext_resource type="PackedScene" uid="uid://bo1sw1bfo1hs0" path="res://Meshes/temple.glb" id="9_qouja"]
-[ext_resource type="Material" uid="uid://c4giqvoaw7wgx" path="res://materials/altar1.tres" id="9_v2yb1"]
+[ext_resource type="Material" path="res://materials/altar1.tres" id="9_v2yb1"]
 [ext_resource type="Script" uid="uid://bvtkimldgx6i8" path="res://addons/SimpleTerrain/SimpleTerrain.gd" id="10_vtaks"]
-[ext_resource type="Material" uid="uid://brjbqqhqlfy0h" path="res://materials/altar2.tres" id="11_js0lu"]
+[ext_resource type="Material" path="res://materials/altar2.tres" id="11_js0lu"]
 [ext_resource type="Texture2D" uid="uid://dnjvsm44scn45" path="res://textures/G0.png" id="11_trtic"]
 [ext_resource type="PackedScene" uid="uid://ixydp7mecnau" path="res://Meshes/cave_door.glb" id="12_e1j6l"]
 [ext_resource type="Texture2D" uid="uid://dw7pctovyu65n" path="res://textures/G1.png" id="12_ir15t"]
 [ext_resource type="Script" uid="uid://b1v8ou20sltc5" path="res://addons/SimpleTerrain/SimpleTerrainFoliage.gd" id="12_trtic"]
 [ext_resource type="Texture2D" uid="uid://c53yak5uav2mp" path="res://textures/G2.png" id="13_ca42v"]
-[ext_resource type="Material" uid="uid://ciw8dhfwvfg8r" path="res://materials/altar3.tres" id="13_gxtfn"]
+[ext_resource type="Material" path="res://materials/altar3.tres" id="13_gxtfn"]
 [ext_resource type="PackedScene" uid="uid://e6p65f2jm1v6" path="res://Meshes/well.glb" id="13_kvuet"]
 [ext_resource type="Texture2D" uid="uid://dcueeyqkofpgc" path="res://textures/G3.png" id="13_trtic"]
-[ext_resource type="Material" uid="uid://dpom1olbw37fg" path="res://materials/altar4.tres" id="15_twgab"]
+[ext_resource type="Material" path="res://materials/altar4.tres" id="15_twgab"]
 [ext_resource type="PackedScene" uid="uid://psw6txiixx4e" path="res://Meshes/tunnel_barrier.glb" id="16_wljb1"]
-[ext_resource type="Material" uid="uid://8s5kerqrnto3" path="res://materials/altar5.tres" id="17_02fa5"]
-[ext_resource type="Material" uid="uid://bicmulue3le6i" path="res://materials/temple.tres" id="17_twgab"]
+[ext_resource type="Material" path="res://materials/altar5.tres" id="17_02fa5"]
+[ext_resource type="Material" path="res://materials/temple.tres" id="17_twgab"]
 [ext_resource type="ArrayMesh" uid="uid://cueoels2rlww7" path="res://Meshes/tree.res" id="18_pl11u"]
 [ext_resource type="ArrayMesh" uid="uid://bkvkjaaqsk2d7" path="res://Meshes/tree1.res" id="20_bhx41"]
-[ext_resource type="Material" uid="uid://bns8jls7qmxon" path="res://materials/tunnel.tres" id="24_twgab"]
-[ext_resource type="Material" uid="uid://dxtc3toklqe2u" path="res://materials/cave.tres" id="27_02fa5"]
-[ext_resource type="ArrayMesh" uid="uid://dy0f4wikmiuab" path="res://Meshes/grave1.res" id="27_qnb83"]
+[ext_resource type="Material" path="res://materials/tunnel.tres" id="24_twgab"]
+[ext_resource type="Material" path="res://materials/cave.tres" id="27_02fa5"]
+[ext_resource type="ArrayMesh" uid="uid://lco25eh0mdqi" path="res://Meshes/grave1.res" id="27_qnb83"]
 [ext_resource type="PackedScene" uid="uid://4mvybwygw6w4" path="res://Meshes/altar0.glb" id="28_suyxu"]
-[ext_resource type="ArrayMesh" uid="uid://dt7ovfxgom4g8" path="res://Meshes/grave2.res" id="28_sww3w"]
+[ext_resource type="ArrayMesh" uid="uid://cebrtthvmk4c2" path="res://Meshes/grave2.res" id="28_sww3w"]
 [ext_resource type="ArrayMesh" uid="uid://dets66ljk1occ" path="res://Meshes/grave3.res" id="38_8qswn"]
 [ext_resource type="ArrayMesh" uid="uid://dyeqw8srdji8h" path="res://Meshes/stonetower1.res" id="38_h3rex"]
 [ext_resource type="ArrayMesh" uid="uid://djnnhkif80k6x" path="res://Meshes/stonetower2.res" id="39_fedci"]
@@ -63,9 +63,6 @@ sky_material = SubResource("ProceduralSkyMaterial_dinhu")
 [sub_resource type="Environment" id="Environment_trtic"]
 background_mode = 2
 sky = SubResource("Sky_kvuet")
-ambient_light_color = Color(0.19, 0, 0.0665, 1)
-tonemap_mode = 3
-tonemap_exposure = 1.19
 tonemap_white = 1.18
 fog_light_color = Color(0.1, 0.1, 0.1, 1)
 fog_density = 0.05
@@ -75,7 +72,6 @@ volumetric_fog_emission = Color(0.0616, 0.08, 0.0720267, 1)
 volumetric_fog_emission_energy = 2.0
 volumetric_fog_length = 71.75
 volumetric_fog_sky_affect = 0.18
-adjustment_enabled = true
 adjustment_brightness = 1.89
 adjustment_contrast = 1.21
 adjustment_saturation = 1.11
