@@ -1,30 +1,51 @@
-[gd_resource type="Resource" script_class="Items" load_steps=9 format=3 uid="uid://bvvk02t76vnti"]
+[gd_resource type="Resource" script_class="Items" load_steps=15 format=3 uid="uid://bvvk02t76vnti"]
 
 [ext_resource type="Script" uid="uid://vbmylxrspy3i" path="res://scripts/item_data.gd" id="1_plm77"]
 [ext_resource type="Script" uid="uid://cd0qtlojuf0bv" path="res://scripts/items.gd" id="2_lxu8k"]
-[ext_resource type="Texture2D" uid="uid://dd3hi6qyu8gna" path="res://textures/hand.png" id="2_tpttd"]
-[ext_resource type="Texture2D" uid="uid://oah1w4tw8fqf" path="res://textures/token.png" id="3_4egq1"]
-[ext_resource type="Texture2D" uid="uid://chsl10pcpgsae" path="res://textures/hatchet.png" id="4_ukfg0"]
+[ext_resource type="Texture2D" uid="uid://bpou42txodehh" path="res://textures/prop_hatchet.png" id="2_v0hy1"]
+[ext_resource type="Texture2D" uid="uid://csnl5n4t3tcxn" path="res://textures/prop_token.png" id="3_5s0y6"]
+[ext_resource type="Texture2D" uid="uid://3duerlr8aa6i" path="res://textures/prop_apple.png" id="4_lpggr"]
+[ext_resource type="Texture2D" uid="uid://midocafetbxy" path="res://textures/prop_wine.png" id="5_giyri"]
+[ext_resource type="Texture2D" uid="uid://ciuyq7t8vxqtc" path="res://textures/prop_charm.png" id="6_3m58g"]
+[ext_resource type="Texture2D" uid="uid://pwn74wh780wo" path="res://textures/prop_doll.png" id="7_gi1ch"]
 
 [sub_resource type="Resource" id="Resource_4egq1"]
 script = ExtResource("1_plm77")
 id = 0
-texture = ExtResource("2_tpttd")
+texture = ExtResource("2_v0hy1")
 metadata/_custom_type_script = "uid://vbmylxrspy3i"
 
 [sub_resource type="Resource" id="Resource_ukfg0"]
 script = ExtResource("1_plm77")
 id = 1
-texture = ExtResource("3_4egq1")
+texture = ExtResource("3_5s0y6")
 metadata/_custom_type_script = "uid://vbmylxrspy3i"
 
 [sub_resource type="Resource" id="Resource_xygrn"]
 script = ExtResource("1_plm77")
 id = 2
-texture = ExtResource("4_ukfg0")
+texture = ExtResource("4_lpggr")
+metadata/_custom_type_script = "uid://vbmylxrspy3i"
+
+[sub_resource type="Resource" id="Resource_kkqur"]
+script = ExtResource("1_plm77")
+id = 3
+texture = ExtResource("5_giyri")
+metadata/_custom_type_script = "uid://vbmylxrspy3i"
+
+[sub_resource type="Resource" id="Resource_dlfjs"]
+script = ExtResource("1_plm77")
+id = 4
+texture = ExtResource("6_3m58g")
+metadata/_custom_type_script = "uid://vbmylxrspy3i"
+
+[sub_resource type="Resource" id="Resource_0ncmm"]
+script = ExtResource("1_plm77")
+id = 5
+texture = ExtResource("7_gi1ch")
 metadata/_custom_type_script = "uid://vbmylxrspy3i"
 
 [resource]
 script = ExtResource("2_lxu8k")
-items = Array[ExtResource("1_plm77")]([SubResource("Resource_4egq1"), SubResource("Resource_ukfg0"), SubResource("Resource_xygrn")])
+items = Array[ExtResource("1_plm77")]([SubResource("Resource_4egq1"), SubResource("Resource_ukfg0"), SubResource("Resource_xygrn"), SubResource("Resource_kkqur"), SubResource("Resource_dlfjs"), SubResource("Resource_0ncmm")])
 metadata/_custom_type_script = "uid://cd0qtlojuf0bv"
