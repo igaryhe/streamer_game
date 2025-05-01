@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://biwidmlp4p1bi"]
 
 [ext_resource type="ArrayMesh" uid="uid://3khpe2b0erl1" path="res://Meshes/cave.res" id="1_eb34q"]
-[ext_resource type="Material" uid="uid://dxtc3toklqe2u" path="res://materials/cave.tres" id="2_wqp7x"]
+[ext_resource type="Material" path="res://materials/cave.tres" id="2_wqp7x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eb34q"]
 size = Vector3(1.982, 9, 14.64)
@@ -92,3 +92,19 @@ shape = SubResource("BoxShape3D_yjsao")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2617, 12.53, 4.77881)
 shape = SubResource("BoxShape3D_jgbjv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1174, 1.78911, -9.50597)
+light_color = Color(1, 0.0666667, 0, 1)
+light_energy = 1.045
+omni_range = 16.661
+omni_attenuation = -0.6
+omni_shadow_mode = 0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.1844, 1.98617, 9.96996)
+light_color = Color(1, 0.0666667, 0, 1)
+light_energy = 1.045
+omni_range = 14.813
+omni_attenuation = -0.8
+omni_shadow_mode = 0
