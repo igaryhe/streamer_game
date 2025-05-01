@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://biwidmlp4p1bi"]
 
 [ext_resource type="ArrayMesh" uid="uid://3khpe2b0erl1" path="res://Meshes/cave.res" id="1_eb34q"]
-[ext_resource type="Material" path="res://materials/cave.tres" id="2_wqp7x"]
+[ext_resource type="Material" uid="uid://dxtc3toklqe2u" path="res://materials/cave.tres" id="2_wqp7x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eb34q"]
 size = Vector3(1.982, 9, 14.64)
