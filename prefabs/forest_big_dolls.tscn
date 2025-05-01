@@ -6,32 +6,35 @@
 
 [node name="forest_big_dolls" type="Node3D" node_paths=PackedStringArray("shards", "meshes")]
 script = ExtResource("1_21pqj")
-shards = [NodePath("doll_big_weird_near_tunnel/VisibleOnScreenNotifier3D"), NodePath("doll_big_weird_right/VisibleOnScreenNotifier3D"), NodePath("doll_big_weird_left/VisibleOnScreenNotifier3D")]
-meshes = [NodePath("doll_big_weird_near_tunnel"), NodePath("doll_big_weird_right"), NodePath("doll_big_weird_left")]
+shards = [NodePath("notifier_near_tunnel"), NodePath("notifier_right"), NodePath("notifier_left")]
+meshes = [NodePath("notifier_near_tunnel/doll_big_weird_near_tunnel"), NodePath("notifier_right/doll_big_weird_right"), NodePath("notifier_left/doll_big_weird_left")]
 
-[node name="doll_big_weird_near_tunnel" type="MeshInstance3D" parent="."]
+[node name="notifier_near_tunnel" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(1.69597, 0, 1.06005, 0, 2, 0, -1.06005, 0, 1.69597, -8.05419, 1.90735e-06, -15.5938)
-mesh = ExtResource("2_81axx")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("3_utuyh")
-
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="doll_big_weird_near_tunnel"]
 aabb = AABB(-0.8, 0, -0.8, 1.6, 1.8, 1.6)
 
-[node name="doll_big_weird_right" type="MeshInstance3D" parent="."]
+[node name="doll_big_weird_near_tunnel" type="MeshInstance3D" parent="notifier_near_tunnel"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
+mesh = ExtResource("2_81axx")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_utuyh")
+
+[node name="notifier_right" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(0.726893, 0, -1.86323, 0, 2, 0, 1.86323, 0, 0.726893, 15.8051, 0, -8.00187)
-mesh = ExtResource("2_81axx")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("3_utuyh")
-
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="doll_big_weird_right"]
 aabb = AABB(-0.8, 0, -0.8, 1.6, 1.8, 1.6)
 
-[node name="doll_big_weird_left" type="MeshInstance3D" parent="."]
+[node name="doll_big_weird_right" type="MeshInstance3D" parent="notifier_right"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
+mesh = ExtResource("2_81axx")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_utuyh")
+
+[node name="notifier_left" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(-1.26919, 0, 1.54569, 0, 2, 0, -1.54569, 0, -1.26919, -15.7692, 0, 7.99225)
-mesh = ExtResource("2_81axx")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("3_utuyh")
-
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="doll_big_weird_left"]
 aabb = AABB(-0.8, 0, -0.8, 1.6, 1.8, 1.6)
+
+[node name="doll_big_weird_left" type="MeshInstance3D" parent="notifier_left"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+mesh = ExtResource("2_81axx")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_utuyh")
