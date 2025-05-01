@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://8gb6i5me6jhg"
+path="res://.godot/imported/SFX_INT_SacrificeEye.ogg-9f14fa668520c30ddb6f47fc69bb4a48.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/audio assets/SFX_INT_SacrificeEye.ogg"
+dest_files=["res://.godot/imported/SFX_INT_SacrificeEye.ogg-9f14fa668520c30ddb6f47fc69bb4a48.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

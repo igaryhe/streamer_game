@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://drr40f72osk66"
+path="res://.godot/imported/SFX_Footstep_Lame_04.ogg-c6b3509111e9ce8c8939e1fe5d80a883.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/audio assets/SFX_Footstep_Lame_04.ogg"
+dest_files=["res://.godot/imported/SFX_Footstep_Lame_04.ogg-c6b3509111e9ce8c8939e1fe5d80a883.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

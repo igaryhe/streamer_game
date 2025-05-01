@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cpb82o3tcs2f6"
+path="res://.godot/imported/SFX_AMB_Cave_Loop.ogg-db46b66845935200265c4729b5a9f72f.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/audio assets/SFX_AMB_Cave_Loop.ogg"
+dest_files=["res://.godot/imported/SFX_AMB_Cave_Loop.ogg-db46b66845935200265c4729b5a9f72f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cho8ks8myqcar"
+path="res://.godot/imported/SFX_INT_WoodCrash.ogg-8740985ef1f335c67c7ac9cbb22a394b.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/audio assets/SFX_INT_WoodCrash.ogg"
+dest_files=["res://.godot/imported/SFX_INT_WoodCrash.ogg-8740985ef1f335c67c7ac9cbb22a394b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

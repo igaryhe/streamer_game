@@ -505,7 +505,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 24.0
 }]
 
 [sub_resource type="Animation" id="Animation_g2jcq"]
@@ -696,6 +696,8 @@ transform = Transform3D(0.109996, -0.000959919, 0, 0.000959919, 0.109996, 0, 0, 
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_ht1c8")
 autoplay = "default"
+frame = 34
+frame_progress = 0.53607
 
 [node name="camera" type="Camera3D" parent="head"]
 current = true

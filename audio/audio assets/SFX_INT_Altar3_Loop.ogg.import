@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dsh5j3u4w6tpl"
+path="res://.godot/imported/SFX_INT_Altar3_Loop.ogg-9f375ef06411f661a391c2fd717daec8.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/audio assets/SFX_INT_Altar3_Loop.ogg"
+dest_files=["res://.godot/imported/SFX_INT_Altar3_Loop.ogg-9f375ef06411f661a391c2fd717daec8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

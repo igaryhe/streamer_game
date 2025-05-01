@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bbrqvaabl85p2"
+path="res://.godot/imported/SFX_JumpScare_02.ogg-1b1af93b9684a1a220e90ecc70deb5f4.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/audio assets/SFX_JumpScare_02.ogg"
+dest_files=["res://.godot/imported/SFX_JumpScare_02.ogg-1b1af93b9684a1a220e90ecc70deb5f4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

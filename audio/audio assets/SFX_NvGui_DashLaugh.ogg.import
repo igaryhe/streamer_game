@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://5mbwise7yr5e"
+path="res://.godot/imported/SFX_NvGui_DashLaugh.ogg-bf10aa502f207a48c2de1ccdc7cf2759.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/audio assets/SFX_NvGui_DashLaugh.ogg"
+dest_files=["res://.godot/imported/SFX_NvGui_DashLaugh.ogg-bf10aa502f207a48c2de1ccdc7cf2759.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

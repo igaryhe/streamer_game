@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccn6vu6o37a6m"
+path="res://.godot/imported/SFX_INT_CameraSwitch.ogg-4c15ced75c5f4a229a63ab42ea2ad201.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/audio assets/SFX_INT_CameraSwitch.ogg"
+dest_files=["res://.godot/imported/SFX_INT_CameraSwitch.ogg-4c15ced75c5f4a229a63ab42ea2ad201.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
