@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcc1qiomu0kbh"]
+
+[ext_resource type="ArrayMesh" uid="uid://bcb65tw5sufaw" path="res://Meshes/temple_door.res" id="1_kqea1"]
+[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_l1cr5"]
+[ext_resource type="Texture2D" uid="uid://chkglo6hputnu" path="res://Meshes/temple_door_temple_door_tex.png" id="3_6hae5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0kka"]
+render_priority = 0
+shader = ExtResource("2_l1cr5")
+shader_parameter/albedo = ExtResource("3_6hae5")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dd2ms"]
+size = Vector3(0.3, 3, 2.2)
+
+[node name="temple_door" type="Node3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_kqea1")
+surface_material_override/0 = SubResource("ShaderMaterial_p0kka")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_dd2ms")

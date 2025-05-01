@@ -1,0 +1,59 @@
+[gd_scene load_steps=13 format=3 uid="uid://7k4mwkqxhj5"]
+
+[ext_resource type="PackedScene" uid="uid://4mvybwygw6w4" path="res://Meshes/altar0.glb" id="1_qjrsg"]
+[ext_resource type="Material" uid="uid://k1ab5gaaxu0c" path="res://materials/altar0.tres" id="2_y5igh"]
+[ext_resource type="PackedScene" uid="uid://ccmb5rhtsciqs" path="res://Meshes/altar1.glb" id="3_6hn3d"]
+[ext_resource type="Material" uid="uid://c4giqvoaw7wgx" path="res://materials/altar1.tres" id="4_bgy5b"]
+[ext_resource type="PackedScene" uid="uid://cvhgeherieem4" path="res://Meshes/altar2.glb" id="5_bejcr"]
+[ext_resource type="Material" uid="uid://brjbqqhqlfy0h" path="res://materials/altar2.tres" id="6_kn0u8"]
+[ext_resource type="PackedScene" uid="uid://cl4e63mby60tl" path="res://Meshes/altar3.glb" id="7_78lbj"]
+[ext_resource type="Material" uid="uid://ciw8dhfwvfg8r" path="res://materials/altar3.tres" id="8_f24s0"]
+[ext_resource type="PackedScene" uid="uid://c6mo2bfyy4ega" path="res://Meshes/altar4.glb" id="9_iakx3"]
+[ext_resource type="Material" uid="uid://dpom1olbw37fg" path="res://materials/altar4.tres" id="10_yu16p"]
+[ext_resource type="PackedScene" uid="uid://brs72c55ptiht" path="res://Meshes/altar5.glb" id="11_wwa6p"]
+[ext_resource type="Material" uid="uid://8s5kerqrnto3" path="res://materials/altar5.tres" id="12_rlmwk"]
+
+[node name="altars" type="Node3D"]
+
+[node name="altar0" parent="." instance=ExtResource("1_qjrsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010891, 0.445701, 1.12846)
+
+[node name="altar0" parent="altar0" index="0"]
+surface_material_override/0 = ExtResource("2_y5igh")
+
+[node name="altar1" parent="." instance=ExtResource("3_6hn3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48451, 0.673441, 6.54696)
+
+[node name="altar1" parent="altar1" index="0"]
+surface_material_override/0 = ExtResource("4_bgy5b")
+
+[node name="altar2" parent="." instance=ExtResource("5_bejcr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34609, 0.542921, -6.08344)
+
+[node name="altar2" parent="altar2" index="0"]
+surface_material_override/0 = ExtResource("6_kn0u8")
+
+[node name="altar3" parent="." instance=ExtResource("7_78lbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09199, 0.774411, 4.62986)
+
+[node name="altar3" parent="altar3" index="0"]
+surface_material_override/0 = ExtResource("8_f24s0")
+
+[node name="altar4" parent="." instance=ExtResource("9_iakx3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.06229, 0.796511, 1.64526)
+
+[node name="altar4" parent="altar4" index="0"]
+surface_material_override/0 = ExtResource("10_yu16p")
+
+[node name="altar5" parent="." instance=ExtResource("11_wwa6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25889, 0.641181, -1.53224)
+
+[node name="altar5" parent="altar5" index="0"]
+surface_material_override/0 = ExtResource("12_rlmwk")
+
+[editable path="altar0"]
+[editable path="altar1"]
+[editable path="altar2"]
+[editable path="altar3"]
+[editable path="altar4"]
+[editable path="altar5"]

@@ -1,41 +1,23 @@
-[gd_scene load_steps=89 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=72 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="1_rm0al"]
 [ext_resource type="PackedScene" uid="uid://dsn33qdheab5d" path="res://Meshes/entrance.glb" id="2_1kice"]
-[ext_resource type="PackedScene" uid="uid://c4n6oh7g5kutg" path="res://prefabs/nightcrawler.tscn" id="2_i4re6"]
 [ext_resource type="PackedScene" uid="uid://bnjj0kig7k7u8" path="res://prefabs/player.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://ccmb5rhtsciqs" path="res://Meshes/altar1.glb" id="4_bhx41"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="4_sgl2t"]
-[ext_resource type="PackedScene" uid="uid://cvhgeherieem4" path="res://Meshes/altar2.glb" id="5_qnb83"]
-[ext_resource type="PackedScene" uid="uid://b1vlg5v8nkky3" path="res://Meshes/temple_door.glb" id="6_37s47"]
-[ext_resource type="PackedScene" uid="uid://cl4e63mby60tl" path="res://Meshes/altar3.glb" id="6_sww3w"]
-[ext_resource type="PackedScene" uid="uid://c316mq0xoki7u" path="res://Meshes/phone.glb" id="7_bt5mj"]
-[ext_resource type="PackedScene" uid="uid://c6mo2bfyy4ega" path="res://Meshes/altar4.glb" id="7_suyxu"]
-[ext_resource type="Material" uid="uid://k1ab5gaaxu0c" path="res://materials/altar0.tres" id="7_wljb1"]
-[ext_resource type="PackedScene" uid="uid://brs72c55ptiht" path="res://Meshes/altar5.glb" id="8_sgl2t"]
-[ext_resource type="PackedScene" uid="uid://bo1sw1bfo1hs0" path="res://Meshes/temple.glb" id="9_qouja"]
-[ext_resource type="Material" uid="uid://c4giqvoaw7wgx" path="res://materials/altar1.tres" id="9_v2yb1"]
 [ext_resource type="Script" uid="uid://bvtkimldgx6i8" path="res://addons/SimpleTerrain/SimpleTerrain.gd" id="10_vtaks"]
-[ext_resource type="Material" uid="uid://brjbqqhqlfy0h" path="res://materials/altar2.tres" id="11_js0lu"]
 [ext_resource type="Texture2D" uid="uid://dnjvsm44scn45" path="res://textures/G0.png" id="11_trtic"]
 [ext_resource type="Texture2D" uid="uid://dw7pctovyu65n" path="res://textures/G1.png" id="12_ir15t"]
 [ext_resource type="Script" uid="uid://b1v8ou20sltc5" path="res://addons/SimpleTerrain/SimpleTerrainFoliage.gd" id="12_trtic"]
 [ext_resource type="Texture2D" uid="uid://c53yak5uav2mp" path="res://textures/G2.png" id="13_ca42v"]
-[ext_resource type="Material" uid="uid://ciw8dhfwvfg8r" path="res://materials/altar3.tres" id="13_gxtfn"]
 [ext_resource type="Texture2D" uid="uid://dcueeyqkofpgc" path="res://textures/G3.png" id="13_trtic"]
-[ext_resource type="Material" uid="uid://dpom1olbw37fg" path="res://materials/altar4.tres" id="15_twgab"]
-[ext_resource type="Material" uid="uid://8s5kerqrnto3" path="res://materials/altar5.tres" id="17_02fa5"]
-[ext_resource type="Material" uid="uid://bicmulue3le6i" path="res://materials/temple.tres" id="17_twgab"]
 [ext_resource type="ArrayMesh" uid="uid://cueoels2rlww7" path="res://Meshes/tree.res" id="18_pl11u"]
+[ext_resource type="PackedScene" uid="uid://tpuk6pgci2ke" path="res://prefabs/temple.tscn" id="19_0rmfi"]
 [ext_resource type="ArrayMesh" uid="uid://bkvkjaaqsk2d7" path="res://Meshes/tree1.res" id="20_bhx41"]
 [ext_resource type="PackedScene" uid="uid://bevd0sotxughp" path="res://prefabs/shrine.tscn" id="24_o8ni1"]
 [ext_resource type="PackedScene" uid="uid://cmts7ecfsmrji" path="res://prefabs/tunnel.tscn" id="26_3x28f"]
 [ext_resource type="ArrayMesh" uid="uid://dy0f4wikmiuab" path="res://Meshes/grave1.res" id="27_qnb83"]
-[ext_resource type="PackedScene" uid="uid://bksej88p0vupg" path="res://prefabs/tunnel_barrier.tscn" id="28_l6q63"]
-[ext_resource type="PackedScene" uid="uid://4mvybwygw6w4" path="res://Meshes/altar0.glb" id="28_suyxu"]
 [ext_resource type="ArrayMesh" uid="uid://dt7ovfxgom4g8" path="res://Meshes/grave2.res" id="28_sww3w"]
 [ext_resource type="PackedScene" uid="uid://biwidmlp4p1bi" path="res://prefabs/cave.tscn" id="28_xbak0"]
-[ext_resource type="PackedScene" uid="uid://dj81h1nhub4n0" path="res://prefabs/cave_door.tscn" id="30_3x28f"]
 [ext_resource type="PackedScene" uid="uid://duc2jy5525er4" path="res://Meshes/cavealtar.glb" id="33_3hbvx"]
 [ext_resource type="Material" uid="uid://ftira1n4y85o" path="res://materials/grass.tres" id="37_q8j3a"]
 [ext_resource type="ArrayMesh" uid="uid://dets66ljk1occ" path="res://Meshes/grave3.res" id="38_8qswn"]
@@ -52,6 +34,7 @@
 [ext_resource type="Material" uid="uid://d7fmjkxwdl6m" path="res://materials/stonetower1.tres" id="46_7ixpq"]
 [ext_resource type="ArrayMesh" uid="uid://bwkscsv66k7qn" path="res://Meshes/dollbig_3.res" id="46_q8j3a"]
 [ext_resource type="ArrayMesh" uid="uid://b57kgmw7cvv4m" path="res://Meshes/dollbig_4.res" id="47_ms3bu"]
+[ext_resource type="PackedScene" uid="uid://7k4mwkqxhj5" path="res://prefabs/altars.tscn" id="48_8qswn"]
 [ext_resource type="PackedScene" uid="uid://dtppmmvd8rvc5" path="res://Meshes/dollbig_weird.glb" id="48_fedci"]
 [ext_resource type="Material" uid="uid://c8p2eea1vi5wk" path="res://materials/stonetower2.tres" id="48_n8ral"]
 [ext_resource type="Material" uid="uid://b7pu0dwfmykg5" path="res://materials/stonetower3.tres" id="50_yd4ix"]
@@ -239,12 +222,6 @@ buffer = PackedFloat32Array(-0.819595, 0, -0.563486, -18.41, 0, 0.994611, 0, 28.
 
 [node name="game" type="Node3D"]
 
-[node name="nightcrawler" parent="." instance=ExtResource("2_i4re6")]
-transform = Transform3D(0.163395, 0, -0.986561, 0, 1, 0, 0.986561, 0, 0.163395, 24.855, 2.38809, 39.4688)
-
-[node name="destination" parent="nightcrawler" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49495, 0, -35.973)
-
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
 use_parent_material = true
@@ -276,56 +253,11 @@ transform = Transform3D(0.0687815, 0, 0.997632, 0, 1, 0, -0.997632, 0, 0.0687815
 [node name="entrance" parent="entrance" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_wljb1")
 
-[node name="altar0" parent="." instance=ExtResource("28_suyxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.365, 2.34314, -23.4272)
+[node name="altars" parent="." instance=ExtResource("48_8qswn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3534, 1.86933, -24.5833)
 
-[node name="altar0" parent="altar0" index="0"]
-surface_material_override/0 = ExtResource("7_wljb1")
-
-[node name="altar1" parent="." instance=ExtResource("4_bhx41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8794, 2.57088, -18.0087)
-
-[node name="altar1" parent="altar1" index="0"]
-surface_material_override/0 = ExtResource("9_v2yb1")
-
-[node name="altar2" parent="." instance=ExtResource("5_qnb83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.71, 2.44036, -30.6391)
-
-[node name="altar2" parent="altar2" index="0"]
-surface_material_override/0 = ExtResource("11_js0lu")
-
-[node name="altar3" parent="." instance=ExtResource("6_sww3w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4559, 2.67185, -19.9258)
-
-[node name="altar3" parent="altar3" index="0"]
-surface_material_override/0 = ExtResource("13_gxtfn")
-
-[node name="altar4" parent="." instance=ExtResource("7_suyxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4262, 2.69395, -22.9104)
-
-[node name="altar4" parent="altar4" index="0"]
-surface_material_override/0 = ExtResource("15_twgab")
-
-[node name="altar5" parent="." instance=ExtResource("8_sgl2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6228, 2.53862, -26.0879)
-
-[node name="altar5" parent="altar5" index="0"]
-surface_material_override/0 = ExtResource("17_02fa5")
-
-[node name="temple" parent="." instance=ExtResource("9_qouja")]
+[node name="temple" parent="." instance=ExtResource("19_0rmfi")]
 transform = Transform3D(0.755853, 0, 0.654741, 0, 1, 0, -0.654741, 0, 0.755853, 13.16, 9.844, -51.096)
-
-[node name="temple" parent="temple" index="0"]
-surface_material_override/0 = ExtResource("17_twgab")
-
-[node name="temple_barrier" parent="." instance=ExtResource("6_37s47")]
-transform = Transform3D(-0.621668, 0, 0.783281, 0, 1, 0, -0.783281, 0, -0.621668, 20.7026, 10.5166, -54.9079)
-
-[node name="temple_door" parent="." instance=ExtResource("6_37s47")]
-transform = Transform3D(0.768373, 0, 0.640002, 0, 1, 0, -0.640002, 0, 0.768373, 13.6327, 9.97289, -51.9759)
-
-[node name="phone" parent="." instance=ExtResource("7_bt5mj")]
-transform = Transform3D(0.725951, 0, 0.687747, 0, 1, 0, -0.687747, 0, 0.725951, 10.2419, 10.883, -53.7253)
 
 [node name="well" parent="." instance=ExtResource("53_o8ni1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7568, 14.157, -65.2096)
@@ -338,6 +270,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0537148, 0.0986013, 0.96734
 
 [node name="dollbig_weird" parent="." instance=ExtResource("48_fedci")]
 transform = Transform3D(-0.129696, 0, -0.991554, 0, 1, 0, 0.991554, 0, -0.129696, 60.9577, 7.67129, -66.7312)
+visible = false
 
 [node name="forest_big_dolls" parent="." instance=ExtResource("65_3x28f")]
 transform = Transform3D(0.652085, 0, -0.758146, 0, 1, 0, 0.758146, 0, 0.652085, 81.1461, 10.1781, -58.0983)
@@ -354,14 +287,8 @@ transform = Transform3D(-1.26919, 0, 1.54569, 0, 2, 0, -1.54569, 0, -1.26919, -9
 [node name="tunnel" parent="." instance=ExtResource("26_3x28f")]
 transform = Transform3D(0.737937, 0, -0.674869, 0, 1, 0, 0.674869, 0, 0.737937, 92.8391, 10.4264, -92.7708)
 
-[node name="tunnel_barrier" parent="." instance=ExtResource("28_l6q63")]
-transform = Transform3D(0.812359, 0, -0.583158, 0, 1, 0, 0.583158, 0, 0.812359, 92.4428, 9.97405, -88.2434)
-
-[node name="cave2" parent="." instance=ExtResource("28_xbak0")]
+[node name="cave" parent="." instance=ExtResource("28_xbak0")]
 transform = Transform3D(-0.346526, 0, 0.93804, 0, 1, 0, -0.93804, 0, -0.346526, -56.8788, 26.7786, 19.3031)
-
-[node name="cave_door" parent="." instance=ExtResource("30_3x28f")]
-transform = Transform3D(0.622009, 0, -0.78301, 0, 1, 0, 0.78301, 0, 0.622009, -49.2571, 26.997, 14.8891)
 
 [node name="cavealtar" parent="." instance=ExtResource("33_3hbvx")]
 transform = Transform3D(0.230627, 0, -0.973042, 0, 1, 0, 0.973042, 0, 0.230627, -42.821, 26.8135, 28.7498)
@@ -491,14 +418,6 @@ id = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.687, 10.1398, -53.6668)
 id = 2
 
-[editable path="nightcrawler"]
 [editable path="entrance"]
-[editable path="altar0"]
-[editable path="altar1"]
-[editable path="altar2"]
-[editable path="altar3"]
-[editable path="altar4"]
-[editable path="altar5"]
-[editable path="temple"]
 [editable path="shrine"]
 [editable path="forest_big_dolls"]
