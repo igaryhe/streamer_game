@@ -239,7 +239,7 @@ size = Vector2i(480, 270)
 render_target_update_mode = 4
 
 [node name="player" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_lnu2h")]
-transform = Transform3D(0.0486755, 0, -0.998815, 0, 1, 0, 0.998815, 0, 0.0486755, 86.6221, 11.1799, -74.4704)
+transform = Transform3D(0.0486755, 0, -0.998815, 0, 1, 0, 0.998815, 0, 0.0486755, 23.5537, 2.50781, 40.9246)
 
 [node name="UI" parent="." instance=ExtResource("1_rm0al")]
 mouse_filter = 2
@@ -274,15 +274,6 @@ visible = false
 
 [node name="forest_big_dolls" parent="." instance=ExtResource("65_3x28f")]
 transform = Transform3D(0.652085, 0, -0.758146, 0, 1, 0, 0.758146, 0, 0.652085, 81.1461, 10.1781, -58.0983)
-
-[node name="doll_big_weird_near_tunnel" parent="forest_big_dolls" index="0"]
-transform = Transform3D(1.69597, 0, 1.06005, 0, 2, 0, -1.06005, 0, 1.69597, -10.7729, -0.137151, -17.2866)
-
-[node name="doll_big_weird_right" parent="forest_big_dolls" index="1"]
-transform = Transform3D(0.726893, 0, -1.86323, 0, 2, 0, 1.86323, 0, 0.726893, 4.40807, -1.97254, -12.6593)
-
-[node name="doll_big_weird_left" parent="forest_big_dolls" index="2"]
-transform = Transform3D(-1.89973, 0, 0.625335, 0, 2, 0, -0.625335, 0, -1.89973, -7.89228, -1.31209, -1.27933)
 
 [node name="tunnel" parent="." instance=ExtResource("26_3x28f")]
 transform = Transform3D(0.737937, 0, -0.674869, 0, 1, 0, 0.674869, 0, 0.737937, 92.8391, 10.4264, -92.7708)
