@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dj81h1nhub4n0"]
+
+[ext_resource type="ArrayMesh" uid="uid://ojuynbi8wtvr" path="res://Meshes/cave_door.res" id="1_ed40x"]
+[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_bh0va"]
+[ext_resource type="Texture2D" uid="uid://c2mdy2vafq8aq" path="res://Meshes/cave_door_cave_door_tex.png" id="3_4bxin"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_obhk3"]
+render_priority = 0
+shader = ExtResource("2_bh0va")
+shader_parameter/albedo = ExtResource("3_4bxin")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6mof"]
+size = Vector3(5.4, 10, 4.7)
+
+[node name="cave_door" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_ed40x")
+surface_material_override/0 = SubResource("ShaderMaterial_obhk3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -0.625)
+shape = SubResource("BoxShape3D_t6mof")

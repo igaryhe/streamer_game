@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode depth_draw_always, skip_vertex_transform,
+render_mode vertex_lighting, depth_draw_always, skip_vertex_transform,
 			specular_schlick_ggx, diffuse_lambert_wrap; // Needed because we set alpha for holes
 //render_mode unshaded,wireframe,cull_disabled;
 

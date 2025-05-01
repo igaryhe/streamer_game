@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bksej88p0vupg"]
+
+[ext_resource type="ArrayMesh" uid="uid://c2gdsfe3oor5q" path="res://Meshes/tunnel_barrier.res" id="1_fw1kh"]
+[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_fn1fp"]
+[ext_resource type="Texture2D" uid="uid://jglii7f1wch5" path="res://Meshes/tunnel_barrier_tunnel_barrier_tex.png" id="3_dyt1w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h31m1"]
+render_priority = 0
+shader = ExtResource("2_fn1fp")
+shader_parameter/albedo = ExtResource("3_dyt1w")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pu2ev"]
+size = Vector3(10.5, 8, 1)
+
+[node name="tunnel_barrier" type="Node3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_fw1kh")
+surface_material_override/0 = SubResource("ShaderMaterial_h31m1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 4, -0.5)
+shape = SubResource("BoxShape3D_pu2ev")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

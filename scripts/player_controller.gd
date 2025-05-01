@@ -99,10 +99,11 @@ func _physics_process(delta):
 	if raycast.is_colliding():
 		hand.visible = true
 		var collider = raycast.get_collider()
-		if collider is Well:
-			if holding_item == collider.expected_item_id:
+		if collider is Interactable:
+			if collider.can_interact(holding_item):
 				if interacted:
-					collider.interact(self, holding_item)
+					collider.interact(holding_item)
+					holding_item = -1
 			else:
 				hand.visible = false
 		elif collider is CollisionObject3D and collider.is_in_group("item") and interacted:
@@ -117,12 +118,7 @@ func _physics_process(delta):
 				item.queue_free()
 				holding_item = item_id
 		if Input.is_action_just_pressed("interact"):
-			if collider is Well:
-				if holding_item != collider.expected_item_id:
-					hand.visible = false
-				else:
-					collider.interact(self, holding_item)
-			elif collider is CollisionObject3D:
+			if collider is CollisionObject3D:
 				# collider.set_collision_layer_value(interaction_layer, false)
 				if collider.is_in_group("item"):
 					var item: Item = collider.get_parent() as Item

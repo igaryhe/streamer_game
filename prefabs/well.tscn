@@ -34,10 +34,11 @@ surface_material_override/0 = SubResource("ShaderMaterial_tg3tp")
 [node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("sfx", "mesh")]
 collision_layer = 3
 script = ExtResource("1_iv5ws")
-expected_item_id = 1
 sfx = NodePath("../AudioStreamPlayer3D")
-blood_texture = ExtResource("2_lvp1g")
 mesh = NodePath("../mesh")
+blood_texture = ExtResource("2_lvp1g")
+expected_item_ids = Array[int]([1])
+initial_score = 100.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

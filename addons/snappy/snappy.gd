@@ -132,4 +132,3 @@ func find_closest_point(meshes : Array, from : Vector3, direction : Vector3) -> 
 				closest_distance = current_distance
 
 	return closest
-

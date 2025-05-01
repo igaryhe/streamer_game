@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://tq3wmh24cc2n"]
+
+[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_iem6s"]
+[ext_resource type="Texture2D" uid="uid://dn4r610smrbru" path="res://Meshes/dollbig_1_dollbig_tex.png" id="2_typ5r"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_iem6s")
+shader_parameter/albedo = ExtResource("2_typ5r")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)

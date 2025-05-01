@@ -36,7 +36,7 @@ SOFTWARE.
 *****************************************************************************/
 
 shader_type spatial;
-render_mode skip_vertex_transform,
+render_mode vertex_lighting, skip_vertex_transform,
 			specular_schlick_ggx, diffuse_lambert_wrap;
 
 uniform sampler2D albedo: source_color, filter_nearest;

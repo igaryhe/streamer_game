@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://bevd0sotxughp"]
+
+[ext_resource type="ArrayMesh" uid="uid://x1ga1xcnujop" path="res://Meshes/shrine.res" id="1_0tf4s"]
+[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_8y8ad"]
+[ext_resource type="Script" uid="uid://by7jn01qme42o" path="res://scripts/shrine.gd" id="2_6nsbx"]
+[ext_resource type="Texture2D" uid="uid://n6vsuvul2j1q" path="res://Meshes/shrine_shrine_tex.png" id="3_22chx"]
+[ext_resource type="PackedScene" uid="uid://c4n6oh7g5kutg" path="res://prefabs/nightcrawler.tscn" id="3_26snh"]
+[ext_resource type="PackedScene" uid="uid://dqbea5fgc7nst" path="res://prefabs/drunk_nightcrawler.tscn" id="4_0tf4s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6nsbx"]
+render_priority = 0
+shader = ExtResource("1_8y8ad")
+shader_parameter/albedo = ExtResource("3_22chx")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_26snh"]
+size = Vector3(0.8, 2, 1)
+
+[node name="shrine" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_0tf4s")
+surface_material_override/0 = SubResource("ShaderMaterial_6nsbx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("sfx", "mesh", "spawn_pos")]
+collision_layer = 3
+script = ExtResource("2_6nsbx")
+sfx = NodePath("../AudioStreamPlayer3D")
+mesh = NodePath("../MeshInstance3D")
+spawn_pos = NodePath("../spawn_pos")
+nightcrawler = ExtResource("3_26snh")
+drunk_nightcrawler = ExtResource("4_0tf4s")
+apple_id = 2
+expected_item_ids = Array[int]([2, 3])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.08)
+shape = SubResource("BoxShape3D_26snh")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="spawn_pos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0986011, 0.782096)

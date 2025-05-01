@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ca6d1f66vlrup"]
+
+[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_dopq7"]
+[ext_resource type="Texture2D" uid="uid://ds3ledsus0gg0" path="res://Meshes/grave3_grave3_tex.png" id="2_dopq7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_dopq7")
+shader_parameter/albedo = ExtResource("2_dopq7")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
