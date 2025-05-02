@@ -1,14 +1,14 @@
-[gd_scene load_steps=78 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=77 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="1_rm0al"]
 [ext_resource type="PackedScene" uid="uid://dsn33qdheab5d" path="res://Meshes/entrance.glb" id="2_1kice"]
 [ext_resource type="PackedScene" uid="uid://bnjj0kig7k7u8" path="res://prefabs/player.tscn" id="3_lnu2h"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="4_sgl2t"]
 [ext_resource type="Texture2D" uid="uid://chwtd1clke1h5" path="res://textures/tex3.png" id="5_i4re6"]
-[ext_resource type="Texture2D" uid="uid://bts0ommm6eabh" path="res://textures/tex1.png" id="8_pf7vy"]
 [ext_resource type="Script" uid="uid://bvtkimldgx6i8" path="res://addons/SimpleTerrain/SimpleTerrain.gd" id="10_vtaks"]
 [ext_resource type="Texture2D" uid="uid://dnjvsm44scn45" path="res://textures/G0.png" id="11_trtic"]
 [ext_resource type="Texture2D" uid="uid://dw7pctovyu65n" path="res://textures/G1.png" id="12_ir15t"]
+[ext_resource type="PackedScene" uid="uid://bwiqitpldw60u" path="res://prefabs/forest_face.tscn" id="12_pf7vy"]
 [ext_resource type="Script" uid="uid://b1v8ou20sltc5" path="res://addons/SimpleTerrain/SimpleTerrainFoliage.gd" id="12_trtic"]
 [ext_resource type="Texture2D" uid="uid://c53yak5uav2mp" path="res://textures/G2.png" id="13_ca42v"]
 [ext_resource type="Texture2D" uid="uid://dcueeyqkofpgc" path="res://textures/G3.png" id="13_trtic"]
@@ -85,20 +85,6 @@ adjustment_saturation = 1.11
 render_priority = 0
 shader = ExtResource("4_sgl2t")
 shader_parameter/albedo = ExtResource("5_i4re6")
-shader_parameter/jitter = 0.5
-shader_parameter/jitter_z_coordinate = true
-shader_parameter/jitter_depth_independent = true
-shader_parameter/affine_texture_mapping = true
-shader_parameter/affine_texture_intensity = -2.0
-shader_parameter/alpha_scissor = 1.0
-shader_parameter/albedo_color = Color(1, 1, 1, 1)
-shader_parameter/emission_color = Color(1, 1, 1, 1)
-shader_parameter/texture_size = Vector2(1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8ni1"]
-render_priority = 0
-shader = ExtResource("4_sgl2t")
-shader_parameter/albedo = ExtResource("8_pf7vy")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
@@ -294,7 +280,7 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.301147
 
 [node name="phone" parent="temple" index="4"]
 transform = Transform3D(0.999155, 0, -0.0410911, 0, 1, 0, 0.0410911, 0, 0.999155, -0.291706, 1.21005, -3.11648)
-surface_material_override/0 = SubResource("ShaderMaterial_o8ni1")
+surface_material_override/0 = null
 
 [node name="well" parent="." instance=ExtResource("53_o8ni1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7568, 14.157, -65.2096)
@@ -306,6 +292,9 @@ door_open_anim = "open"
 [node name="shrine" parent="." instance=ExtResource("24_o8ni1")]
 transform = Transform3D(-0.792556, 0, 0.609799, 0, 1, 0, -0.609799, 0, -0.792556, 73.4799, 9.54576, -42.6339)
 
+[node name="MeshInstance3D" parent="shrine" index="0"]
+surface_material_override/0 = null
+
 [node name="spawn_pos" parent="shrine" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0537148, 0.0986013, 0.967346)
 
@@ -315,6 +304,10 @@ visible = false
 
 [node name="forest_big_dolls" parent="." instance=ExtResource("65_3x28f")]
 transform = Transform3D(0.652085, 0, -0.758146, 0, 1, 0, 0.758146, 0, 0.652085, 81.1461, 10.1781, -58.0983)
+
+[node name="forest_face" parent="forest_big_dolls" node_paths=PackedStringArray("player") instance=ExtResource("12_pf7vy")]
+transform = Transform3D(0.652085, 0, 0.758146, 0, 1, 0, -0.758146, 0, 0.652085, 61.5437, -10.7189, 63.8785)
+player = NodePath("../../SubViewportContainer/SubViewport/player")
 
 [node name="tunnel" parent="." instance=ExtResource("26_3x28f")]
 transform = Transform3D(0.737937, 0, -0.674869, 0, 1, 0, 0.674869, 0, 0.737937, 92.8391, 10.4264, -92.7708)
@@ -475,6 +468,7 @@ metadata/_custom_type_script = "uid://dtfrnamnb6d3h"
 
 [node name="anomaly_test" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5858, 3.07282, 35.9673)
+visible = false
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="anomaly_test"]

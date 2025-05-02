@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwiqitpldw60u"]
+
+[ext_resource type="Script" uid="uid://c5vhdwmltdtvn" path="res://scripts/forest_face.gd" id="1_meyyy"]
+[ext_resource type="Texture2D" uid="uid://dky3l4xg64r3f" path="res://textures/ani_Forestface .png" id="1_p8xja"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p8xja"]
+
+[node name="forest_face" type="Node3D" node_paths=PackedStringArray("sprite", "collider")]
+script = ExtResource("1_meyyy")
+range = Vector2(8, 12)
+sprite = NodePath("Sprite3D")
+collider = NodePath("StaticBody3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.34967, 0)
+billboard = 1
+texture = ExtResource("1_p8xja")
+region_enabled = true
+region_rect = Rect2(305, 132, 364, 453)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_p8xja")
