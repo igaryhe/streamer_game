@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=81 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="1_rm0al"]
 [ext_resource type="PackedScene" uid="uid://dsn33qdheab5d" path="res://Meshes/entrance.glb" id="2_1kice"]
@@ -46,7 +46,9 @@
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="52_pf7vy"]
 [ext_resource type="PackedScene" uid="uid://bwiqitpldw60u" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://2mic4s312506" path="res://prefabs/well.tscn" id="53_o8ni1"]
+[ext_resource type="AudioStream" uid="uid://njdaj4pgdmn7" path="res://audio/audio assets/SFX_AMB_General_Loop.ogg" id="54_3hbvx"]
 [ext_resource type="Material" uid="uid://bjsiwi87cg0nd" path="res://materials/dollbig2.tres" id="54_xbak0"]
+[ext_resource type="PackedScene" uid="uid://nen0waihosea" path="res://prefabs/phone.tscn" id="55_q8j3a"]
 [ext_resource type="Material" uid="uid://5ns3pespid3a" path="res://materials/dollbig3.tres" id="56_3x28f"]
 [ext_resource type="Material" uid="uid://tq3wmh24cc2n" path="res://materials/dollbig4.tres" id="58_l6q63"]
 [ext_resource type="Material" uid="uid://ip0gpv0e88yo" path="res://materials/grave1.tres" id="60_l6q63"]
@@ -505,6 +507,13 @@ shape = SubResource("BoxShape3D_i4re6")
 [node name="forest_face" parent="." node_paths=PackedStringArray("player") instance=ExtResource("53_3hbvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.1933, 8.43075, -62.5322)
 player = NodePath("../SubViewportContainer/SubViewport/player")
+
+[node name="ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("54_3hbvx")
+autoplay = true
+
+[node name="phone" parent="." instance=ExtResource("55_q8j3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6907, 0.0317469, 42.0494)
 
 [editable path="UI"]
 [editable path="entrance"]
