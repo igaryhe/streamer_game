@@ -6,6 +6,7 @@ extends Interactable
 @export var nightcrawler: PackedScene
 @export var drunk_nightcrawler: PackedScene
 @export var apple_id: int
+@export var destination: Node3D
 
 func interact(item_id: int):
 	print("interacting with shrine")
@@ -14,6 +15,7 @@ func interact(item_id: int):
 		var scene = nightcrawler.instantiate()
 		get_tree().root.add_child(scene)
 		scene.global_position = spawn_pos.global_position
+		(scene as Nightcrawler).destination = destination
 	else:
 		var scene = drunk_nightcrawler.instantiate()
 		get_tree().root.add_child(scene)

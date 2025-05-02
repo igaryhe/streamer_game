@@ -30,7 +30,7 @@ size = Vector3(0.8, 2, 1)
 mesh = ExtResource("1_0tf4s")
 surface_material_override/0 = SubResource("ShaderMaterial_6nsbx")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("sfx", "mesh", "spawn_pos")]
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("sfx", "mesh", "spawn_pos", "destination")]
 collision_layer = 3
 script = ExtResource("2_6nsbx")
 sfx = NodePath("../AudioStreamPlayer3D")
@@ -39,6 +39,7 @@ spawn_pos = NodePath("../spawn_pos")
 nightcrawler = ExtResource("3_26snh")
 drunk_nightcrawler = ExtResource("4_0tf4s")
 apple_id = 2
+destination = NodePath("../destination")
 expected_item_ids = Array[int]([2, 3])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -49,3 +50,6 @@ shape = SubResource("BoxShape3D_26snh")
 
 [node name="spawn_pos" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0986011, 0.782096)
+
+[node name="destination" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.8428, -9.53674e-07, 45.0374)

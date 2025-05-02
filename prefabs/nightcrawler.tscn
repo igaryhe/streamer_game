@@ -916,21 +916,18 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2clp2"]
 
-[node name="nightcrawler" type="Node3D" node_paths=PackedStringArray("anim", "destination", "raycast")]
+[node name="nightcrawler" type="Node3D" node_paths=PackedStringArray("anim", "raycast")]
 script = ExtResource("1_2clp2")
 hold_duration = 2.4
+hide_duration = 4.0
 anim = NodePath("AnimatedSprite3D")
-destination = NodePath("destination")
-speed = 4.0
+speed = 6.0
 raycast = NodePath("RayCast3D")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.41169, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_ku803")
-
-[node name="destination" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.3408, 0, -20.651)
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
