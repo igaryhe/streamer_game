@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://8s5kerqrnto3"]
 
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_4tpro"]
-[ext_resource type="Texture2D" uid="uid://ca0pb0202g6de" path="res://Meshes/altar5_altar5_tex.png" id="2_4tpro"]
+[ext_resource type="Texture2D" uid="uid://bpsima3bsj7ei" path="res://textures/tex2.png" id="2_4tpro"]
 
 [resource]
 render_priority = 0

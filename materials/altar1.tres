@@ -1,12 +1,12 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c4giqvoaw7wgx"]
 
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_vhhkj"]
-[ext_resource type="Texture2D" uid="uid://dqqdgbrgccj6e" path="res://Meshes/altar1_altar1_tex.png" id="2_f0mv0"]
+[ext_resource type="Texture2D" uid="uid://bpsima3bsj7ei" path="res://textures/tex2.png" id="2_vhhkj"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_vhhkj")
-shader_parameter/albedo = ExtResource("2_f0mv0")
+shader_parameter/albedo = ExtResource("2_vhhkj")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
