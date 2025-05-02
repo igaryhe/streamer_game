@@ -316,6 +316,15 @@ visible = false
 [node name="forest_big_dolls" parent="." instance=ExtResource("65_3x28f")]
 transform = Transform3D(0.652085, 0, -0.758146, 0, 1, 0, 0.758146, 0, 0.652085, 81.1461, 10.1781, -58.0983)
 
+[node name="notifier_near_tunnel" parent="forest_big_dolls" index="0"]
+transform = Transform3D(-0.0167571, 0, 1.99993, 0, 2, 0, -1.99993, 0, -0.0167571, -11.4028, -0.415167, -15.1959)
+
+[node name="notifier_right" parent="forest_big_dolls" index="1"]
+transform = Transform3D(0.726893, 0, -1.86323, 0, 2, 0, 1.86323, 0, 0.726893, 14.9426, -1.35991, -7.95332)
+
+[node name="notifier_left" parent="forest_big_dolls" index="2"]
+transform = Transform3D(-0.329956, 0, 1.97259, 0, 2, 0, -1.97259, 0, -0.329956, -23.1254, -2.58877, 9.6155)
+
 [node name="tunnel" parent="." instance=ExtResource("26_3x28f")]
 transform = Transform3D(0.737937, 0, -0.674869, 0, 1, 0, 0.674869, 0, 0.737937, 92.8391, 10.4264, -92.7708)
 
