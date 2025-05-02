@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://bgfokwdyhvlj4"]
+
+[ext_resource type="Texture2D" uid="uid://05rxwn5kfvkd" path="res://textures/ani_jumpscare1.png" id="1_sc85k"]
+[ext_resource type="AudioStream" uid="uid://dhmwpsr4p0mfk" path="res://audio/audio assets/SFX_JumpScare_01.ogg" id="2_jmk7k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmk7k"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86l77"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pac3i"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1rek"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e14gh"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(0, 540, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cu6q"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(960, 540, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ag1"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(1920, 540, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f1y7"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(2880, 540, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54wej"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(0, 1080, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4lel"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(960, 1080, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyt1a"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(1920, 1080, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuhyw"]
+atlas = ExtResource("1_sc85k")
+region = Rect2(2880, 1080, 960, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2e6qh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmk7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86l77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pac3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1rek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e14gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cu6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ag1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f1y7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54wej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4lel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyt1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuhyw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="jumpscare1" type="Node3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.35, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_2e6qh")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_jmk7k")

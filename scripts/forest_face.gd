@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var range: Vector2
-@export var sprite: Sprite3D
+@export var sprite: SpriteBase3D
 @export var player: Node3D
 @export var collider: StaticBody3D
 

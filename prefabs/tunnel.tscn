@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmts7ecfsmrji"]
+[gd_scene load_steps=10 format=3 uid="uid://cmts7ecfsmrji"]
 
 [ext_resource type="ArrayMesh" uid="uid://dk38isb6q112m" path="res://Meshes/tunnel.res" id="1_avooc"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_aakr0"]
 [ext_resource type="Texture2D" uid="uid://dg5vsmr12ioly" path="res://Meshes/tunnel_tunnel_tex.png" id="3_4cw71"]
 [ext_resource type="PackedScene" uid="uid://bksej88p0vupg" path="res://prefabs/tunnel_barrier.tscn" id="4_aakr0"]
+[ext_resource type="Script" uid="uid://dsb7tm635aqm1" path="res://scripts/woodboard_trigger.gd" id="5_4cw71"]
+[ext_resource type="AudioStream" uid="uid://cho8ks8myqcar" path="res://audio/audio assets/SFX_INT_WoodCrash.ogg" id="5_4xqm7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4xqm7"]
 render_priority = 0
@@ -22,6 +24,9 @@ shader_parameter/texture_size = Vector2(1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lushu"]
 size = Vector3(40, 30, 46)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_aakr0"]
+size = Vector3(20, 4, 5)
+
 [node name="tunnel" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -36,3 +41,17 @@ shape = SubResource("BoxShape3D_lushu")
 
 [node name="tunnel_barrier" parent="." instance=ExtResource("4_aakr0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2624, 0.00859642, 3.57449)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="tunnel_barrier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.46019)
+stream = ExtResource("5_4xqm7")
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("crash_sfx")]
+script = ExtResource("5_4cw71")
+crash_sfx = NodePath("../tunnel_barrier/AudioStreamPlayer3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5.68151)
+shape = SubResource("BoxShape3D_aakr0")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_body_entered"]
