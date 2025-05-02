@@ -915,6 +915,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2clp2"]
+radius = 0.904844
+height = 3.01729
 
 [node name="nightcrawler" type="Node3D" node_paths=PackedStringArray("anim", "raycast")]
 script = ExtResource("1_2clp2")
@@ -936,5 +938,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="anomaly_collider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5167, 0)
 shape = SubResource("CapsuleShape3D_2clp2")

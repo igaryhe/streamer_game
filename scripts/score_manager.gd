@@ -33,7 +33,6 @@ extends Node
 @export var max_anomaly_score_increase_speed: float = 50
 @export var anomaly_ghost_score: float = 20
 @export var anomaly_weight_acceleration: float = 0.1
-@export var anomaly_weight_deceleration: float = 0.1
 @export var max_anomaly_weight_speed: float = 0.5
 @export var anomaly_duration: float = 8
 @export var max_anomaly_duration: float = 15
@@ -69,7 +68,7 @@ var current_ghosting_level: int = 0
 
 func anomaly_observed():
 	ghost_score += anomaly_ghost_score
-	anomaly_timer = clamp(anomaly_timer + anomaly_duration, 0, max_anomaly_duration)
+	anomaly_timer += anomaly_duration
 
 func _ready() -> void:
 	message_buckets[0].weight = 0.8
@@ -97,13 +96,12 @@ func _process(delta: float) -> void:
 		selfie_check_timer = selfie_check_interval
 
 	# anomaly
-	anomaly_timer = clamp(anomaly_timer - delta, 0, anomaly_duration)
+	anomaly_timer = clamp(anomaly_timer - delta, 0, max_anomaly_duration)
 	if anomaly_timer > 0:
 		anomaly_score_speed = clamp(anomaly_score_speed + anomaly_score_acceleration * delta, 0, max_anomaly_score_increase_speed)
 		anomaly_weight_speed = clamp(anomaly_weight_speed + anomaly_weight_acceleration * delta, 0, max_anomaly_weight_speed)
 	else:
 		anomaly_score_speed = clamp(anomaly_score_speed - anomaly_score_deceleration * delta, 0, max_anomaly_score_increase_speed)
 		anomaly_weight_speed = 0
-	anomaly_weight_speed = clamp(anomaly_weight_speed - anomaly_weight_deceleration * delta, 0, max_anomaly_weight_speed)
-	message_buckets[2].weight = clamp(message_buckets[2].weight + anomaly_weight_speed * delta - anomaly_decrease_speed, 0, 1)
+	message_buckets[2].weight = clamp(message_buckets[2].weight + (anomaly_weight_speed - anomaly_decrease_speed) * delta, 0, 1)
 	score += anomaly_score_speed * delta

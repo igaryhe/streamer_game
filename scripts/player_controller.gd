@@ -132,6 +132,7 @@ func _physics_process(delta):
 			observation_timer = 0
 			observer.get_collider().set_collision_layer_value(obsersvation_layer, false)
 			print("anomaly observed")
+			score_manager.anomaly_observed()
 	elif observation_timer > 0:
 		observation_timer = 0
 	
