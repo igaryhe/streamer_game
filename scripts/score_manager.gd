@@ -1,3 +1,4 @@
+class_name ScoreManager
 extends Node
 
 @export var init_score: float
@@ -24,6 +25,8 @@ var ghost_score: float
 var ghost_score_threshold: float
 
 var chat_refresh_speed: float
+
+var current_ghosting_level: int = 0
 
 # 0 is warmup bucket
 # 1 is boring bucket

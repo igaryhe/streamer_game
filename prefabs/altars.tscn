@@ -1,59 +1,130 @@
-[gd_scene load_steps=13 format=3 uid="uid://7k4mwkqxhj5"]
+[gd_scene load_steps=18 format=3 uid="uid://7k4mwkqxhj5"]
 
-[ext_resource type="PackedScene" uid="uid://4mvybwygw6w4" path="res://Meshes/altar0.glb" id="1_qjrsg"]
+[ext_resource type="Script" uid="uid://sohl6e0e7rwp" path="res://scripts/altars.gd" id="1_6hn3d"]
 [ext_resource type="Material" uid="uid://k1ab5gaaxu0c" path="res://materials/altar0.tres" id="2_y5igh"]
-[ext_resource type="PackedScene" uid="uid://ccmb5rhtsciqs" path="res://Meshes/altar1.glb" id="3_6hn3d"]
 [ext_resource type="Material" uid="uid://c4giqvoaw7wgx" path="res://materials/altar1.tres" id="4_bgy5b"]
-[ext_resource type="PackedScene" uid="uid://cvhgeherieem4" path="res://Meshes/altar2.glb" id="5_bejcr"]
 [ext_resource type="Material" uid="uid://brjbqqhqlfy0h" path="res://materials/altar2.tres" id="6_kn0u8"]
-[ext_resource type="PackedScene" uid="uid://cl4e63mby60tl" path="res://Meshes/altar3.glb" id="7_78lbj"]
+[ext_resource type="ArrayMesh" uid="uid://de4q1ouqwhuwv" path="res://Meshes/altar0.res" id="7_yy7gu"]
 [ext_resource type="Material" uid="uid://ciw8dhfwvfg8r" path="res://materials/altar3.tres" id="8_f24s0"]
-[ext_resource type="PackedScene" uid="uid://c6mo2bfyy4ega" path="res://Meshes/altar4.glb" id="9_iakx3"]
+[ext_resource type="ArrayMesh" uid="uid://di3a7xfd00u75" path="res://Meshes/altar1.res" id="9_j4xw6"]
+[ext_resource type="ArrayMesh" uid="uid://dtpqml0s6r4f0" path="res://Meshes/altar2.res" id="9_qjrsg"]
+[ext_resource type="Script" uid="uid://b0hh5ndjby8xt" path="res://scripts/altar.gd" id="9_y5igh"]
+[ext_resource type="ArrayMesh" uid="uid://i5xhivaxvafd" path="res://Meshes/altar3.res" id="10_qjrsg"]
 [ext_resource type="Material" uid="uid://dpom1olbw37fg" path="res://materials/altar4.tres" id="10_yu16p"]
-[ext_resource type="PackedScene" uid="uid://brs72c55ptiht" path="res://Meshes/altar5.glb" id="11_wwa6p"]
+[ext_resource type="ArrayMesh" uid="uid://uh2e1jrenliq" path="res://Meshes/altar5.res" id="12_6hn3d"]
 [ext_resource type="Material" uid="uid://8s5kerqrnto3" path="res://materials/altar5.tres" id="12_rlmwk"]
+[ext_resource type="ArrayMesh" uid="uid://ct8l8urwmgdhu" path="res://Meshes/altar4.res" id="12_y5igh"]
 
-[node name="altars" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y5igh"]
+height = 5.0
+radius = 2.42432
 
-[node name="altar0" parent="." instance=ExtResource("1_qjrsg")]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6hn3d"]
+height = 4.0
+radius = 1.81348
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qjrsg"]
+radius = 0.8
+
+[node name="altars" type="Node3D" node_paths=PackedStringArray("lights")]
+script = ExtResource("1_6hn3d")
+lights = [NodePath("altar2/OmniLight3D"), NodePath("altar1/OmniLight3D")]
+
+[node name="altar0" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010891, 0.445701, 1.12846)
 
-[node name="altar0" parent="altar0" index="0"]
+[node name="mesh" type="MeshInstance3D" parent="altar0"]
+mesh = ExtResource("7_yy7gu")
 surface_material_override/0 = ExtResource("2_y5igh")
 
-[node name="altar1" parent="." instance=ExtResource("3_6hn3d")]
+[node name="StaticBody3D" type="StaticBody3D" parent="altar0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="altar0/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 2.5, -1.128)
+shape = SubResource("CylinderShape3D_y5igh")
+
+[node name="altar1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48451, 0.673441, 6.54696)
 
-[node name="altar1" parent="altar1" index="0"]
+[node name="mesh" type="MeshInstance3D" parent="altar1"]
+mesh = ExtResource("9_j4xw6")
 surface_material_override/0 = ExtResource("4_bgy5b")
 
-[node name="altar2" parent="." instance=ExtResource("5_bejcr")]
+[node name="StaticBody3D" type="StaticBody3D" parent="altar1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="altar1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_6hn3d")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="altar1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54189, 2.40689, 0)
+visible = false
+light_color = Color(1, 0, 0.0166664, 1)
+
+[node name="altar2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34609, 0.542921, -6.08344)
 
-[node name="altar2" parent="altar2" index="0"]
+[node name="mesh" type="MeshInstance3D" parent="altar2"]
+mesh = ExtResource("9_qjrsg")
 surface_material_override/0 = ExtResource("6_kn0u8")
 
-[node name="altar3" parent="." instance=ExtResource("7_78lbj")]
+[node name="StaticBody3D" type="StaticBody3D" parent="altar2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="altar2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_6hn3d")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="altar2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54189, 2.40689, 0)
+visible = false
+light_color = Color(1, 0, 0.0166664, 1)
+
+[node name="altar3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09199, 0.774411, 4.62986)
 
-[node name="altar3" parent="altar3" index="0"]
+[node name="mesh" type="MeshInstance3D" parent="altar3"]
+mesh = ExtResource("10_qjrsg")
 surface_material_override/0 = ExtResource("8_f24s0")
 
-[node name="altar4" parent="." instance=ExtResource("9_iakx3")]
+[node name="StaticBody3D" type="StaticBody3D" parent="altar3"]
+collision_layer = 3
+script = ExtResource("9_y5igh")
+expected_item_ids = Array[int]([5])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="altar3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.835, 0)
+shape = SubResource("CylinderShape3D_qjrsg")
+
+[node name="altar4" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.06229, 0.796511, 1.64526)
 
-[node name="altar4" parent="altar4" index="0"]
+[node name="mesh" type="MeshInstance3D" parent="altar4"]
+mesh = ExtResource("12_y5igh")
 surface_material_override/0 = ExtResource("10_yu16p")
 
-[node name="altar5" parent="." instance=ExtResource("11_wwa6p")]
+[node name="StaticBody3D" type="StaticBody3D" parent="altar4"]
+collision_layer = 3
+script = ExtResource("9_y5igh")
+parts = 1
+expected_item_ids = Array[int]([5])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="altar4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.835, 0)
+shape = SubResource("CylinderShape3D_qjrsg")
+
+[node name="altar5" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25889, 0.641181, -1.53224)
 
-[node name="altar5" parent="altar5" index="0"]
+[node name="mesh" type="MeshInstance3D" parent="altar5"]
+mesh = ExtResource("12_6hn3d")
 surface_material_override/0 = ExtResource("12_rlmwk")
 
-[editable path="altar0"]
-[editable path="altar1"]
-[editable path="altar2"]
-[editable path="altar3"]
-[editable path="altar4"]
-[editable path="altar5"]
+[node name="StaticBody3D" type="StaticBody3D" parent="altar5"]
+collision_layer = 3
+script = ExtResource("9_y5igh")
+parts = 2
+expected_item_ids = Array[int]([5])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="altar5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.835, 0)
+shape = SubResource("CylinderShape3D_qjrsg")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://tpuk6pgci2ke"]
+[gd_scene load_steps=27 format=3 uid="uid://tpuk6pgci2ke"]
 
 [ext_resource type="ArrayMesh" uid="uid://dtiw0mtalox1y" path="res://Meshes/temple.res" id="1_m874b"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_pdopi"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bcc1qiomu0kbh" path="res://prefabs/temple_door.tscn" id="5_ed74b"]
 [ext_resource type="ArrayMesh" uid="uid://dnttxcndtjlv" path="res://Meshes/phone.res" id="6_r7x07"]
 [ext_resource type="Texture2D" uid="uid://bmj6nro02w3cu" path="res://Meshes/phone_phone_tex.png" id="7_hdrd2"]
+[ext_resource type="AudioStream" uid="uid://bu7l022dp4ccj" path="res://audio/audio assets/SFX_INT_Ring_Loop.ogg" id="8_hdrd2"]
+[ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="9_kn3sp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_22ebp"]
 render_priority = 0
@@ -55,6 +57,9 @@ size = Vector3(4.99042, 9.4364, 15.0377)
 [sub_resource type="BoxShape3D" id="BoxShape3D_quc53"]
 size = Vector3(28.6758, 9.82288, 2.36084)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhiik"]
+size = Vector3(0.6, 3.6, 2.156)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kn3sp"]
 render_priority = 0
 shader = ExtResource("2_pdopi")
@@ -68,6 +73,53 @@ shader_parameter/alpha_scissor = 1.0
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/texture_size = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_kn3sp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door_root:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hdrd2"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door_root:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.74009, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_root/temple_door/open_door_sfx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3i2vg"]
+_data = {
+&"RESET": SubResource("Animation_kn3sp"),
+&"open": SubResource("Animation_hdrd2")
+}
 
 [node name="temple" type="Node3D"]
 
@@ -124,10 +176,38 @@ shape = SubResource("BoxShape3D_quc53")
 [node name="temple_barrier" parent="." instance=ExtResource("4_pdopi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98951, 0, 1.88679)
 
-[node name="temple_door" parent="." instance=ExtResource("5_ed74b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.416643, 0, -0.288565)
+[node name="door_root" type="Node3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.478428, 4.76837e-07, -1.3218)
+
+[node name="temple_door" parent="door_root" instance=ExtResource("5_ed74b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0617849, -4.76837e-07, 1.03324)
+
+[node name="open_door_sfx" type="AudioStreamPlayer3D" parent="door_root/temple_door"]
+
+[node name="door_collider" type="StaticBody3D" parent="door_root/temple_door"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door_root/temple_door/door_collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+shape = SubResource("BoxShape3D_bhiik")
 
 [node name="phone" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22268, 1.08473, -3.09995)
 mesh = ExtResource("6_r7x07")
 surface_material_override/0 = SubResource("ShaderMaterial_kn3sp")
+
+[node name="ringtone_sfx" type="AudioStreamPlayer3D" parent="phone"]
+stream = ExtResource("8_hdrd2")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3i2vg")
+}
+
+[node name="apple" parent="." instance=ExtResource("9_kn3sp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24659, 0, -0.846114)
+id = 2
+
+[node name="amulet" parent="." instance=ExtResource("9_kn3sp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00222, 2.38419e-07, 1.19599)
+id = 4

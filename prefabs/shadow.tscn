@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm7gngvpnwy0j"]
+
+[ext_resource type="Script" uid="uid://b8100lox6bicy" path="res://scripts/shadow.gd" id="1_8uh0k"]
+[ext_resource type="Texture2D" uid="uid://dgcin0tvnb6b0" path="res://textures/ghostinthegrave.png" id="2_hrxfg"]
+
+[node name="shadow" type="Node3D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_8uh0k")
+sprite = NodePath("Sprite3D")
+interval = 25.0
+visible_duration = 4.0
+transform_duration = 1.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.35, 0)
+billboard = 1
+texture = ExtResource("2_hrxfg")

@@ -116,22 +116,7 @@ func _physics_process(delta):
 				item.id = holding_item
 			else:
 				item.queue_free()
-				holding_item = item_id
-		if Input.is_action_just_pressed("interact"):
-			if collider is CollisionObject3D:
-				# collider.set_collision_layer_value(interaction_layer, false)
-				if collider.is_in_group("item"):
-					var item: Item = collider.get_parent() as Item
-					var item_id = item.id
-					if holding_item >= 0:
-						# drop current holding item
-						var mat: StandardMaterial3D = item.mesh.get_surface_override_material(0) as StandardMaterial3D
-						mat.albedo_texture = items.items[holding_item].texture
-						item.id = holding_item
-						print("dropping")
-					else:
-						item.queue_free()
-					holding_item = item_id
+			holding_item = item_id
 	else:
 		hand.visible = false
 		

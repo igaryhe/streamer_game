@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj81h1nhub4n0"]
+[gd_scene load_steps=7 format=3 uid="uid://dj81h1nhub4n0"]
 
 [ext_resource type="ArrayMesh" uid="uid://ojuynbi8wtvr" path="res://Meshes/cave_door.res" id="1_ed40x"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_bh0va"]
 [ext_resource type="Texture2D" uid="uid://c2mdy2vafq8aq" path="res://Meshes/cave_door_cave_door_tex.png" id="3_4bxin"]
+[ext_resource type="Script" uid="uid://d2p244iaisb2c" path="res://scripts/amulet.gd" id="4_4bxin"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_obhk3"]
 render_priority = 0
@@ -27,8 +28,15 @@ size = Vector3(5.4, 10, 4.7)
 mesh = ExtResource("1_ed40x")
 surface_material_override/0 = SubResource("ShaderMaterial_obhk3")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("sfx", "mesh")]
+collision_layer = 3
+script = ExtResource("4_4bxin")
+sfx = NodePath("../AudioStreamPlayer3D")
+mesh = NodePath("../MeshInstance3D")
+expected_item_ids = Array[int]([4])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -0.625)
 shape = SubResource("BoxShape3D_t6mof")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

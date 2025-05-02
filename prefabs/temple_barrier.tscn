@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxiddknumosju"]
+[gd_scene load_steps=7 format=3 uid="uid://dxiddknumosju"]
 
 [ext_resource type="ArrayMesh" uid="uid://cj53y375pq164" path="res://Meshes/temple_barrier.res" id="1_ljtfo"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_r68j7"]
 [ext_resource type="Texture2D" uid="uid://kcnkdfvkvdw2" path="res://Meshes/temple_barrier_temple_barrier_tex.png" id="3_mrgpq"]
+[ext_resource type="Script" uid="uid://cc1m57xifp8bl" path="res://scripts/temple_barrier.gd" id="4_r68j7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5fl4a"]
 render_priority = 0
@@ -27,9 +28,15 @@ size = Vector3(1.8, 2, 0.4)
 mesh = ExtResource("1_ljtfo")
 surface_material_override/0 = SubResource("ShaderMaterial_5fl4a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("sfx", "mesh")]
 collision_layer = 3
+script = ExtResource("4_r68j7")
+sfx = NodePath("../AudioStreamPlayer3D")
+mesh = NodePath("../mesh")
+expected_item_ids = Array[int]([0])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_5rd7k")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
