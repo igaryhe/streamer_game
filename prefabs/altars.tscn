@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://7k4mwkqxhj5"]
+[gd_scene load_steps=20 format=3 uid="uid://7k4mwkqxhj5"]
 
 [ext_resource type="Script" uid="uid://sohl6e0e7rwp" path="res://scripts/altars.gd" id="1_6hn3d"]
 [ext_resource type="Material" uid="uid://k1ab5gaaxu0c" path="res://materials/altar0.tres" id="2_y5igh"]
@@ -11,7 +11,9 @@
 [ext_resource type="Script" uid="uid://b0hh5ndjby8xt" path="res://scripts/altar.gd" id="9_y5igh"]
 [ext_resource type="ArrayMesh" uid="uid://i5xhivaxvafd" path="res://Meshes/altar3.res" id="10_qjrsg"]
 [ext_resource type="ArrayMesh" uid="uid://uh2e1jrenliq" path="res://Meshes/altar5.res" id="12_6hn3d"]
+[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="12_bgy5b"]
 [ext_resource type="ArrayMesh" uid="uid://ct8l8urwmgdhu" path="res://Meshes/altar4.res" id="12_y5igh"]
+[ext_resource type="Texture2D" uid="uid://bpsima3bsj7ei" path="res://textures/tex2.png" id="13_bejcr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_y5igh"]
 height = 5.0
@@ -23,6 +25,34 @@ radius = 1.81348
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qjrsg"]
 radius = 0.8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kn0u8"]
+render_priority = 0
+shader = ExtResource("12_bgy5b")
+shader_parameter/albedo = ExtResource("13_bejcr")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_78lbj"]
+render_priority = 0
+shader = ExtResource("12_bgy5b")
+shader_parameter/albedo = ExtResource("13_bejcr")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 
 [node name="altars" type="Node3D" node_paths=PackedStringArray("lights")]
 script = ExtResource("1_6hn3d")
@@ -84,7 +114,7 @@ light_color = Color(1, 0, 0.0166664, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09199, 0.774411, 4.62986)
 
 [node name="mesh" type="MeshInstance3D" parent="altar3"]
-transform = Transform3D(-0.23677, 0, 0.971566, 0, 1, 0, -0.971566, 0, -0.23677, 0, 0, 0)
+transform = Transform3D(-0.23677, 0, 0.971566, 0, 1, 0, -0.971566, 0, -0.23677, 0, -0.1668, 0)
 mesh = ExtResource("10_qjrsg")
 surface_material_override/0 = ExtResource("8_f24s0")
 
@@ -101,8 +131,9 @@ shape = SubResource("CylinderShape3D_qjrsg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.06229, 0.796511, 1.64526)
 
 [node name="mesh" type="MeshInstance3D" parent="altar4"]
-transform = Transform3D(0.132066, 0, 0.991241, 0, 1, 0, -0.991241, 0, 0.132066, -0.142007, 0, -0.15679)
+transform = Transform3D(0.132066, 0, 0.991241, 0, 1, 0, -0.991241, 0, 0.132066, -0.142007, -0.1668, -0.15679)
 mesh = ExtResource("12_y5igh")
+surface_material_override/0 = SubResource("ShaderMaterial_kn0u8")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="altar4"]
 collision_layer = 3
@@ -111,15 +142,16 @@ parts = 1
 expected_item_ids = Array[int]([5])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="altar4/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142007, 0.835, -0.15679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142007, 0.6682, -0.15679)
 shape = SubResource("CylinderShape3D_qjrsg")
 
 [node name="altar5" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25889, 0.641181, -1.53224)
 
 [node name="mesh" type="MeshInstance3D" parent="altar5"]
-transform = Transform3D(0.474672, 0, 0.880163, 0, 1, 0, -0.880163, 0, 0.474672, 0, 0, 0)
+transform = Transform3D(0.474672, 0, 0.880163, 0, 1, 0, -0.880163, 0, 0.474672, 0, -0.1668, 0)
 mesh = ExtResource("12_6hn3d")
+surface_material_override/0 = SubResource("ShaderMaterial_78lbj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="altar5"]
 collision_layer = 3

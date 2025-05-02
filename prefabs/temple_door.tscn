@@ -2,12 +2,12 @@
 
 [ext_resource type="ArrayMesh" uid="uid://bcb65tw5sufaw" path="res://Meshes/temple_door.res" id="1_kqea1"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_l1cr5"]
-[ext_resource type="Texture2D" uid="uid://chkglo6hputnu" path="res://Meshes/temple_door_temple_door_tex.png" id="3_6hae5"]
+[ext_resource type="Texture2D" uid="uid://bts0ommm6eabh" path="res://textures/tex1.png" id="3_kqea1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p0kka"]
 render_priority = 0
 shader = ExtResource("2_l1cr5")
-shader_parameter/albedo = ExtResource("3_6hae5")
+shader_parameter/albedo = ExtResource("3_kqea1")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
@@ -30,5 +30,5 @@ surface_material_override/0 = SubResource("ShaderMaterial_p0kka")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.208887)
 shape = SubResource("BoxShape3D_dd2ms")
