@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://ojuynbi8wtvr" path="res://Meshes/cave_door.res" id="1_ed40x"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_bh0va"]
-[ext_resource type="Texture2D" uid="uid://c2mdy2vafq8aq" path="res://Meshes/cave_door_cave_door_tex.png" id="3_4bxin"]
+[ext_resource type="Texture2D" uid="uid://bpsima3bsj7ei" path="res://textures/tex2.png" id="3_4bxin"]
 [ext_resource type="Script" uid="uid://d2p244iaisb2c" path="res://scripts/amulet.gd" id="4_4bxin"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_obhk3"]

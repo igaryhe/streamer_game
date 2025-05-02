@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4n6oh7g5kutg" path="res://prefabs/nightcrawler.tscn" id="3_26snh"]
 [ext_resource type="PackedScene" uid="uid://dqbea5fgc7nst" path="res://prefabs/drunk_nightcrawler.tscn" id="4_0tf4s"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_22chx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tf4s"]
 render_priority = 0
 shader = ExtResource("1_8y8ad")
 shader_parameter/albedo = ExtResource("3_0tf4s")
@@ -28,7 +28,7 @@ size = Vector3(0.8, 2, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_0tf4s")
-surface_material_override/0 = SubResource("ShaderMaterial_22chx")
+surface_material_override/0 = SubResource("ShaderMaterial_0tf4s")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("sfx", "mesh", "spawn_pos", "destination")]
 collision_layer = 3
