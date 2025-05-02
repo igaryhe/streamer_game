@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://biwidmlp4p1bi"]
 
 [ext_resource type="ArrayMesh" uid="uid://3khpe2b0erl1" path="res://Meshes/cave.res" id="1_eb34q"]
-[ext_resource type="Texture2D" uid="uid://cmgtsglee5rlv" path="res://Meshes/cave_door_tex2.png" id="3_rfyfr"]
+[ext_resource type="Texture2D" uid="uid://bpsima3bsj7ei" path="res://textures/tex2.png" id="3_rfyfr"]
 [ext_resource type="PackedScene" uid="uid://dj81h1nhub4n0" path="res://prefabs/cave_door.tscn" id="3_wqp7x"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="4_8ygi1"]
 [ext_resource type="Script" uid="uid://cbvfyane85e6y" path="res://scripts/candle.gd" id="5_2e84p"]

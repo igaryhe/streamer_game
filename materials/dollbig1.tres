@@ -1,12 +1,12 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cbu0lwihc0a2r"]
 
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_pu0nt"]
-[ext_resource type="Texture2D" uid="uid://dn4r610smrbru" path="res://Meshes/dollbig_1_dollbig_tex.png" id="2_40gfl"]
+[ext_resource type="Texture2D" uid="uid://b58s7uvafftch" path="res://textures/texdoolbig.png" id="2_pu0nt"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_pu0nt")
-shader_parameter/albedo = ExtResource("2_40gfl")
+shader_parameter/albedo = ExtResource("2_pu0nt")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true

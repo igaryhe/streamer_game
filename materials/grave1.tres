@@ -1,18 +1,18 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ip0gpv0e88yo"]
 
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_g8v78"]
-[ext_resource type="Texture2D" uid="uid://bigpcy4bdcyxu" path="res://Meshes/grave1_grave1_tex.png" id="2_lnd1p"]
+[ext_resource type="Texture2D" uid="uid://bpsima3bsj7ei" path="res://textures/tex2.png" id="2_g8v78"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_g8v78")
-shader_parameter/albedo = ExtResource("2_lnd1p")
+shader_parameter/albedo = ExtResource("2_g8v78")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/affine_texture_intensity = -2.0
-shader_parameter/alpha_scissor = 1.0
+shader_parameter/alpha_scissor = 0.0
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/texture_size = Vector2(1, 1)

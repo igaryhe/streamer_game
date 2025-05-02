@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://kwci3wngced7"]
 
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_jjtil"]
-[ext_resource type="Texture2D" uid="uid://bbe7sf41vuucc" path="res://Meshes/tree1_tree1_tex.png" id="2_jjtil"]
+[ext_resource type="Texture2D" uid="uid://bpsima3bsj7ei" path="res://textures/tex2.png" id="2_jjtil"]
 
 [resource]
 render_priority = 0

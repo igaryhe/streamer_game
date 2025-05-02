@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://5ns3pespid3a"]
 
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="1_ce8q2"]
-[ext_resource type="Texture2D" uid="uid://dwpqel241vw4d" path="res://Meshes/dollbig_4_dollbig_tex.png" id="2_ce8q2"]
+[ext_resource type="Texture2D" uid="uid://b58s7uvafftch" path="res://textures/texdoolbig.png" id="2_ce8q2"]
 
 [resource]
 render_priority = 0
