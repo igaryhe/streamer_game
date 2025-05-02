@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://dtiw0mtalox1y" path="res://Meshes/temple.res" id="1_m874b"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_pdopi"]
-[ext_resource type="Texture2D" uid="uid://bx2v66st5xfg5" path="res://Meshes/temple_temple_tex.png" id="3_ed74b"]
+[ext_resource type="Texture2D" uid="uid://bwjkgidplnt16" path="res://Meshes/temple_tex1.png" id="3_kn3sp"]
 [ext_resource type="PackedScene" uid="uid://dxiddknumosju" path="res://prefabs/temple_barrier.tscn" id="4_pdopi"]
 [ext_resource type="PackedScene" uid="uid://bcc1qiomu0kbh" path="res://prefabs/temple_door.tscn" id="5_ed74b"]
 [ext_resource type="ArrayMesh" uid="uid://dnttxcndtjlv" path="res://Meshes/phone.res" id="6_r7x07"]
@@ -10,10 +10,10 @@
 [ext_resource type="AudioStream" uid="uid://bu7l022dp4ccj" path="res://audio/audio assets/SFX_INT_Ring_Loop.ogg" id="8_hdrd2"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="9_kn3sp"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_22ebp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3i2vg"]
 render_priority = 0
 shader = ExtResource("2_pdopi")
-shader_parameter/albedo = ExtResource("3_ed74b")
+shader_parameter/albedo = ExtResource("3_kn3sp")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
@@ -125,7 +125,7 @@ _data = {
 
 [node name="temple_mesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_m874b")
-surface_material_override/0 = SubResource("ShaderMaterial_22ebp")
+surface_material_override/0 = SubResource("ShaderMaterial_3i2vg")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
