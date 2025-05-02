@@ -1,25 +1,41 @@
 class_name ScoreManager
 extends Node
 
+@export var player: PlayerController
+
 @export var init_score: float
-@export var warmup_duration: float
+
 @export var natural_decay_speed: float
 
+@export_group("warmup")
+@export var warmup_duration: float
+@export var warmup_decrease_duration: float
+
 # for the tiny figure UI
+@export_group("figure")
 @export var positive_state_threshold: float
 @export var neutural_state_threshold: float
 @export var negative_state_threshold: float
 
 # selfie
+@export_group("selfie")
 @export var selfie_threshold: float
 @export var selfie_increase_speed: float
 @export var selfie_check_interval: float
-@export var selfie_caught_rate_increase_speed: float
-@export var selfie_caught_rate_decrease_speed: float
+@export_range(0, 1) var selfie_caught_rate_increase_speed: float
+@export_range(0, 1) var selfie_caught_rate_decrease_speed: float
+@export_range(0, 1) var selfie_chat_weight_increase_speed: float
+@export_range(0, 1) var selfie_chat_weight_decrease_speed: float
 
 var score: float
 
+var warmup_timer: float
+
+# selfie runtime
+var can_selfie: bool
+var is_selfing: bool
 var selfie_caught_rate: float
+var selfie_check_timer: float
 
 var ghost_score: float
 var ghost_score_threshold: float
@@ -30,7 +46,32 @@ var current_ghosting_level: int = 0
 
 # 0 is warmup bucket
 # 1 is boring bucket
-# 2 is paranormal event bucket
+# 2 is anomaly event bucket
 # 3 is selfie bucket
 # 4 is sacrifice bucket
-@export var chat_bucket_weights: Array[float]
+@export var message_buckets: Array[MessageFlow]
+
+func _ready() -> void:
+	message_buckets[0].weight = 0.8
+	warmup_timer = warmup_duration
+
+func _process(delta: float) -> void:
+	# warmup
+	warmup_timer = clamp(warmup_timer - delta, 0, warmup_duration)
+	message_buckets[0].weight = clamp(warmup_timer / warmup_decrease_duration, 0, 0.8)
+	if warmup_timer < warmup_decrease_duration:
+		message_buckets[1].weight = 0.2
+
+	# selfie logic
+	can_selfie = score < selfie_threshold
+	if is_selfing:
+		selfie_caught_rate = clamp(selfie_caught_rate + selfie_caught_rate_increase_speed * delta, 0, 1)
+		message_buckets[3].weight = clamp(message_buckets[3].weight + selfie_chat_weight_increase_speed * delta, 0, 1)
+	else:
+		selfie_caught_rate = clamp(selfie_caught_rate - selfie_caught_rate_decrease_speed * delta, 0, 1)
+		message_buckets[3].weight = clamp(message_buckets[3].weight - selfie_caught_rate_decrease_speed * delta, 0, 1)
+	selfie_check_timer = clamp(selfie_check_timer - delta, 0, selfie_check_interval)
+	if selfie_check_timer == 0:
+		if is_selfing and randf() < selfie_caught_rate:
+			print("caught!!!")
+		selfie_check_timer = selfie_check_interval

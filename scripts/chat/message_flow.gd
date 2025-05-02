@@ -1,3 +1,4 @@
+class_name MessageFlow
 extends Control
 
 #var contents = [

@@ -1,3 +1,4 @@
+class_name PlayerController
 extends CharacterBody3D
 
 var speed
@@ -29,6 +30,7 @@ var gravity = 9.8
 
 @export var items: Items
 @export var item_prefab: PackedScene
+@export var score_manager: ScoreManager
 
 @onready var head = $head
 @onready var camera = $head/camera
@@ -51,8 +53,12 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("flip_camera") && !camera_anim.is_playing():
-		if is_front_camera : camera_anim.play("to_back_camera")
-		else: camera_anim.play("to_front_camera")
+		if is_front_camera:
+			camera_anim.play("to_back_camera")
+			score_manager.is_selfing = true
+		else:
+			camera_anim.play("to_front_camera")
+			score_manager.is_selfing = false
 		is_front_camera = !is_front_camera
 
 	# Add the gravity.
