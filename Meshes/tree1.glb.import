@@ -34,13 +34,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "meshes": {
-"tree1_Cylinder_002": {
+"tree1_Cylinder_008": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/tree1.res"
+"save_to_file/path": "uid://bkvkjaaqsk2d7"
 }
 }
 }
