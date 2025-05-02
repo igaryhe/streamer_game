@@ -183,6 +183,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.478428, 4.768
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.288578, -2.38418e-07, 1.19183)
 
 [node name="open_door_sfx" type="AudioStreamPlayer3D" parent="door_root/temple_door"]
+max_distance = 40.0
 
 [node name="door_collider" type="StaticBody3D" parent="door_root/temple_door"]
 

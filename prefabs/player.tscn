@@ -754,3 +754,7 @@ expand_mode = 1
 libraries = {
 &"": SubResource("AnimationLibrary_g2jcq")
 }
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+current = true

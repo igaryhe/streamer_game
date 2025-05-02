@@ -5,6 +5,7 @@ extends Node3D
 @export var interval: float
 @export var visible_duration: float
 @export var transform_duration: float
+@export var initial_delay: float
 
 var timer: float
 # 0 for hiding
@@ -14,7 +15,7 @@ var timer: float
 var state: int
 
 func _ready() -> void:
-	timer = visible_duration
+	timer = visible_duration + initial_delay
 	state = 1
 
 func _process(delta: float):
