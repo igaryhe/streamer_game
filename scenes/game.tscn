@@ -304,10 +304,13 @@ door_anim_player = NodePath("../../temple/AnimationPlayer")
 door_open_anim = "open"
 
 [node name="shrine" parent="." instance=ExtResource("24_o8ni1")]
-transform = Transform3D(-0.792556, 0, 0.609799, 0, 1, 0, -0.609799, 0, -0.792556, 73.4799, 9.54576, -42.6339)
+transform = Transform3D(0.4602, 0, -0.887815, 0, 1, 0, 0.887815, 0, 0.4602, 68.3603, 9.77787, -42.6142)
 
 [node name="spawn_pos" parent="shrine" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0537148, 0.0986013, 0.967346)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 1.09921, 0.0986013, -1.67664)
+
+[node name="destination" parent="shrine" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4477, -9.53674e-07, -86.3276)
 
 [node name="dollbig_weird" parent="." instance=ExtResource("48_fedci")]
 transform = Transform3D(-0.129696, 0, -0.991554, 0, 1, 0, 0.991554, 0, -0.129696, 60.9577, 7.67129, -66.7312)
@@ -323,13 +326,13 @@ transform = Transform3D(-0.0167571, 0, 1.99993, 0, 2, 0, -1.99993, 0, -0.0167571
 transform = Transform3D(0.726893, 0, -1.86323, 0, 2, 0, 1.86323, 0, 0.726893, 14.9426, -1.35991, -7.95332)
 
 [node name="notifier_left" parent="forest_big_dolls" index="2"]
-transform = Transform3D(-0.329956, 0, 1.97259, 0, 2, 0, -1.97259, 0, -0.329956, -23.1254, -2.58877, 9.6155)
+transform = Transform3D(-0.329956, 0, 1.97259, 0, 2, 0, -1.97259, 0, -0.329956, -17.9482, -2.58877, 8.19858)
 
 [node name="tunnel" parent="." instance=ExtResource("26_3x28f")]
 transform = Transform3D(0.737937, 0, -0.674869, 0, 1, 0, 0.674869, 0, 0.737937, 92.8391, 10.4264, -92.7708)
 
 [node name="cave" parent="." instance=ExtResource("28_xbak0")]
-transform = Transform3D(-0.346526, 0, 0.93804, 0, 1, 0, -0.93804, 0, -0.346526, -56.8788, 26.7786, 19.3031)
+transform = Transform3D(-0.346526, 0, 0.93804, 0, 1, 0, -0.93804, 0, -0.346526, -56.8537, 26.7409, 19.2562)
 
 [node name="cavealtar" parent="." instance=ExtResource("33_3hbvx")]
 transform = Transform3D(0.230627, 0, -0.973042, 0, 1, 0, 0.973042, 0, 0.230627, -42.821, 26.8135, 28.7498)
@@ -451,7 +454,7 @@ foliage_mesh = ExtResource("38_8qswn")
 metadata/_custom_type_script = "uid://b1v8ou20sltc5"
 
 [node name="coin" parent="." instance=ExtResource("52_pf7vy")]
-transform = Transform3D(0.57958, 0, -0.814915, 0, 1, 0, 0.814915, 0, 0.57958, 97.2972, 10.1538, -82.443)
+transform = Transform3D(0.57958, 0, -0.814915, 0, 1, 0, 0.814915, 0, 0.57958, 90.8416, 10.1538, -88.5466)
 id = 1
 
 [node name="axe" parent="." instance=ExtResource("52_pf7vy")]

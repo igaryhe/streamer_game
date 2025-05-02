@@ -178,4 +178,4 @@ shape = SubResource("BoxShape3D_k43pb")
 [node name="sfx" type="AudioStreamPlayer3D" parent="."]
 
 [node name="doll_spawn_pos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830586, 0.810353, 11.6115)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0787, 0.810353, 4.77458)
