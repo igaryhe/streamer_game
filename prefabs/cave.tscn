@@ -1,11 +1,25 @@
-[gd_scene load_steps=19 format=3 uid="uid://biwidmlp4p1bi"]
+[gd_scene load_steps=20 format=3 uid="uid://biwidmlp4p1bi"]
 
 [ext_resource type="ArrayMesh" uid="uid://3khpe2b0erl1" path="res://Meshes/cave.res" id="1_eb34q"]
-[ext_resource type="Material" uid="uid://dxtc3toklqe2u" path="res://materials/cave.tres" id="2_wqp7x"]
+[ext_resource type="Texture2D" uid="uid://cmgtsglee5rlv" path="res://Meshes/cave_door_tex2.png" id="3_rfyfr"]
 [ext_resource type="PackedScene" uid="uid://dj81h1nhub4n0" path="res://prefabs/cave_door.tscn" id="3_wqp7x"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="4_8ygi1"]
 [ext_resource type="Script" uid="uid://cbvfyane85e6y" path="res://scripts/candle.gd" id="5_2e84p"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="6_rfyfr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjsao"]
+render_priority = 0
+shader = ExtResource("4_8ygi1")
+shader_parameter/albedo = ExtResource("3_rfyfr")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eb34q"]
 size = Vector3(1.982, 9, 14.64)
@@ -29,7 +43,7 @@ size = Vector3(1.6542, 7.45325, 5.32224)
 size = Vector3(20.8073, 27.0356, 6.54268)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jgbjv"]
-size = Vector3(17.0117, 26.0601, 10.5576)
+size = Vector3(19.9855, 26.0601, 11.2417)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2e84p"]
 
@@ -56,7 +70,7 @@ size = Vector3(1, 4, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_eb34q")
-surface_material_override/0 = ExtResource("2_wqp7x")
+surface_material_override/0 = SubResource("ShaderMaterial_yjsao")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
@@ -115,22 +129,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2434, 13.0178, 17.7611)
 shape = SubResource("BoxShape3D_yjsao")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2617, 12.53, 4.77881)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7486, 12.53, 5.12084)
 shape = SubResource("BoxShape3D_jgbjv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1174, 1.78911, -9.50597)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1174, 1.78911, -4.89505)
 light_color = Color(1, 0.0666667, 0, 1)
 light_energy = 1.045
+light_specular = 0.0
+shadow_enabled = true
 omni_range = 16.661
 omni_attenuation = -0.6
 omni_shadow_mode = 0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5843, 1.38981, 12.1452)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3962, 1.38981, 6.70618)
 light_color = Color(1, 0.0666667, 0, 1)
 light_energy = 1.045
-omni_range = 14.813
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 13.0
 omni_attenuation = -0.8
 omni_shadow_mode = 0
 
@@ -138,17 +156,18 @@ omni_shadow_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43943, 0, 9.97833)
 
 [node name="candle" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4932, 0, 12.3285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4932, 0, 9.5847)
 mesh = SubResource("CylinderMesh_2e84p")
 surface_material_override/0 = SubResource("ShaderMaterial_gs5pc")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="candle" node_paths=PackedStringArray("ambient", "sfx", "lights", "doll")]
+[node name="StaticBody3D" type="StaticBody3D" parent="candle" node_paths=PackedStringArray("ambient", "sfx", "lights", "doll_spawn_pos")]
 collision_layer = 3
 script = ExtResource("5_2e84p")
 ambient = NodePath("../../ambient")
 sfx = NodePath("../../sfx")
 lights = [NodePath("../../OmniLight3D"), NodePath("../../OmniLight3D2")]
-doll = NodePath("../../doll")
+doll_spawn_pos = NodePath("../../doll_spawn_pos")
+doll_prefab = ExtResource("6_rfyfr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="candle/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -158,7 +177,5 @@ shape = SubResource("BoxShape3D_k43pb")
 
 [node name="sfx" type="AudioStreamPlayer3D" parent="."]
 
-[node name="doll" parent="." instance=ExtResource("6_rfyfr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22312, 0, 12.1793)
-visible = false
-id = 5
+[node name="doll_spawn_pos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830586, 0.810353, 11.6115)

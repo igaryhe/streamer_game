@@ -34,7 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "meshes": {
-"cave_Plane_008": {
+"cave_Cube_104": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -45,4 +45,4 @@ _subresources={
 }
 }
 gltf/naming_version=1
-gltf/embedded_image_handling=1
+gltf/embedded_image_handling=0
