@@ -546,7 +546,6 @@ transform = Transform3D(0.755853, 0, 0.654741, 0, 1, 0, -0.654741, 0, 0.755853, 
 
 [node name="temple_mesh" parent="temple" index="0"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.125729, 0)
-surface_material_override/0 = null
 
 [node name="temple_barrier" parent="temple" index="2"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 8.60138, 1.17047, 2.11356)

@@ -2,15 +2,15 @@
 
 [ext_resource type="ArrayMesh" uid="uid://dk38isb6q112m" path="res://Meshes/tunnel.res" id="1_avooc"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_aakr0"]
-[ext_resource type="Texture2D" uid="uid://dg5vsmr12ioly" path="res://Meshes/tunnel_tunnel_tex.png" id="3_4cw71"]
+[ext_resource type="Texture2D" uid="uid://chwtd1clke1h5" path="res://textures/tex3.png" id="3_4xqm7"]
 [ext_resource type="PackedScene" uid="uid://bksej88p0vupg" path="res://prefabs/tunnel_barrier.tscn" id="4_aakr0"]
-[ext_resource type="Script" uid="uid://dsb7tm635aqm1" path="res://scripts/woodboard_trigger.gd" id="5_4cw71"]
+[ext_resource type="Script" path="res://scripts/woodboard_trigger.gd" id="5_4cw71"]
 [ext_resource type="AudioStream" uid="uid://cho8ks8myqcar" path="res://audio/audio assets/SFX_INT_WoodCrash.ogg" id="5_4xqm7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4xqm7"]
 render_priority = 0
 shader = ExtResource("2_aakr0")
-shader_parameter/albedo = ExtResource("3_4cw71")
+shader_parameter/albedo = ExtResource("3_4xqm7")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true

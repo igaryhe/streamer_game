@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dnttxcndtjlv" path="res://Meshes/phone.res" id="1_ojfho"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_1ft25"]
 [ext_resource type="Texture2D" uid="uid://bts0ommm6eabh" path="res://textures/tex1.png" id="3_0masy"]
-[ext_resource type="Script" uid="uid://0ehwpqttfi2x" path="res://scripts/phone.gd" id="4_1ft25"]
+[ext_resource type="Script" path="res://scripts/phone.gd" id="4_1ft25"]
 [ext_resource type="AudioStream" uid="uid://byalr2bc8bbnv" path="res://audio/audio assets/SFX_JumpScare_03.ogg" id="5_0masy"]
 [ext_resource type="AudioStream" uid="uid://bu7l022dp4ccj" path="res://audio/audio assets/SFX_INT_Ring_Loop.ogg" id="5_scbqv"]
 
