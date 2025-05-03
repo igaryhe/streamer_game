@@ -74,8 +74,8 @@ sky_material = SubResource("ProceduralSkyMaterial_dinhu")
 background_mode = 2
 sky = SubResource("Sky_kvuet")
 tonemap_mode = 3
-tonemap_exposure = 1.17
-tonemap_white = 1.23
+tonemap_exposure = 0.81
+tonemap_white = 1.08
 fog_light_color = Color(0.1, 0.1, 0.1, 1)
 fog_density = 0.05
 volumetric_fog_density = 0.0157
@@ -85,9 +85,9 @@ volumetric_fog_emission_energy = 2.0
 volumetric_fog_length = 71.75
 volumetric_fog_sky_affect = 0.18
 adjustment_enabled = true
-adjustment_brightness = 1.14
+adjustment_brightness = 1.06
 adjustment_contrast = 1.08
-adjustment_saturation = 1.04
+adjustment_saturation = 0.9
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wljb1"]
 render_priority = 0
@@ -534,7 +534,7 @@ environment = SubResource("Environment_trtic")
 transform = Transform3D(0.0687815, 0, 0.997632, 0, 1, 0, -0.997632, 0, 0.0687815, 12.0077, 1.96459, 39.9625)
 
 [node name="entrance" parent="entrance" index="0"]
-transform = Transform3D(1.5, 0, -7.45058e-09, 0, 1.5, 0, 7.45058e-09, 0, 1.5, -0.125744, 0.426942, -1.8238)
+transform = Transform3D(1.5, 0, -1.49012e-08, 0, 1.5, 0, 1.49012e-08, 0, 1.5, -0.0335045, 0.426942, -4.13315)
 surface_material_override/0 = SubResource("ShaderMaterial_wljb1")
 
 [node name="altars" parent="." node_paths=PackedStringArray("score_manager") instance=ExtResource("48_8qswn")]
@@ -575,13 +575,16 @@ door_anim_player = NodePath("../../temple/AnimationPlayer")
 door_open_anim = "open"
 
 [node name="shrine" parent="." instance=ExtResource("24_o8ni1")]
-transform = Transform3D(0.4602, 0, -0.887815, 0, 1, 0, 0.887815, 0, 0.4602, 68.3603, 9.77787, -42.6142)
+transform = Transform3D(0.4602, 0, -0.887815, 0, 1, 0, 0.887815, 0, 0.4602, 72.1321, 9.74645, -41.936)
+
+[node name="MeshInstance3D" parent="shrine" index="0"]
+transform = Transform3D(-0.948777, 0, -0.315947, 0, 1, 0, 0.315947, 0, -0.948777, -0.00777054, 0.181583, 0.113998)
 
 [node name="spawn_pos" parent="shrine" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.809008, 0.535233, -3.05883)
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.588827, 0.535233, 3.09529)
 
 [node name="destination" parent="shrine" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4477, -9.53674e-07, -86.3276)
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -69.1652, 3.62419, 149.226)
 
 [node name="dollbig_weird" parent="." instance=ExtResource("48_fedci")]
 transform = Transform3D(-0.129696, 0, -0.991554, 0, 1, 0, 0.991554, 0, -0.129696, 60.9577, 7.67129, -66.7312)
@@ -766,8 +769,8 @@ range = Vector2(10, 12)
 player = NodePath("../SubViewportContainer/SubViewport/player")
 
 [node name="first_encounter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("55_q8j3a")]
-transform = Transform3D(0.433565, 0, 0.901122, 0, 1, 0, -0.901122, 0, 0.433565, 62.1017, -1.154, 1.94983)
-range = Vector2(14, 15)
+transform = Transform3D(0.650348, 0, 1.35168, 0, 1.5, 0, -1.35168, 0, 0.650348, 65.358, -1.86423, 1.22468)
+range = Vector2(11, 12)
 player = NodePath("../SubViewportContainer/SubViewport/player")
 
 [node name="jumpscare1" parent="." instance=ExtResource("54_q8j3a")]
