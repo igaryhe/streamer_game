@@ -74,8 +74,8 @@ sky_material = SubResource("ProceduralSkyMaterial_dinhu")
 background_mode = 2
 sky = SubResource("Sky_kvuet")
 tonemap_mode = 3
-tonemap_exposure = 1.45
-tonemap_white = 0.95
+tonemap_exposure = 1.17
+tonemap_white = 1.23
 fog_light_color = Color(0.1, 0.1, 0.1, 1)
 fog_density = 0.05
 volumetric_fog_density = 0.0157
@@ -85,9 +85,9 @@ volumetric_fog_emission_energy = 2.0
 volumetric_fog_length = 71.75
 volumetric_fog_sky_affect = 0.18
 adjustment_enabled = true
-adjustment_brightness = 1.07
+adjustment_brightness = 1.14
 adjustment_contrast = 1.08
-adjustment_saturation = 1.11
+adjustment_saturation = 1.04
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wljb1"]
 render_priority = 0
@@ -582,7 +582,7 @@ door_open_anim = "open"
 transform = Transform3D(0.4602, 0, -0.887815, 0, 1, 0, 0.887815, 0, 0.4602, 68.3603, 9.77787, -42.6142)
 
 [node name="spawn_pos" parent="shrine" index="3"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 1.09921, 0.0986013, -1.67664)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.809008, 0.535233, -3.05883)
 
 [node name="destination" parent="shrine" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4477, -9.53674e-07, -86.3276)
@@ -734,20 +734,26 @@ foliage_mesh = ExtResource("38_8qswn")
 metadata/_custom_type_script = "uid://b1v8ou20sltc5"
 
 [node name="coin" parent="." instance=ExtResource("52_pf7vy")]
-transform = Transform3D(0.57958, 0, -0.814915, 0, 1, 0, 0.814915, 0, 0.57958, 88.6798, 10.2009, -86.8664)
+transform = Transform3D(0.57958, 0, -0.814915, 0, 1, 0, 0.814915, 0, 0.57958, 89.3236, 10.2009, -87.2985)
 id = 1
 
 [node name="axe" parent="." instance=ExtResource("52_pf7vy")]
 transform = Transform3D(0.390426, 0, 0.920634, 0, 1, 0, -0.920634, 0, 0.390426, 48.5697, 1.69582, -8.01786)
 
 [node name="shadow" parent="." instance=ExtResource("49_8qswn")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -24.7906, 20.2603, 1.19187)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -34.0234, 22.2337, -3.99985)
+
+[node name="shadow4" parent="." instance=ExtResource("49_8qswn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -33.9315, 22.5188, -4.68399)
 
 [node name="shadow2" parent="." instance=ExtResource("49_8qswn")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -15.9327, 27.7274, 10.6312)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -34.4576, 22.3059, -5.14247)
 interval = 22.0
 visible_duration = 3.0
 initial_delay = 8.0
+
+[node name="shadow3" parent="." instance=ExtResource("49_8qswn")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -33.167, 22.4386, -4.00607)
 
 [node name="anomaly_test" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5858, 3.07282, 35.9673)
@@ -758,12 +764,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_i4re6")
 
 [node name="forest_face" parent="." node_paths=PackedStringArray("player") instance=ExtResource("53_3hbvx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.1933, 8.43075, -62.5322)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 93.965, 8.43075, -56.7752)
+range = Vector2(10, 12)
 player = NodePath("../SubViewportContainer/SubViewport/player")
 
 [node name="first_encounter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("55_q8j3a")]
 transform = Transform3D(0.433565, 0, 0.901122, 0, 1, 0, -0.901122, 0, 0.433565, 62.1017, -1.154, 1.94983)
-range = Vector2(16, 17)
+range = Vector2(14, 15)
 player = NodePath("../SubViewportContainer/SubViewport/player")
 
 [node name="jumpscare1" parent="." instance=ExtResource("54_q8j3a")]
