@@ -734,7 +734,7 @@ foliage_mesh = ExtResource("38_8qswn")
 metadata/_custom_type_script = "uid://b1v8ou20sltc5"
 
 [node name="coin" parent="." instance=ExtResource("52_pf7vy")]
-transform = Transform3D(0.57958, 0, -0.814915, 0, 1, 0, 0.814915, 0, 0.57958, 90.8416, 10.1538, -88.5466)
+transform = Transform3D(0.57958, 0, -0.814915, 0, 1, 0, 0.814915, 0, 0.57958, 88.6798, 10.2009, -86.8664)
 id = 1
 
 [node name="axe" parent="." instance=ExtResource("52_pf7vy")]
