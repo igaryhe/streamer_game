@@ -738,7 +738,7 @@ transform = Transform3D(0.57958, 0, -0.814915, 0, 1, 0, 0.814915, 0, 0.57958, 90
 id = 1
 
 [node name="axe" parent="." instance=ExtResource("52_pf7vy")]
-transform = Transform3D(0.390426, 0, 0.920634, 0, 1, 0, -0.920634, 0, 0.390426, 38.0147, 2.03711, -13.3902)
+transform = Transform3D(0.390426, 0, 0.920634, 0, 1, 0, -0.920634, 0, 0.390426, 48.5697, 1.69582, -8.01786)
 
 [node name="shadow" parent="." instance=ExtResource("49_8qswn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -24.7906, 20.2603, 1.19187)
@@ -762,15 +762,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.1933, 8.43075, -62.5322)
 player = NodePath("../SubViewportContainer/SubViewport/player")
 
 [node name="first_encounter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("55_q8j3a")]
-transform = Transform3D(0.433565, 0, 0.901122, 0, 1, 0, -0.901122, 0, 0.433565, 65.1771, -1.00071, 2.97818)
-range = Vector2(5, 8)
+transform = Transform3D(0.433565, 0, 0.901122, 0, 1, 0, -0.901122, 0, 0.433565, 62.1017, -1.154, 1.94983)
+range = Vector2(16, 17)
 player = NodePath("../SubViewportContainer/SubViewport/player")
 
 [node name="jumpscare1" parent="." instance=ExtResource("54_q8j3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.3394, 2.36316, -8.30264)
 
 [node name="AnimatedSprite3D" parent="jumpscare1" index="0"]
-transform = Transform3D(0.0316201, 0, -0.9995, 0, 1, 0, 0.9995, 0, 0.0316201, -2.11261, 3.28692, 0.517306)
+transform = Transform3D(0.0316201, 0, -0.9995, 0, 1, 0, 0.9995, 0, 0.0316201, -1.5112, 1.85082, 0.0752115)
 
 [node name="AudioStreamPlayer3D" parent="jumpscare1" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14268, 1.46646, 0.250514)
