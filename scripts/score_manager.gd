@@ -70,6 +70,9 @@ func anomaly_observed():
 	ghost_score += anomaly_ghost_score
 	anomaly_timer += anomaly_duration
 
+func _enter_tree() -> void:
+	SLocator.with(self).register(self)
+
 func _ready() -> void:
 	message_buckets[0].weight = 0.8
 	warmup_timer = warmup_duration

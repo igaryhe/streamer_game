@@ -42,6 +42,9 @@ var gravity = 9.8
 @onready var camera_anim = $AnimationPlayer
 var is_front_camera: bool = true
 
+func _enter_tree() -> void:
+	SLocator.with(self).register(self)
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -148,4 +151,3 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
-	

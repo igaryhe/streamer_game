@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=116 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="1_rm0al"]
 [ext_resource type="PackedScene" uid="uid://dsn33qdheab5d" path="res://Meshes/entrance.glb" id="2_1kice"]
@@ -51,7 +51,11 @@
 [ext_resource type="PackedScene" uid="uid://b0vmgwvn1hp8t" path="res://prefabs/first_encounter.tscn" id="55_q8j3a"]
 [ext_resource type="Material" uid="uid://5ns3pespid3a" path="res://materials/dollbig3.tres" id="56_3x28f"]
 [ext_resource type="Script" path="res://scripts/jumpscare_trigger.gd" id="56_ms3bu"]
+[ext_resource type="Script" uid="uid://cwumsdp6636bg" path="res://scripts/ghost_sequence.gd" id="57_7ixpq"]
+[ext_resource type="Script" uid="uid://c20pikh02iuww" path="res://scripts/open_area.gd" id="58_bk1p3"]
 [ext_resource type="Material" uid="uid://tq3wmh24cc2n" path="res://materials/dollbig4.tres" id="58_l6q63"]
+[ext_resource type="Texture2D" uid="uid://c4llvjq8xc3s8" path="res://textures/ani_ghost1.png" id="58_n8ral"]
+[ext_resource type="AudioStream" uid="uid://5mbwise7yr5e" path="res://audio/audio assets/SFX_NvGui_DashLaugh.ogg" id="58_yd4ix"]
 [ext_resource type="Material" uid="uid://ip0gpv0e88yo" path="res://materials/grave1.tres" id="60_l6q63"]
 [ext_resource type="Material" uid="uid://bjaxeflpvsrrh" path="res://materials/grave2.tres" id="62_mmvbu"]
 [ext_resource type="Material" uid="uid://ca6d1f66vlrup" path="res://materials/grave3.tres" id="64_weeiq"]
@@ -234,6 +238,236 @@ size = Vector3(1, 2, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8j3a"]
 size = Vector3(1, 2, 3)
 
+[sub_resource type="Animation" id="Animation_n8ral"]
+resource_name = "ghost_started"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ani_ghost_1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ani_ghost_1/ani_ghost_1_audio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("58_yd4ix")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_yd4ix"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ani_ghost_1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_66xif"]
+_data = {
+&"RESET": SubResource("Animation_yd4ix"),
+&"ghost_started": SubResource("Animation_n8ral")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd4ix"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(0, 0, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66xif"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(540, 0, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnuda"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(1080, 0, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rmfi"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(1620, 0, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbak0"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(2160, 0, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x28f"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(0, 960, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6q63"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(540, 960, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmvbu"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(1080, 960, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weeiq"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(1620, 960, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxocx"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(2160, 960, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nv0b"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(0, 1920, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8oq8"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(540, 1920, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxt1d"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(1080, 1920, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iuns"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(1620, 1920, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gkqi"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(2160, 1920, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_753oq"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(0, 2880, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x338"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(540, 2880, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yg85"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(1080, 2880, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0g06"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(1620, 2880, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gnni"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(2160, 2880, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgxg3"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(0, 3840, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nbsr"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(540, 3840, 540, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkywm"]
+atlas = ExtResource("58_n8ral")
+region = Rect2(1080, 3840, 540, 960)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dku7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd4ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66xif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnuda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rmfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbak0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x28f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6q63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmvbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weeiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxocx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nv0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8oq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxt1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iuns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gkqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_753oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x338")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yg85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0g06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gnni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgxg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nbsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkywm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ixpq"]
+radius = 26.604
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bk1p3"]
+radius = 31.825
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n8ral"]
+radius = 20.144
+
 [node name="game" type="Node3D"]
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
@@ -304,6 +538,7 @@ transform = Transform3D(0.755853, 0, 0.654741, 0, 1, 0, -0.654741, 0, 0.755853, 
 
 [node name="temple_mesh" parent="temple" index="0"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.125729, 0)
+surface_material_override/0 = null
 
 [node name="temple_barrier" parent="temple" index="2"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 8.60138, 1.17047, 2.11356)
@@ -313,6 +548,9 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.301147
 
 [node name="phone" parent="temple" index="7"]
 transform = Transform3D(0.999155, 0, -0.0410911, 0, 1, 0, 0.0410911, 0, 0.999155, -0.291706, 1.21005, -3.11648)
+
+[node name="MeshInstance3D" parent="temple/phone" index="0"]
+surface_material_override/0 = null
 
 [node name="StaticBody3D" parent="temple/phone" index="1" node_paths=PackedStringArray("score_manager")]
 score_manager = NodePath("../../../ScoreManager")
@@ -325,6 +563,9 @@ bus = &"Master"
 
 [node name="well" parent="." instance=ExtResource("53_o8ni1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7568, 14.157, -65.2096)
+
+[node name="mesh" parent="well" index="0"]
+surface_material_override/0 = null
 
 [node name="StaticBody3D" parent="well" index="2" node_paths=PackedStringArray("door_anim_player")]
 door_anim_player = NodePath("../../temple/AnimationPlayer")
@@ -538,7 +779,51 @@ score_manager = NodePath("../ScoreManager")
 transform = Transform3D(0.933085, 0, -0.359655, 0, 1, 0, 0.359655, 0, 0.933085, 1.79837, -2.38419e-07, 0.431276)
 shape = SubResource("BoxShape3D_q8j3a")
 
+[node name="ghost_sequence_1" type="Node3D" parent="." node_paths=PackedStringArray("anim_player", "ghost")]
+script = ExtResource("57_7ixpq")
+anim_player = NodePath("AnimationPlayer")
+ghost = NodePath("ani_ghost_1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ghost_sequence_1"]
+libraries = {
+&"": SubResource("AnimationLibrary_66xif")
+}
+
+[node name="ani_ghost_1" type="AnimatedSprite3D" parent="ghost_sequence_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5681, 10.127, -2.27101)
+visible = false
+centered = false
+offset = Vector2(-300, -50)
+pixel_size = 0.005
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_dku7i")
+autoplay = "default"
+frame_progress = 0.0476359
+
+[node name="ani_ghost_1_audio" type="AudioStreamPlayer3D" parent="ghost_sequence_1/ani_ghost_1"]
+
+[node name="ghost_sequence_2" type="Node3D" parent="."]
+process_mode = 4
+script = ExtResource("57_7ixpq")
+
+[node name="OpenArea" type="Area3D" parent="."]
+script = ExtResource("58_bk1p3")
+
+[node name="OpenArea_1" type="CollisionShape3D" parent="OpenArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0567, 18.8566, -0.270979)
+shape = SubResource("SphereShape3D_7ixpq")
+
+[node name="OpenArea_2" type="CollisionShape3D" parent="OpenArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.2139, -7.62939e-06, -67.5898)
+shape = SubResource("SphereShape3D_bk1p3")
+
+[node name="OpenArea_3" type="CollisionShape3D" parent="OpenArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9543, 18.8566, -11.5842)
+shape = SubResource("SphereShape3D_n8ral")
+
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_body_entered"]
+[connection signal="body_entered" from="OpenArea" to="OpenArea" method="_on_body_entered"]
+[connection signal="body_exited" from="OpenArea" to="OpenArea" method="_on_body_exited"]
 
 [editable path="UI"]
 [editable path="entrance"]
