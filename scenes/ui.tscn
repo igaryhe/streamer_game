@@ -130,7 +130,7 @@ offset_bottom = 40.0
 script = ExtResource("3_yev5y")
 script_uid = "res://data/chats_sacrific.gd"
 
-[node name="UiQ" type="TextureRect" parent="."]
+[node name="UiV" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 878.0
 offset_top = 946.0
