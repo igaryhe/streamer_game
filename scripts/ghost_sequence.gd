@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 		is_started = true
 		set_node_in_front_of_player(player_controller, ghost, appear_length)
 		anim_player.play("ghost_started")
+		score_manager.anomaly_observed()
 
 	if (is_started && !anim_player.is_playing()):
 		set_process(false)
