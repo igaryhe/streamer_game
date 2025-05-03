@@ -16,8 +16,8 @@
 [ext_resource type="ArrayMesh" uid="uid://bkvkjaaqsk2d7" path="res://Meshes/tree1.res" id="20_bhx41"]
 [ext_resource type="PackedScene" uid="uid://bevd0sotxughp" path="res://prefabs/shrine.tscn" id="24_o8ni1"]
 [ext_resource type="PackedScene" uid="uid://cmts7ecfsmrji" path="res://prefabs/tunnel.tscn" id="26_3x28f"]
-[ext_resource type="ArrayMesh" uid="uid://lco25eh0mdqi" path="res://Meshes/grave1.res" id="27_qnb83"]
-[ext_resource type="ArrayMesh" uid="uid://cebrtthvmk4c2" path="res://Meshes/grave2.res" id="28_sww3w"]
+[ext_resource type="ArrayMesh" uid="uid://dy0f4wikmiuab" path="res://Meshes/grave1.res" id="27_qnb83"]
+[ext_resource type="ArrayMesh" uid="uid://dt7ovfxgom4g8" path="res://Meshes/grave2.res" id="28_sww3w"]
 [ext_resource type="PackedScene" uid="uid://biwidmlp4p1bi" path="res://prefabs/cave.tscn" id="28_xbak0"]
 [ext_resource type="PackedScene" uid="uid://duc2jy5525er4" path="res://Meshes/cavealtar.glb" id="33_3hbvx"]
 [ext_resource type="Material" uid="uid://ftira1n4y85o" path="res://materials/grass.tres" id="37_q8j3a"]
@@ -43,7 +43,7 @@
 [ext_resource type="Material" uid="uid://b7pu0dwfmykg5" path="res://materials/stonetower3.tres" id="50_yd4ix"]
 [ext_resource type="Material" uid="uid://cbu0lwihc0a2r" path="res://materials/dollbig1.tres" id="52_0rmfi"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="52_pf7vy"]
-[ext_resource type="PackedScene" uid="uid://bwiqitpldw60u" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
+[ext_resource type="PackedScene" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://2mic4s312506" path="res://prefabs/well.tscn" id="53_o8ni1"]
 [ext_resource type="AudioStream" uid="uid://njdaj4pgdmn7" path="res://audio/audio assets/SFX_AMB_General_Loop.ogg" id="54_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://bgfokwdyhvlj4" path="res://prefabs/jumpscare_1.tscn" id="54_q8j3a"]
@@ -239,7 +239,6 @@ size = Vector3(1, 2, 3)
 [node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("54_3hbvx")
 autoplay = true
-bus = &"ambient"
 
 [node name="ScoreManager" type="Node" parent="." node_paths=PackedStringArray("message_buckets")]
 script = ExtResource("50_rm0al")
@@ -317,6 +316,12 @@ transform = Transform3D(0.999155, 0, -0.0410911, 0, 1, 0, 0.0410911, 0, 0.999155
 
 [node name="StaticBody3D" parent="temple/phone" index="1" node_paths=PackedStringArray("score_manager")]
 score_manager = NodePath("../../../ScoreManager")
+
+[node name="ring_sfx" parent="temple/phone" index="2"]
+bus = &"Master"
+
+[node name="jump_scare_sfx" parent="temple/phone" index="3"]
+bus = &"Master"
 
 [node name="well" parent="." instance=ExtResource("53_o8ni1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7568, 14.157, -65.2096)
@@ -485,7 +490,7 @@ transform = Transform3D(0.57958, 0, -0.814915, 0, 1, 0, 0.814915, 0, 0.57958, 90
 id = 1
 
 [node name="axe" parent="." instance=ExtResource("52_pf7vy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.5774, -3.8524, 7.48558)
+transform = Transform3D(0.390426, 0, 0.920634, 0, 1, 0, -0.920634, 0, 0.390426, 38.0147, 2.03711, -13.3902)
 
 [node name="shadow" parent="." instance=ExtResource("49_8qswn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -24.7906, 20.2603, 1.19187)
@@ -509,15 +514,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.1933, 8.43075, -62.5322)
 player = NodePath("../SubViewportContainer/SubViewport/player")
 
 [node name="first_encounter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("55_q8j3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.9374, -3.8524, 11.9731)
+transform = Transform3D(0.433565, 0, 0.901122, 0, 1, 0, -0.901122, 0, 0.433565, 65.1771, -1.00071, 2.97818)
 range = Vector2(5, 8)
 player = NodePath("../SubViewportContainer/SubViewport/player")
 
 [node name="jumpscare1" parent="." instance=ExtResource("54_q8j3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0947, 2.36316, -8.30264)
 
+[node name="AnimatedSprite3D" parent="jumpscare1" index="0"]
+transform = Transform3D(0.0316201, 0, -0.9995, 0, 1, 0, 0.9995, 0, 0.0316201, 0.510323, 1.24338, -1.23902)
+
+[node name="AudioStreamPlayer3D" parent="jumpscare1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49739, 0.525612, 0.281692)
+
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("sprite_anim", "jump_scare_sfx", "score_manager")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.2616, 2.78792, -8.18262)
+transform = Transform3D(0.973455, 0, 0.228878, 0, 1, 0, -0.228878, 0, 0.973455, 45.5316, 2.78792, -8.34511)
 script = ExtResource("56_ms3bu")
 sprite_anim = NodePath("../jumpscare1/AnimatedSprite3D")
 jump_scare_sfx = NodePath("../jumpscare1/AudioStreamPlayer3D")
