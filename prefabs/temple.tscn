@@ -1,6 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://tpuk6pgci2ke"]
 
 [ext_resource type="ArrayMesh" uid="uid://dtiw0mtalox1y" path="res://Meshes/temple.res" id="1_m874b"]
+[ext_resource type="Material" uid="uid://bicmulue3le6i" path="res://materials/temple.tres" id="2_22ebp"]
 [ext_resource type="PackedScene" uid="uid://dxiddknumosju" path="res://prefabs/temple_barrier.tscn" id="4_pdopi"]
 [ext_resource type="PackedScene" uid="uid://bcc1qiomu0kbh" path="res://prefabs/temple_door.tscn" id="5_ed74b"]
 [ext_resource type="PackedScene" uid="uid://nen0waihosea" path="res://prefabs/phone.tscn" id="7_r7x07"]
@@ -39,49 +40,70 @@ size = Vector3(4.99042, 9.4364, 15.0377)
 [sub_resource type="BoxShape3D" id="BoxShape3D_quc53"]
 size = Vector3(28.6758, 9.82288, 2.36084)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_bhiik"]
-size = Vector3(0.6, 3.6, 2.41748)
-
 [sub_resource type="Animation" id="Animation_kn3sp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("door_root:rotation")
+tracks/0/enabled = true
+tracks/0/path = NodePath("temple_door/mesh:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("temple_door/StaticBody3D:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_hdrd2"]
 resource_name = "open"
-tracks/0/type = "value"
+tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("door_root:rotation")
+tracks/0/path = NodePath("temple_door/open_door_sfx")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.74009, 0)]
-}
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("door_root/temple_door/open_door_sfx")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "clips": [],
 "times": PackedFloat32Array()
 }
-tracks/1/use_blend = true
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("temple_door/mesh:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("temple_door/StaticBody3D:collision_layer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3i2vg"]
 _data = {
@@ -94,6 +116,7 @@ _data = {
 [node name="temple_mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35793e-06, -0.000222445, 8.10623e-05)
 mesh = ExtResource("1_m874b")
+surface_material_override/0 = ExtResource("2_22ebp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -144,20 +167,11 @@ shape = SubResource("BoxShape3D_quc53")
 [node name="temple_barrier" parent="." instance=ExtResource("4_pdopi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98951, 0, 1.88679)
 
-[node name="door_root" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478, 0, -1.34353)
+[node name="temple_door" parent="." instance=ExtResource("5_ed74b")]
+transform = Transform3D(1.1, 0, 0, 0, 1.015, 0, 0, 0, 0.89, 0.766578, -2.38418e-07, -0.03915)
 
-[node name="temple_door" parent="door_root" instance=ExtResource("5_ed74b")]
-transform = Transform3D(1.1, 0, 0, 0, 1.015, 0, 0, 0, 0.89, 0.288578, -2.38418e-07, 1.30438)
-
-[node name="open_door_sfx" type="AudioStreamPlayer3D" parent="door_root/temple_door"]
+[node name="open_door_sfx" type="AudioStreamPlayer3D" parent="temple_door"]
 max_distance = 40.0
-
-[node name="door_collider" type="StaticBody3D" parent="door_root/temple_door"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="door_root/temple_door/door_collider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.200914)
-shape = SubResource("BoxShape3D_bhiik")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -174,3 +188,5 @@ id = 4
 
 [node name="phone" parent="." instance=ExtResource("7_r7x07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22268, 0.994512, -3.09995)
+
+[editable path="temple_door"]
