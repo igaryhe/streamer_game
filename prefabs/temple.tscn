@@ -1,26 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://tpuk6pgci2ke"]
+[gd_scene load_steps=21 format=3 uid="uid://tpuk6pgci2ke"]
 
 [ext_resource type="ArrayMesh" uid="uid://dtiw0mtalox1y" path="res://Meshes/temple.res" id="1_m874b"]
-[ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_pdopi"]
-[ext_resource type="Texture2D" uid="uid://bts0ommm6eabh" path="res://textures/tex1.png" id="3_kn3sp"]
 [ext_resource type="PackedScene" uid="uid://dxiddknumosju" path="res://prefabs/temple_barrier.tscn" id="4_pdopi"]
 [ext_resource type="PackedScene" uid="uid://bcc1qiomu0kbh" path="res://prefabs/temple_door.tscn" id="5_ed74b"]
 [ext_resource type="PackedScene" uid="uid://nen0waihosea" path="res://prefabs/phone.tscn" id="7_r7x07"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="9_kn3sp"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3i2vg"]
-render_priority = 0
-shader = ExtResource("2_pdopi")
-shader_parameter/albedo = ExtResource("3_kn3sp")
-shader_parameter/jitter = 0.5
-shader_parameter/jitter_z_coordinate = true
-shader_parameter/jitter_depth_independent = true
-shader_parameter/affine_texture_mapping = true
-shader_parameter/affine_texture_intensity = -2.0
-shader_parameter/alpha_scissor = 0.599
-shader_parameter/albedo_color = Color(1, 1, 1, 1)
-shader_parameter/emission_color = Color(1, 1, 1, 1)
-shader_parameter/texture_size = Vector2(1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r7x07"]
 size = Vector3(1.4481, 4.54053, 10.3643)
@@ -56,13 +40,13 @@ size = Vector3(4.99042, 9.4364, 15.0377)
 size = Vector3(28.6758, 9.82288, 2.36084)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhiik"]
-size = Vector3(0.6, 3.6, 2.156)
+size = Vector3(0.6, 3.6, 2.41748)
 
 [sub_resource type="Animation" id="Animation_kn3sp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("door_root:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -110,7 +94,6 @@ _data = {
 [node name="temple_mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35793e-06, -0.000222445, 8.10623e-05)
 mesh = ExtResource("1_m874b")
-surface_material_override/0 = SubResource("ShaderMaterial_3i2vg")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -162,10 +145,10 @@ shape = SubResource("BoxShape3D_quc53")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98951, 0, 1.88679)
 
 [node name="door_root" type="Node3D" parent="."]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.478428, 4.76837e-07, -1.3218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478, 0, -1.34353)
 
 [node name="temple_door" parent="door_root" instance=ExtResource("5_ed74b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.288578, -2.38418e-07, 1.19183)
+transform = Transform3D(1.1, 0, 0, 0, 1.015, 0, 0, 0, 0.89, 0.288578, -2.38418e-07, 1.30438)
 
 [node name="open_door_sfx" type="AudioStreamPlayer3D" parent="door_root/temple_door"]
 max_distance = 40.0
@@ -173,7 +156,7 @@ max_distance = 40.0
 [node name="door_collider" type="StaticBody3D" parent="door_root/temple_door"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door_root/temple_door/door_collider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.200914)
 shape = SubResource("BoxShape3D_bhiik")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -186,8 +169,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44664, 0.722374, -2.32834)
 id = 2
 
 [node name="amulet" parent="." instance=ExtResource("9_kn3sp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00222, 2.38419e-07, 1.19599)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48592, 2.38419e-07, -3.33218)
 id = 4
 
 [node name="phone" parent="." instance=ExtResource("7_r7x07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22268, 1.08473, -3.09995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22268, 0.994512, -3.09995)

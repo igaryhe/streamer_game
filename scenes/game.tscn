@@ -1,10 +1,11 @@
-[gd_scene load_steps=82 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=83 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="1_rm0al"]
 [ext_resource type="PackedScene" uid="uid://dsn33qdheab5d" path="res://Meshes/entrance.glb" id="2_1kice"]
 [ext_resource type="PackedScene" uid="uid://bnjj0kig7k7u8" path="res://prefabs/player.tscn" id="3_lnu2h"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="4_sgl2t"]
 [ext_resource type="Texture2D" uid="uid://chwtd1clke1h5" path="res://textures/tex3.png" id="5_i4re6"]
+[ext_resource type="AudioStream" uid="uid://38w8rvflcio0" path="res://audio/audio assets/SFX_INT_PhoneSpeaker.ogg" id="10_7ixpq"]
 [ext_resource type="Script" uid="uid://bvtkimldgx6i8" path="res://addons/SimpleTerrain/SimpleTerrain.gd" id="10_vtaks"]
 [ext_resource type="Texture2D" uid="uid://dnjvsm44scn45" path="res://textures/G0.png" id="11_trtic"]
 [ext_resource type="Texture2D" uid="uid://dw7pctovyu65n" path="res://textures/G1.png" id="12_ir15t"]
@@ -308,11 +309,23 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.125
 [node name="temple_barrier" parent="temple" index="2"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 8.60138, 1.17047, 2.11356)
 
+[node name="door_root" parent="temple" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1.08, 0, 0, 0, 1, 0.536335, -0.128161, -1.36618)
+
 [node name="temple_door" parent="temple/door_root" index="0"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.301147, 0.260045, 1.33315)
 
+[node name="door_collider" parent="temple/door_root/temple_door" index="3"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.103363, 0, -0.0571194)
+
+[node name="amulet" parent="temple" index="6"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -5.33163, -0.045536, -3.37047)
+
 [node name="phone" parent="temple" index="7"]
-transform = Transform3D(0.999155, 0, -0.0410911, 0, 1, 0, 0.0410911, 0, 0.999155, -0.291706, 1.21005, -3.11648)
+transform = Transform3D(1.09907, 0, -0.0452003, 0, 1.1, 0, 0.0452003, 0, 1.09907, -0.291706, 1.11736, -3.11648)
+
+[node name="MeshInstance3D" parent="temple/phone" index="0"]
+surface_material_override/0 = null
 
 [node name="StaticBody3D" parent="temple/phone" index="1" node_paths=PackedStringArray("score_manager")]
 score_manager = NodePath("../../../ScoreManager")
@@ -321,6 +334,7 @@ score_manager = NodePath("../../../ScoreManager")
 bus = &"Master"
 
 [node name="jump_scare_sfx" parent="temple/phone" index="3"]
+stream = ExtResource("10_7ixpq")
 bus = &"Master"
 
 [node name="well" parent="." instance=ExtResource("53_o8ni1")]
@@ -486,11 +500,11 @@ foliage_mesh = ExtResource("38_8qswn")
 metadata/_custom_type_script = "uid://b1v8ou20sltc5"
 
 [node name="coin" parent="." instance=ExtResource("52_pf7vy")]
-transform = Transform3D(0.57958, 0, -0.814915, 0, 1, 0, 0.814915, 0, 0.57958, 90.8416, 10.1538, -88.5466)
+transform = Transform3D(0.57958, 0, -0.814915, 0, 1, 0, 0.814915, 0, 0.57958, 91.0779, 10.1538, -88.8084)
 id = 1
 
 [node name="axe" parent="." instance=ExtResource("52_pf7vy")]
-transform = Transform3D(0.390426, 0, 0.920634, 0, 1, 0, -0.920634, 0, 0.390426, 38.0147, 2.03711, -13.3902)
+transform = Transform3D(0.390426, 0, 0.920634, 0, 1, 0, -0.920634, 0, 0.390426, 33.3642, 2.86607, -13.098)
 
 [node name="shadow" parent="." instance=ExtResource("49_8qswn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -24.7906, 20.2603, 1.19187)
@@ -519,16 +533,16 @@ range = Vector2(5, 8)
 player = NodePath("../SubViewportContainer/SubViewport/player")
 
 [node name="jumpscare1" parent="." instance=ExtResource("54_q8j3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0947, 2.36316, -8.30264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.467, 0.459873, -8.30264)
 
 [node name="AnimatedSprite3D" parent="jumpscare1" index="0"]
-transform = Transform3D(0.0316201, 0, -0.9995, 0, 1, 0, 0.9995, 0, 0.0316201, 0.510323, 1.24338, -1.23902)
+transform = Transform3D(-0.154848, 0, -0.987938, 0, 1, 0, 0.987938, 0, -0.154848, -3.15855, 3.95807, 0.154916)
 
 [node name="AudioStreamPlayer3D" parent="jumpscare1" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49739, 0.525612, 0.281692)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44337, 0.525612, 0.281692)
 
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("sprite_anim", "jump_scare_sfx", "score_manager")]
-transform = Transform3D(0.973455, 0, 0.228878, 0, 1, 0, -0.228878, 0, 0.973455, 45.5316, 2.78792, -8.34511)
+transform = Transform3D(0.973455, 0, 0.228878, 0, 1, 0, -0.228878, 0, 0.973455, 39.785, 3.83872, -8.34511)
 script = ExtResource("56_ms3bu")
 sprite_anim = NodePath("../jumpscare1/AnimatedSprite3D")
 jump_scare_sfx = NodePath("../jumpscare1/AudioStreamPlayer3D")
