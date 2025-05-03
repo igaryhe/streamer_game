@@ -691,8 +691,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.131315)
 visible = false
 
+[node name="light2" type="SpotLight3D" parent="head/back_camera"]
+transform = Transform3D(0.952231, 0, 0.305379, 0, 1, 0, -0.305379, 0, 0.952231, 9.27419e-08, 0, -1.06084)
+light_energy = 12.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.25
+shadow_enabled = true
+spot_range = 20.0
+spot_attenuation = 0.39
+spot_angle = 40.8
+spot_angle_attenuation = 4.59479
+
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="head/back_camera"]
-transform = Transform3D(0.0999962, -0.000872652, 0, 0.000872652, 0.0999962, 0, 0, 0, 0.1, 0.111, 0.01, -0.3)
+transform = Transform3D(0.0999962, -0.000872652, 0, 0.000872652, 0.0999962, 0, 0, 0, 0.1, 0.171, 0.01, -0.3)
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_ht1c8")
 autoplay = "default"
