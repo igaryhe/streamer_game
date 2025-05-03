@@ -112,7 +112,8 @@ func _physics_process(delta):
 			if collider.can_interact(holding_item):
 				if interacted:
 					collider.interact(holding_item)
-					holding_item = -1
+					if collider.expected_item_ids.size() > 0:
+						holding_item = -1
 			else:
 				hand.visible = false
 		elif collider is CollisionObject3D and collider.is_in_group("item") and interacted:
