@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=115 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="1_rm0al"]
 [ext_resource type="PackedScene" uid="uid://dsn33qdheab5d" path="res://Meshes/entrance.glb" id="2_1kice"]
@@ -19,7 +19,6 @@
 [ext_resource type="ArrayMesh" uid="uid://dy0f4wikmiuab" path="res://Meshes/grave1.res" id="27_qnb83"]
 [ext_resource type="ArrayMesh" uid="uid://dt7ovfxgom4g8" path="res://Meshes/grave2.res" id="28_sww3w"]
 [ext_resource type="PackedScene" uid="uid://biwidmlp4p1bi" path="res://prefabs/cave.tscn" id="28_xbak0"]
-[ext_resource type="PackedScene" uid="uid://duc2jy5525er4" path="res://Meshes/cavealtar.glb" id="33_3hbvx"]
 [ext_resource type="Material" uid="uid://ftira1n4y85o" path="res://materials/grass.tres" id="37_q8j3a"]
 [ext_resource type="ArrayMesh" uid="uid://dets66ljk1occ" path="res://Meshes/grave3.res" id="38_8qswn"]
 [ext_resource type="ArrayMesh" uid="uid://dyeqw8srdji8h" path="res://Meshes/stonetower1.res" id="38_h3rex"]
@@ -550,9 +549,6 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.125
 [node name="temple_barrier" parent="temple" index="2"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 8.60138, 1.17047, 2.11356)
 
-[node name="temple_door" parent="temple/door_root" index="0"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.301147, 0.260045, 1.33315)
-
 [node name="phone" parent="temple" index="7"]
 transform = Transform3D(0.999155, 0, -0.0410911, 0, 1, 0, 0.0410911, 0, 0.999155, -0.291706, 1.21005, -3.11648)
 
@@ -610,9 +606,6 @@ score_manager = NodePath("../../ScoreManager")
 
 [node name="cave" parent="." instance=ExtResource("28_xbak0")]
 transform = Transform3D(-0.346526, 0, 0.93804, 0, 1, 0, -0.93804, 0, -0.346526, -56.8537, 26.7409, 19.2562)
-
-[node name="cavealtar" parent="." instance=ExtResource("33_3hbvx")]
-transform = Transform3D(0.230627, 0, -0.973042, 0, 1, 0, 0.973042, 0, 0.230627, -42.821, 26.8135, 28.7498)
 
 [node name="terrain" type="Node3D" parent="."]
 script = ExtResource("10_vtaks")
@@ -860,6 +853,7 @@ shape = SubResource("SphereShape3D_n8ral")
 [editable path="UI"]
 [editable path="entrance"]
 [editable path="temple"]
+[editable path="temple/temple_door"]
 [editable path="temple/phone"]
 [editable path="well"]
 [editable path="shrine"]
