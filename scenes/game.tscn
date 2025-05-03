@@ -43,7 +43,7 @@
 [ext_resource type="Material" uid="uid://b7pu0dwfmykg5" path="res://materials/stonetower3.tres" id="50_yd4ix"]
 [ext_resource type="Material" uid="uid://cbu0lwihc0a2r" path="res://materials/dollbig1.tres" id="52_0rmfi"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="52_pf7vy"]
-[ext_resource type="PackedScene" uid="uid://bwiqitpldw60u" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
+[ext_resource type="PackedScene" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://2mic4s312506" path="res://prefabs/well.tscn" id="53_o8ni1"]
 [ext_resource type="AudioStream" uid="uid://njdaj4pgdmn7" path="res://audio/audio assets/SFX_AMB_General_Loop.ogg" id="54_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://bgfokwdyhvlj4" path="res://prefabs/jumpscare_1.tscn" id="54_q8j3a"]
@@ -767,16 +767,16 @@ range = Vector2(5, 8)
 player = NodePath("../SubViewportContainer/SubViewport/player")
 
 [node name="jumpscare1" parent="." instance=ExtResource("54_q8j3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0947, 2.36316, -8.30264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.3394, 2.36316, -8.30264)
 
 [node name="AnimatedSprite3D" parent="jumpscare1" index="0"]
-transform = Transform3D(0.0316201, 0, -0.9995, 0, 1, 0, 0.9995, 0, 0.0316201, 0.510323, 1.24338, -1.23902)
+transform = Transform3D(0.0316201, 0, -0.9995, 0, 1, 0, 0.9995, 0, 0.0316201, -2.11261, 3.28692, 0.517306)
 
 [node name="AudioStreamPlayer3D" parent="jumpscare1" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49739, 0.525612, 0.281692)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14268, 1.46646, 0.250514)
 
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("sprite_anim", "jump_scare_sfx", "score_manager")]
-transform = Transform3D(0.973455, 0, 0.228878, 0, 1, 0, -0.228878, 0, 0.973455, 45.5316, 2.78792, -8.34511)
+transform = Transform3D(0.973455, 0, 0.228878, 0, 1, 0, -0.228878, 0, 0.973455, 39.8001, 3.95448, -8.00243)
 script = ExtResource("56_ms3bu")
 sprite_anim = NodePath("../jumpscare1/AnimatedSprite3D")
 jump_scare_sfx = NodePath("../jumpscare1/AudioStreamPlayer3D")
