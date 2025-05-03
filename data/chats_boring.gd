@@ -9,5 +9,5 @@ var contents = [
 	[6,"就这", ChatMessage.MessageType.MESSAGE],
 	[7,"溜了溜了", ChatMessage.MessageType.MESSAGE],
 	[8,"没活了哇", ChatMessage.MessageType.MESSAGE],
-	[2,"别在这瞎溜达了", ChatMessage.MessageType.MESSAGE],
+	[2,"别瞎溜达了", ChatMessage.MessageType.MESSAGE],
 ]

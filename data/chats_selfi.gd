@@ -3,7 +3,7 @@ extends Resource
 ## [(权重),(文本), (样式)]
 var contents = [
 	[2,"来了来了", ChatMessage.MessageType.MESSAGE],
-	[6,"好好好好好好好好好好好好好好好", ChatMessage.MessageType.MESSAGE],
+	[6,"好好好好好好好好好", ChatMessage.MessageType.MESSAGE],
 	[2,"我现在双手打字", ChatMessage.MessageType.MESSAGE],
 	[8,"好耶", ChatMessage.MessageType.MESSAGE],
 	[5,"主播人美心善", ChatMessage.MessageType.MESSAGE],
