@@ -8,8 +8,14 @@ extends Node3D
 @export var anim_player: AnimationPlayer
 @export var ghost: Node3D
 @export var appear_length: float = 10
+@export var move_toward_player: bool = false
+@export var move_toward_player_duration: float = 5
 var is_started: bool = false
 
+var time_elapsed: float = 0
+
+func _ready() -> void:
+	move_toward_player_duration = anim_player.get_animation("ghost_started").length
 
 func _process(delta: float) -> void:
 	if (!is_started
@@ -19,7 +25,18 @@ func _process(delta: float) -> void:
 		set_node_in_front_of_player(player_controller, ghost, appear_length)
 		anim_player.play("ghost_started")
 		score_manager.anomaly_observed()
+		time_elapsed = 0
 
+	if (is_started && move_toward_player):
+		time_elapsed += delta
+		var remaining_time = move_toward_player_duration - time_elapsed
+		var target_position = player_controller.global_position
+		
+		var distance = ghost.global_position.distance_to(target_position)
+		if distance > 0 and remaining_time > 0:
+			var speed = distance / remaining_time
+			var direction = (target_position - ghost.global_position).normalized()
+			ghost.global_position += direction * speed * delta
 	if (is_started && !anim_player.is_playing()):
 		set_process(false)
 
