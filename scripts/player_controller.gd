@@ -42,6 +42,8 @@ var gravity = 9.8
 @onready var camera_anim = $AnimationPlayer
 var is_front_camera: bool = true
 
+var lock_movement: bool = false
+
 func _enter_tree() -> void:
 	SLocator.with(self).register(self)
 
@@ -69,7 +71,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		
-	if (!is_front_camera): return
+	if (!is_front_camera || lock_movement): return
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():

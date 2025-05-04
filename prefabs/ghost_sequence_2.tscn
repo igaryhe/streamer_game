@@ -102,14 +102,20 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(5.46667, 7.73333, 17),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(5.4, 5.46667, 7.73333, 8, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
+"args": [true],
+"method": &"locked_player_movement"
+}, {
 "args": [],
 "method": &"_teleport_ghost"
 }, {
 "args": [],
 "method": &"_move_toward"
+}, {
+"args": [false],
+"method": &"locked_player_movement"
 }, {
 "args": [],
 "method": &"_ghost_end_game"

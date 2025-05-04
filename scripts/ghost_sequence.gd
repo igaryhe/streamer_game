@@ -72,3 +72,6 @@ func set_node_in_front_of_player(player: Node3D, target: Node3D, length: float) 
 
 func _ghost_end_game() -> void:
 	game_state.set_progression(GameStates.Progression.DeadEnd1)
+
+func locked_player_movement(val: bool):
+	player_controller.lock_movement = val
