@@ -1,10 +1,11 @@
-[gd_scene load_steps=88 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=91 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="1_rm0al"]
 [ext_resource type="PackedScene" uid="uid://dsn33qdheab5d" path="res://Meshes/entrance.glb" id="2_1kice"]
 [ext_resource type="PackedScene" uid="uid://bnjj0kig7k7u8" path="res://prefabs/player.tscn" id="3_lnu2h"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="4_sgl2t"]
 [ext_resource type="Texture2D" uid="uid://chwtd1clke1h5" path="res://textures/tex3.png" id="5_i4re6"]
+[ext_resource type="Texture2D" uid="uid://bts0ommm6eabh" path="res://textures/tex1.png" id="10_66xif"]
 [ext_resource type="Script" uid="uid://bvtkimldgx6i8" path="res://addons/SimpleTerrain/SimpleTerrain.gd" id="10_vtaks"]
 [ext_resource type="AudioStream" uid="uid://38w8rvflcio0" path="res://audio/audio assets/SFX_INT_PhoneSpeaker.ogg" id="10_yd4ix"]
 [ext_resource type="Texture2D" uid="uid://dnjvsm44scn45" path="res://textures/G0.png" id="11_trtic"]
@@ -92,6 +93,34 @@ adjustment_saturation = 0.9
 render_priority = 0
 shader = ExtResource("4_sgl2t")
 shader_parameter/albedo = ExtResource("5_i4re6")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnuda"]
+render_priority = 0
+shader = ExtResource("4_sgl2t")
+shader_parameter/albedo = ExtResource("10_66xif")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 0.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yd4ix"]
+render_priority = 0
+shader = ExtResource("4_sgl2t")
+shader_parameter/albedo = ExtResource("10_66xif")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
@@ -316,9 +345,13 @@ transform = Transform3D(0.755853, 0, 0.654741, 0, 1, 0, -0.654741, 0, 0.755853, 
 
 [node name="temple_mesh" parent="temple" index="0"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.125729, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_bnuda")
 
 [node name="temple_barrier" parent="temple" index="2"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 8.60138, 1.17047, 2.11356)
+
+[node name="mesh" parent="temple/temple_door" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_yd4ix")
 
 [node name="phone" parent="temple" index="7"]
 transform = Transform3D(0.999155, 0, -0.0410911, 0, 1, 0, 0.0410911, 0, 0.999155, -0.291706, 1.21005, -3.11648)
