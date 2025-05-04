@@ -145,7 +145,7 @@ func _physics_process(delta):
 	
 	# change holding item
 	if holding_item >= 0:
-		holding_item_view.texture = items.items[holding_item].texture
+		holding_item_view.texture = items.items[holding_item].holding_texture
 	else:
 		holding_item_view.texture = null
 	# TODO(dan): adjust hand state
