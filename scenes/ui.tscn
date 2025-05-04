@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8pa6mj0aemre"]
+[gd_scene load_steps=13 format=3 uid="uid://b8pa6mj0aemre"]
 
 [ext_resource type="Script" uid="uid://daq0vbhmpvk6o" path="res://scripts/ui/game_progression.gd" id="1_8dubc"]
 [ext_resource type="Script" uid="uid://dyi0cd8ko2s2o" path="res://scripts/chat/chat_window.gd" id="1_nt7q6"]
+[ext_resource type="PackedScene" uid="uid://cgl6djgj513mj" path="res://prefabs/baby.tscn" id="2_vdcm2"]
 [ext_resource type="PackedScene" uid="uid://bhw73ka4drv60" path="res://prefabs/chat_message.tscn" id="2_x4jx1"]
-[ext_resource type="Script" uid="uid://d3jnm4ktx8f26" path="res://scripts/chat/viewer_label.gd" id="3_gdt2y"]
+[ext_resource type="Script" path="res://scripts/chat/viewer_label.gd" id="3_gdt2y"]
 [ext_resource type="Script" uid="uid://dacou1axop0p3" path="res://scripts/chat/message_flow.gd" id="3_yev5y"]
 [ext_resource type="Texture2D" uid="uid://cukx871nqvnst" path="res://textures/UI_Q.png" id="5_wm3ai"]
 [ext_resource type="Texture2D" uid="uid://cqg645y6hw5x3" path="res://textures/end1.jpg" id="6_p7vwb"]
@@ -43,6 +44,9 @@ dead_end_1 = NodePath("DeadEnd1")
 dead_end_2 = NodePath("DeadEnd2")
 game_finished = NodePath("Finished")
 chat_window = NodePath("ChatWindow")
+
+[node name="baby" parent="." instance=ExtResource("2_vdcm2")]
+layout_mode = 1
 
 [node name="UiV" type="TextureRect" parent="."]
 layout_mode = 1
