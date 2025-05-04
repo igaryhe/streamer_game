@@ -6,7 +6,12 @@ extends Interactable
 @export var doll_spawn_pos: Node3D
 @export var doll_prefab: PackedScene
 
+var interacted: bool = false
+
 func interact(item_id: int):
+	if interacted:
+		return
+	interacted = true
 	ambient.stop()
 	sfx.play()
 	for light in lights:
