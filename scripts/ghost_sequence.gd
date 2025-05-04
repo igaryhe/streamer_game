@@ -8,29 +8,25 @@ extends Node3D
 @export var anim_player: AnimationPlayer
 @export var ghost: Node3D
 @export var appear_length: float = 10
-@export var move_toward_player: bool = false
-@export var move_toward_player_duration: float = 5
+var move_toward_player: bool = false
+@export var move_toward_player_duration: float = 1
+@export var move_to_offset = Vector3.ZERO
 var is_started: bool = false
 
 var time_elapsed: float = 0
 
-func _ready() -> void:
-	move_toward_player_duration = anim_player.get_animation("ghost_started").length
 
 func _process(delta: float) -> void:
 	if (!is_started
 		&& score_manager.ghost_score >= score_watch_value
 		&& open_area.is_player_inside):
 		is_started = true
-		set_node_in_front_of_player(player_controller, ghost, appear_length)
 		anim_player.play("ghost_started")
-		score_manager.anomaly_observed()
-		time_elapsed = 0
 
 	if (is_started && move_toward_player):
 		time_elapsed += delta
 		var remaining_time = move_toward_player_duration - time_elapsed
-		var target_position = player_controller.global_position
+		var target_position = player_controller.global_position + move_to_offset
 		
 		var distance = ghost.global_position.distance_to(target_position)
 		if distance > 0 and remaining_time > 0:
@@ -39,6 +35,15 @@ func _process(delta: float) -> void:
 			ghost.global_position += direction * speed * delta
 	if (is_started && !anim_player.is_playing()):
 		set_process(false)
+
+
+func _teleport_ghost() -> void:
+	set_node_in_front_of_player(player_controller, ghost, appear_length)
+	score_manager.anomaly_observed()
+
+func _move_toward() -> void:
+	time_elapsed = 0
+	move_toward_player = true
 
 func set_node_in_front_of_player(player: Node3D, target: Node3D, length: float) -> void:
 	var camera: Camera3D = player.camera
