@@ -264,7 +264,7 @@ anim_player = NodePath("AnimationPlayer")
 ghost = NodePath("ani_ghost")
 appear_length = 8.0
 move_toward_player_duration = 0.3
-move_to_offset = Vector3(0.5, -2.8, 1)
+move_to_offset = Vector3(0.5, -2.8, 0.6)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
