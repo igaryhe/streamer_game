@@ -49,6 +49,9 @@ chat_window = NodePath("ChatWindow")
 [node name="baby" parent="." instance=ExtResource("2_vdcm2")]
 layout_mode = 1
 
+[node name="happy" parent="baby" index="0"]
+scale = Vector2(0.855, 0.855)
+
 [node name="UiV" type="TextureRect" parent="." node_paths=PackedStringArray("baby_anim")]
 layout_mode = 1
 anchors_preset = 7
