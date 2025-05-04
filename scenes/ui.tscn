@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8pa6mj0aemre"]
+[gd_scene load_steps=7 format=3 uid="uid://b8pa6mj0aemre"]
 
 [ext_resource type="Script" uid="uid://dyi0cd8ko2s2o" path="res://scripts/chat/chat_window.gd" id="1_nt7q6"]
 [ext_resource type="PackedScene" uid="uid://bhw73ka4drv60" path="res://prefabs/chat_message.tscn" id="2_x4jx1"]
 [ext_resource type="Script" uid="uid://d3jnm4ktx8f26" path="res://scripts/chat/viewer_label.gd" id="3_gdt2y"]
 [ext_resource type="Script" uid="uid://dacou1axop0p3" path="res://scripts/chat/message_flow.gd" id="3_yev5y"]
+[ext_resource type="Texture2D" uid="uid://cukx871nqvnst" path="res://textures/UI_Q.png" id="5_wm3ai"]
 
 [sub_resource type="GDScript" id="GDScript_x4jx1"]
 script/source = "extends Control
@@ -128,3 +129,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_yev5y")
 script_uid = "res://data/chats_sacrific.gd"
+
+[node name="UiV" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 905.0
+offset_top = 940.0
+offset_right = 981.0
+offset_bottom = 1009.0
+texture = ExtResource("5_wm3ai")

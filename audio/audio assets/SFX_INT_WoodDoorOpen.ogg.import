@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cxoaqfflniaee"
+path="res://.godot/imported/SFX_INT_WoodDoorOpen.ogg-ded8fb4d7083cc714e39834b4eab5158.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/audio assets/SFX_INT_WoodDoorOpen.ogg"
+dest_files=["res://.godot/imported/SFX_INT_WoodDoorOpen.ogg-ded8fb4d7083cc714e39834b4eab5158.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
