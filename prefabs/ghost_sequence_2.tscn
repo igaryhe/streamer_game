@@ -506,11 +506,11 @@ animations = [{
 
 [node name="ghost_sequence_2" type="Node3D" node_paths=PackedStringArray("anim_player", "ghost")]
 script = ExtResource("1_eiifs")
-score_watch_value = 50.0
+score_watch_value = 30.0
 anim_player = NodePath("AnimationPlayer")
 ghost = NodePath("ani_ghost")
+appear_offset = Vector3(50, 60, 8)
 move_toward_player_duration = 0.3
-move_to_offset = Vector3(0.5, -2.8, 0.6)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
