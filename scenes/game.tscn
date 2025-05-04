@@ -853,15 +853,15 @@ frame_progress = 0.0476359
 script = ExtResource("58_bk1p3")
 
 [node name="OpenArea_1" type="CollisionShape3D" parent="OpenArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0567, 18.8566, -0.270979)
+transform = Transform3D(1.085, 0, 0, 0, 1.085, 0, 0, 0, 1.085, -10.4789, 18.8566, -2.19144)
 shape = SubResource("SphereShape3D_7ixpq")
 
 [node name="OpenArea_2" type="CollisionShape3D" parent="OpenArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.2139, -7.62939e-06, -67.5898)
+transform = Transform3D(1.095, 0, 0, 0, 1.095, 0, 0, 0, 1.095, 82.6198, -7.62939e-06, -68.5942)
 shape = SubResource("SphereShape3D_bk1p3")
 
 [node name="OpenArea_3" type="CollisionShape3D" parent="OpenArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9543, 18.8566, -11.5842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4735, 15.0108, -25.3099)
 shape = SubResource("SphereShape3D_n8ral")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_body_entered"]
