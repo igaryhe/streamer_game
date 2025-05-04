@@ -1,10 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8pa6mj0aemre"]
+[gd_scene load_steps=10 format=3 uid="uid://b8pa6mj0aemre"]
 
+[ext_resource type="Script" uid="uid://daq0vbhmpvk6o" path="res://scripts/ui/game_progression.gd" id="1_8dubc"]
 [ext_resource type="Script" uid="uid://dyi0cd8ko2s2o" path="res://scripts/chat/chat_window.gd" id="1_nt7q6"]
 [ext_resource type="PackedScene" uid="uid://bhw73ka4drv60" path="res://prefabs/chat_message.tscn" id="2_x4jx1"]
 [ext_resource type="Script" uid="uid://d3jnm4ktx8f26" path="res://scripts/chat/viewer_label.gd" id="3_gdt2y"]
 [ext_resource type="Script" uid="uid://dacou1axop0p3" path="res://scripts/chat/message_flow.gd" id="3_yev5y"]
 [ext_resource type="Texture2D" uid="uid://cukx871nqvnst" path="res://textures/UI_Q.png" id="5_wm3ai"]
+
+[sub_resource type="Gradient" id="Gradient_8dubc"]
+offsets = PackedFloat32Array(0, 0.592476)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.71, 0.71, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p7vwb"]
+gradient = SubResource("Gradient_8dubc")
+use_hdr = true
+fill_to = Vector2(0, 1)
 
 [sub_resource type="GDScript" id="GDScript_x4jx1"]
 script/source = "extends Control
@@ -25,7 +35,7 @@ func _process(delta: float) -> void:
 	
 "
 
-[node name="UI" type="Control"]
+[node name="UI" type="Control" node_paths=PackedStringArray("dead_end_1", "dead_end_2", "game_finished", "chat_window")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +43,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_8dubc")
+dead_end_1 = NodePath("DeadEnd1")
+dead_end_2 = NodePath("DeadEnd2")
+game_finished = NodePath("Finished")
+chat_window = NodePath("ChatWindow")
+
+[node name="UiV" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -115.0
+offset_right = 38.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_wm3ai")
 
 [node name="ChatWindow" type="Control" parent="." node_paths=PackedStringArray("target")]
 custom_minimum_size = Vector2(300, 0)
@@ -89,6 +119,113 @@ theme_override_font_sizes/font_size = 28
 text = "观看人数：9999"
 script = ExtResource("3_gdt2y")
 
+[node name="DeadEnd1" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="TextureRect" parent="DeadEnd1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_p7vwb")
+
+[node name="Label" type="RichTextLabel" parent="DeadEnd1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -583.0
+offset_top = -88.0
+offset_right = 686.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 126
+bbcode_enabled = true
+text = "[wave amp=100.0 freq=5.0 connected=1]主播正在俯卧撑热身[/wave]"
+
+[node name="DeadEnd2" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="TextureRect" parent="DeadEnd2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_p7vwb")
+
+[node name="Label" type="RichTextLabel" parent="DeadEnd2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -583.0
+offset_top = -88.0
+offset_right = 686.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 76
+bbcode_enabled = true
+text = "您的房间已被[color=red]锁定[/color],如有请查看规范"
+
+[node name="Finished" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="TextureRect" parent="Finished"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_p7vwb")
+
+[node name="Label" type="RichTextLabel" parent="Finished"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -636.0
+offset_top = -470.0
+offset_right = 633.0
+offset_bottom = -277.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/normal_font_size = 76
+bbcode_enabled = true
+text = "直播已结束"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="DEV" type="Control" parent="."]
 process_mode = 4
 anchors_preset = 0
@@ -129,11 +266,3 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_yev5y")
 script_uid = "res://data/chats_sacrific.gd"
-
-[node name="UiV" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 905.0
-offset_top = 940.0
-offset_right = 981.0
-offset_bottom = 1009.0
-texture = ExtResource("5_wm3ai")
