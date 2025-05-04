@@ -1,6 +1,14 @@
 class_name ScoreManager
 extends Node
 
+enum baby_state_t {
+	happy,
+	normal,
+	sad
+}
+
+var baby_state: baby_state_t = baby_state_t.normal
+
 @export var player: PlayerController
 
 @export var init_score: float
@@ -14,7 +22,6 @@ extends Node
 # for the tiny figure UI
 @export_group("figure")
 @export var positive_state_threshold: float
-@export var neutural_state_threshold: float
 @export var negative_state_threshold: float
 
 # selfie
@@ -78,19 +85,31 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	message_buckets[0].weight = 0.8
 	warmup_timer = warmup_duration
+	score = init_score
 
 func _process(delta: float) -> void:
+	# update baby state
+	if score < negative_state_threshold:
+		baby_state = baby_state_t.sad
+	elif score < positive_state_threshold:
+		baby_state = baby_state_t.normal
+	else:
+		baby_state = baby_state_t.happy
 	# warmup & boring
 	warmup_timer = clamp(warmup_timer - delta, 0, warmup_duration)
 	message_buckets[0].weight = clamp(warmup_timer / warmup_decrease_duration, 0, 0.8)
 	if warmup_timer < warmup_decrease_duration:
 		message_buckets[1].weight = 0.2
+	
+	if warmup_timer == 0:
+		score -= natural_decay_speed * delta
 
 	# selfie logic
 	can_selfie = score < selfie_threshold
 	if is_selfing:
 		selfie_caught_rate = clamp(selfie_caught_rate + selfie_caught_rate_increase_speed * delta, 0, 1)
 		message_buckets[3].weight = clamp(message_buckets[3].weight + selfie_chat_weight_increase_speed * delta, 0, 1)
+		score += selfie_increase_speed * delta
 	else:
 		selfie_caught_rate = clamp(selfie_caught_rate - selfie_caught_rate_decrease_speed * delta, 0, 1)
 		message_buckets[3].weight = clamp(message_buckets[3].weight - selfie_caught_rate_decrease_speed * delta, 0, 1)
