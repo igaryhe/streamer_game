@@ -509,7 +509,6 @@ script = ExtResource("1_eiifs")
 score_watch_value = 50.0
 anim_player = NodePath("AnimationPlayer")
 ghost = NodePath("ani_ghost")
-appear_length = 8.0
 move_toward_player_duration = 0.3
 move_to_offset = Vector3(0.5, -2.8, 0.6)
 

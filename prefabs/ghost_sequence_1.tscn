@@ -260,7 +260,6 @@ script = ExtResource("1_v22rv")
 score_watch_value = 30.0
 anim_player = NodePath("AnimationPlayer")
 ghost = NodePath("ani_ghost")
-appear_length = 8.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

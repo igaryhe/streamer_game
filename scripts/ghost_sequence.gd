@@ -8,7 +8,7 @@ extends Node3D
 @export var score_watch_value: float = 60
 @export var anim_player: AnimationPlayer
 @export var ghost: Node3D
-@export var appear_length: float = 10
+@export var appear_offset: Vector3 = Vector3(0, 0, 8)
 var move_toward_player: bool = false
 @export var move_toward_player_duration: float = 1
 @export var move_to_offset = Vector3.ZERO
@@ -39,14 +39,14 @@ func _process(delta: float) -> void:
 
 
 func _teleport_ghost() -> void:
-	set_node_in_front_of_player(player_controller, ghost, appear_length)
+	set_node_in_front_of_player(player_controller, ghost, appear_offset)
 	score_manager.anomaly_observed()
 
 func _move_toward() -> void:
 	time_elapsed = 0
 	move_toward_player = true
 
-func set_node_in_front_of_player(player: Node3D, target: Node3D, length: float) -> void:
+func set_node_in_front_of_player(player: Node3D, target: Node3D, offset: Vector3) -> void:
 	var camera: Camera3D = player.camera
 	
 	# 获取原始前方向并投影到XZ平面
@@ -59,12 +59,14 @@ func set_node_in_front_of_player(player: Node3D, target: Node3D, length: float) 
 		var player_forward = player.global_transform.basis.z
 		horizontal_forward = Vector3(player_forward.x, 0, player_forward.z).normalized()
 	
-	# 计算目标位置（保持与玩家相同Y轴高度）
-	var target_position = Vector3(
-		player.global_position.x + horizontal_forward.x * length,
-		player.global_position.y,
-		player.global_position.z + horizontal_forward.z * length
-	)
+	# 计算水平右方向
+	var horizontal_right = horizontal_forward.cross(Vector3.UP).normalized()
+	
+	# 计算三维偏移量
+	var displacement = horizontal_forward * offset.z + horizontal_right * offset.x + Vector3.UP * offset.y
+	
+	# 计算最终目标位置
+	var target_position = player.global_position + displacement
 	
 	# 设置位置并保持水平朝向
 	target.global_position = target_position
