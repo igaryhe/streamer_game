@@ -71,8 +71,8 @@ func add_message(text: String, type: ChatMessage.MessageType):
 		process_next_message()
 	)
 	message_count += 1
-	if (type == ChatMessage.MessageType.DONATION): donation += 10
-	elif (type == ChatMessage.MessageType.DONATION_TEXT_MAX): donation += 50
+	if (type == ChatMessage.MessageType.DONATION): donation += 50
+	elif (type == ChatMessage.MessageType.DONATION_TEXT_MAX): donation += 100
 
 func get_available_message():
 	# 优先使用池中消息
