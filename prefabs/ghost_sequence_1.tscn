@@ -47,7 +47,7 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("2_scmv8")
 }],
-"times": PackedFloat32Array(6.03333)
+"times": PackedFloat32Array(8.2333)
 }
 tracks/1/use_blend = true
 tracks/2/type = "audio"
