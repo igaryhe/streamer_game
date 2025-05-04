@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://db7tbedfgpq4e"]
+[gd_scene load_steps=94 format=3 uid="uid://db7tbedfgpq4e"]
 
 [ext_resource type="PackedScene" uid="uid://b8pa6mj0aemre" path="res://scenes/ui.tscn" id="1_rm0al"]
 [ext_resource type="PackedScene" uid="uid://dsn33qdheab5d" path="res://Meshes/entrance.glb" id="2_1kice"]
@@ -57,6 +57,8 @@
 [ext_resource type="Script" uid="uid://c20pikh02iuww" path="res://scripts/open_area.gd" id="58_bk1p3"]
 [ext_resource type="Material" uid="uid://tq3wmh24cc2n" path="res://materials/dollbig4.tres" id="58_l6q63"]
 [ext_resource type="Material" uid="uid://ip0gpv0e88yo" path="res://materials/grave1.tres" id="60_l6q63"]
+[ext_resource type="AudioStream" uid="uid://vi16ryjdn2tt" path="res://audio/audio assets/SFX_JumpScarePre.ogg" id="61_66xif"]
+[ext_resource type="Script" uid="uid://dy17k0fxneh0r" path="res://scripts/pre_first_encounter.gd" id="61_bnuda"]
 [ext_resource type="Material" uid="uid://bjaxeflpvsrrh" path="res://materials/grave2.tres" id="62_mmvbu"]
 [ext_resource type="Material" uid="uid://ca6d1f66vlrup" path="res://materials/grave3.tres" id="64_weeiq"]
 [ext_resource type="PackedScene" uid="uid://dtw8kmb5hddhg" path="res://prefabs/forest_big_dolls.tscn" id="65_3x28f"]
@@ -274,6 +276,9 @@ radius = 31.825
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_n8ral"]
 radius = 20.144
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yd4ix"]
+size = Vector3(10, 3, 30)
 
 [node name="game" type="Node3D"]
 
@@ -618,6 +623,17 @@ shape = SubResource("SphereShape3D_bk1p3")
 [node name="OpenArea_3" type="CollisionShape3D" parent="OpenArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4735, 15.0108, -25.3099)
 shape = SubResource("SphereShape3D_n8ral")
+
+[node name="pre_first_encounter_trigger" type="Area3D" parent="."]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 70, -2, 31)
+script = ExtResource("61_bnuda")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pre_first_encounter_trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_yd4ix")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="pre_first_encounter_trigger"]
+stream = ExtResource("61_66xif")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_body_entered"]
 [connection signal="body_entered" from="OpenArea" to="OpenArea" method="_on_body_entered"]
