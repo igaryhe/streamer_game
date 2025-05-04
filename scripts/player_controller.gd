@@ -56,7 +56,7 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("flip_camera") && !camera_anim.is_playing():
+	if Input.is_action_just_pressed("flip_camera") && !camera_anim.is_playing() && score_manager.can_selfie:
 		if is_front_camera:
 			camera_anim.play("to_back_camera")
 			score_manager.is_selfing = true

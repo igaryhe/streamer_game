@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8pa6mj0aemre"]
+[gd_scene load_steps=12 format=3 uid="uid://b8pa6mj0aemre"]
 
 [ext_resource type="Script" uid="uid://daq0vbhmpvk6o" path="res://scripts/ui/game_progression.gd" id="1_8dubc"]
 [ext_resource type="Script" uid="uid://dyi0cd8ko2s2o" path="res://scripts/chat/chat_window.gd" id="1_nt7q6"]
@@ -6,15 +6,10 @@
 [ext_resource type="Script" uid="uid://d3jnm4ktx8f26" path="res://scripts/chat/viewer_label.gd" id="3_gdt2y"]
 [ext_resource type="Script" uid="uid://dacou1axop0p3" path="res://scripts/chat/message_flow.gd" id="3_yev5y"]
 [ext_resource type="Texture2D" uid="uid://cukx871nqvnst" path="res://textures/UI_Q.png" id="5_wm3ai"]
-
-[sub_resource type="Gradient" id="Gradient_8dubc"]
-offsets = PackedFloat32Array(0, 0.592476)
-colors = PackedColorArray(1, 1, 1, 1, 1, 0.71, 0.71, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p7vwb"]
-gradient = SubResource("Gradient_8dubc")
-use_hdr = true
-fill_to = Vector2(0, 1)
+[ext_resource type="Texture2D" uid="uid://c1ejvfx25flwp" path="res://textures/end1.jpg" id="6_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://c7x165yfgmc5e" path="res://textures/end2.jpg" id="7_cgfq5"]
+[ext_resource type="AudioStream" uid="uid://sbvc4fupmppy" path="res://audio/audio assets/MUS_Ending.ogg" id="7_ktti3"]
+[ext_resource type="Texture2D" uid="uid://dbt1tg0x4oifc" path="res://textures/check.jpg" id="8_7dvkv"]
 
 [sub_resource type="GDScript" id="GDScript_x4jx1"]
 script/source = "extends Control
@@ -128,14 +123,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="TextureRect" parent="DeadEnd1"]
+[node name="ColorRect2" type="TextureRect" parent="DeadEnd1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_p7vwb")
+texture = ExtResource("6_p7vwb")
 
 [node name="Label" type="RichTextLabel" parent="DeadEnd1"]
 layout_mode = 1
@@ -144,15 +139,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -583.0
-offset_top = -88.0
-offset_right = 686.0
-offset_bottom = 105.0
+offset_left = -400.0
+offset_top = 328.0
+offset_right = 869.0
+offset_bottom = 521.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 126
+theme_override_colors/font_outline_color = Color(0.847059, 0.596078, 0.615686, 1)
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/normal_font_size = 83
 bbcode_enabled = true
-text = "[wave amp=100.0 freq=5.0 connected=1]主播正在俯卧撑热身[/wave]"
+text = "[wave amp=100.0 freq=5.0 connected=1]网络问题，请等待...[/wave]"
+horizontal_alignment = 2
 
 [node name="DeadEnd2" type="Control" parent="."]
 visible = false
@@ -170,9 +168,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_p7vwb")
+texture = ExtResource("7_cgfq5")
 
 [node name="Label" type="RichTextLabel" parent="DeadEnd2"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -204,27 +203,73 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_p7vwb")
+texture = ExtResource("8_7dvkv")
 
-[node name="Label" type="RichTextLabel" parent="Finished"]
+[node name="lbReward" type="RichTextLabel" parent="Finished"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -636.0
-offset_top = -470.0
-offset_right = 633.0
-offset_bottom = -277.0
+offset_left = -519.0
+offset_top = -91.0
+offset_right = -233.0
+offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0.716296, 0.716296, 0.716296, 1)
-theme_override_font_sizes/normal_font_size = 76
+theme_override_colors/font_outline_color = Color(0.847059, 0.596078, 0.615686, 1)
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/normal_font_size = 83
 bbcode_enabled = true
-text = "直播已结束"
+text = "100"
+fit_content = true
 horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="lbDanmu" type="RichTextLabel" parent="Finished"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -92.0
+offset_right = 150.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.847059, 0.596078, 0.615686, 1)
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/normal_font_size = 83
+bbcode_enabled = true
+text = "100"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="lbAudianNum" type="RichTextLabel" parent="Finished"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 235.0
+offset_top = -91.0
+offset_right = 521.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.847059, 0.596078, 0.615686, 1)
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/normal_font_size = 83
+bbcode_enabled = true
+text = "100"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ktti3")
 
 [node name="DEV" type="Control" parent="."]
 process_mode = 4

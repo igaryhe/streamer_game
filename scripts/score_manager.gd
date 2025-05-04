@@ -59,6 +59,8 @@ var chat_refresh_speed: float
 
 var current_ghosting_level: int = 0
 
+@onready var game_states: GameStates = SLocator.with(self).fetch(GameStates)
+
 # 0 is warmup bucket
 # 1 is boring bucket
 # 2 is anomaly event bucket
@@ -96,6 +98,7 @@ func _process(delta: float) -> void:
 	if selfie_check_timer == 0:
 		if is_selfing and randf() < selfie_caught_rate:
 			print("caught!!!")
+			game_states.set_progression(GameStates.Progression.DeadEnd2)
 		selfie_check_timer = selfie_check_interval
 
 	# anomaly

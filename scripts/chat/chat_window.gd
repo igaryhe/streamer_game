@@ -1,16 +1,18 @@
 extends Control
 
 @export var pool_size := 20
-@export var message_scene : PackedScene
-@export var scroll_duration := 0.3  # 滚动动画持续时间（秒）
-@export var vertical_spacing := 10.0  # 消息间距
-@export var entry_offset := Vector2(0, 50)  # 新消息进入偏移量
-@export var speed_increase_factor := 0.2  # 每条消息的速度加快比例
-@export var min_duration := 0.1  # 最小动画持续时间
+@export var message_scene: PackedScene
+@export var scroll_duration := 0.3 # 滚动动画持续时间（秒）
+@export var vertical_spacing := 10.0 # 消息间距
+@export var entry_offset := Vector2(0, 50) # 新消息进入偏移量
+@export var speed_increase_factor := 0.2 # 每条消息的速度加快比例
+@export var min_duration := 0.1 # 最小动画持续时间
 
-@export var target: Control  # 目标容器节点
+@export var target: Control # 目标容器节点
 
-var message_pool : Array = []
+var message_count: int = 0
+var donation: int = 0
+var message_pool: Array = []
 var active_messages := []
 var is_processing = false
 var message_queue = []
@@ -23,7 +25,7 @@ func _ready():
 		message_pool.append(msg)
 		target.add_child(msg)
 
-func add_message(text: String, type):
+func add_message(text: String, type: ChatMessage.MessageType):
 	if is_processing:
 		message_queue.append({"text": text, "type": type})
 		return
@@ -48,16 +50,16 @@ func add_message(text: String, type):
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	
 	# 新消息入场动画
-	tween.tween_property(msg, "position", 
-		Vector2(0, container_height - msg_height), 
+	tween.tween_property(msg, "position",
+		Vector2(0, container_height - msg_height),
 		current_duration
 	)
 	
 	# 现有消息上移动画
 	for existing_msg in active_messages:
 		var target_y = existing_msg.position.y - (msg_height + vertical_spacing)
-		tween.tween_property(existing_msg, "position:y", 
-			target_y, 
+		tween.tween_property(existing_msg, "position:y",
+			target_y,
 			current_duration
 		)
 	
@@ -68,6 +70,9 @@ func add_message(text: String, type):
 		is_processing = false
 		process_next_message()
 	)
+	message_count += 1
+	if (type == ChatMessage.MessageType.DONATION): donation += 10
+	elif (type == ChatMessage.MessageType.DONATION_TEXT_MAX): donation += 50
 
 func get_available_message():
 	# 优先使用池中消息
