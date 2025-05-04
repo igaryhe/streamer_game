@@ -3,6 +3,7 @@ extends Node3D
 @onready var score_manager: ScoreManager = SLocator.with(self).fetch(ScoreManager)
 @onready var player_controller: PlayerController = SLocator.with(self).fetch(PlayerController)
 @onready var open_area: OpenArea = SLocator.with(self).fetch(OpenArea)
+@onready var game_state: GameStates = SLocator.with(self).fetch(GameStates)
 
 @export var score_watch_value: float = 60
 @export var anim_player: AnimationPlayer
@@ -68,3 +69,6 @@ func set_node_in_front_of_player(player: Node3D, target: Node3D, length: float) 
 	# 设置位置并保持水平朝向
 	target.global_position = target_position
 	target.look_at(target_position + horizontal_forward, Vector3.UP)
+
+func _ghost_end_game() -> void:
+	game_state.set_progression(GameStates.Progression.DeadEnd1)
