@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://d3jnm4ktx8f26" path="res://scripts/chat/viewer_label.gd" id="3_gdt2y"]
 [ext_resource type="Script" uid="uid://dacou1axop0p3" path="res://scripts/chat/message_flow.gd" id="3_yev5y"]
 [ext_resource type="Texture2D" uid="uid://cukx871nqvnst" path="res://textures/UI_Q.png" id="5_wm3ai"]
-[ext_resource type="Texture2D" uid="uid://lysxwlmrvkk" path="res://textures/end1.jpg" id="6_p7vwb"]
-[ext_resource type="Texture2D" uid="uid://cbem5tc2p10e1" path="res://textures/end2.jpg" id="7_cgfq5"]
+[ext_resource type="Texture2D" uid="uid://cqg645y6hw5x3" path="res://textures/end1.jpg" id="6_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://gijcj74wt048" path="res://textures/end2.jpg" id="7_cgfq5"]
 [ext_resource type="AudioStream" uid="uid://sbvc4fupmppy" path="res://audio/audio assets/MUS_Ending.ogg" id="7_ktti3"]
-[ext_resource type="Texture2D" uid="uid://chmq5wst2b2se" path="res://textures/check.jpg" id="8_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://dfcttuwg75mix" path="res://textures/check.jpg" id="8_7dvkv"]
 
 [sub_resource type="GDScript" id="GDScript_x4jx1"]
 script/source = "extends Control
@@ -115,7 +115,6 @@ text = "观看人数：9999"
 script = ExtResource("3_gdt2y")
 
 [node name="DeadEnd1" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,10 +138,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = 328.0
-offset_right = 869.0
-offset_bottom = 521.0
+offset_left = -867.0
+offset_top = -58.0
+offset_right = 402.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0.847059, 0.596078, 0.615686, 1)
@@ -189,6 +188,7 @@ bbcode_enabled = true
 text = "您的房间已被[color=red]锁定[/color],如有请查看规范"
 
 [node name="Finished" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

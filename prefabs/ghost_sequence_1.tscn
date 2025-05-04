@@ -257,6 +257,7 @@ animations = [{
 
 [node name="ghost_sequence_1" type="Node3D" node_paths=PackedStringArray("anim_player", "ghost")]
 script = ExtResource("1_v22rv")
+score_watch_value = 30.0
 anim_player = NodePath("AnimationPlayer")
 ghost = NodePath("ani_ghost")
 appear_length = 8.0
