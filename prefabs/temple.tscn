@@ -68,41 +68,41 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_hdrd2"]
 resource_name = "open"
-tracks/0/type = "audio"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("temple_door/open_door_sfx")
+tracks/0/path = NodePath("temple_door/mesh:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"clips": [],
-"times": PackedFloat32Array()
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
-tracks/0/use_blend = true
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("temple_door/mesh:visible")
+tracks/1/path = NodePath("temple_door/StaticBody3D:collision_layer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [0]
 }
-tracks/2/type = "value"
+tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("temple_door/StaticBody3D:collision_layer")
+tracks/2/path = NodePath("temple_door/open_sfx")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"clips": [],
+"times": PackedFloat32Array()
 }
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3i2vg"]
 _data = {
@@ -168,11 +168,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98951, 0, 1.88679)
 [node name="temple_door" parent="." instance=ExtResource("5_ed74b")]
 transform = Transform3D(1.24, 0, 0, 0, 1.144, 0, 0, 0, 1.053, 0.766578, -2.38418e-07, 0.0250434)
 
-[node name="mesh" parent="temple_door" index="0"]
-surface_material_override/0 = null
-
-[node name="open_door_sfx" type="AudioStreamPlayer3D" parent="temple_door"]
-max_distance = 40.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
