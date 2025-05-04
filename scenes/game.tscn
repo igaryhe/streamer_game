@@ -599,7 +599,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14268, 1.46646, 0.250514)
 score_watch_value = 60.0
 
 [node name="ghost_sequence_2" parent="." instance=ExtResource("57_yd4ix")]
-score_watch_value = 140.0
+score_watch_value = 120.0
 appear_offset = Vector3(0, 0, 8)
 
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("sprite_anim", "jump_scare_sfx", "score_manager")]
