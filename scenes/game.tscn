@@ -44,14 +44,14 @@
 [ext_resource type="Material" uid="uid://b7pu0dwfmykg5" path="res://materials/stonetower3.tres" id="50_yd4ix"]
 [ext_resource type="Material" uid="uid://cbu0lwihc0a2r" path="res://materials/dollbig1.tres" id="52_0rmfi"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="52_pf7vy"]
-[ext_resource type="PackedScene" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
+[ext_resource type="PackedScene" uid="uid://bwiqitpldw60u" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://2mic4s312506" path="res://prefabs/well.tscn" id="53_o8ni1"]
 [ext_resource type="AudioStream" uid="uid://njdaj4pgdmn7" path="res://audio/audio assets/SFX_AMB_General_Loop.ogg" id="54_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://bgfokwdyhvlj4" path="res://prefabs/jumpscare_1.tscn" id="54_q8j3a"]
 [ext_resource type="Material" uid="uid://bjsiwi87cg0nd" path="res://materials/dollbig2.tres" id="54_xbak0"]
 [ext_resource type="PackedScene" uid="uid://b0vmgwvn1hp8t" path="res://prefabs/first_encounter.tscn" id="55_q8j3a"]
 [ext_resource type="Material" uid="uid://5ns3pespid3a" path="res://materials/dollbig3.tres" id="56_3x28f"]
-[ext_resource type="Script" path="res://scripts/jumpscare_trigger.gd" id="56_ms3bu"]
+[ext_resource type="Script" uid="uid://n1sb6cofj6f2" path="res://scripts/jumpscare_trigger.gd" id="56_ms3bu"]
 [ext_resource type="PackedScene" uid="uid://cx3sigbl5ol6f" path="res://prefabs/ghost_sequence_1.tscn" id="56_n8ral"]
 [ext_resource type="PackedScene" uid="uid://c5neob5rs88xu" path="res://prefabs/ghost_sequence_2.tscn" id="57_yd4ix"]
 [ext_resource type="Script" uid="uid://c20pikh02iuww" path="res://scripts/open_area.gd" id="58_bk1p3"]
@@ -333,6 +333,9 @@ score_manager = NodePath("../../../ScoreManager")
 [node name="UI" parent="." instance=ExtResource("1_rm0al")]
 mouse_filter = 2
 
+[node name="happy" parent="UI/baby" index="0"]
+scale = Vector2(1, 1)
+
 [node name="env" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_trtic")
 
@@ -380,9 +383,10 @@ bus = &"Master"
 [node name="well" parent="." instance=ExtResource("53_o8ni1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7568, 14.157, -65.2096)
 
-[node name="StaticBody3D" parent="well" index="2" node_paths=PackedStringArray("door_anim_player")]
+[node name="StaticBody3D" parent="well" index="2" node_paths=PackedStringArray("door_anim_player", "door_open_sfx")]
 door_anim_player = NodePath("../../temple/AnimationPlayer")
 door_open_anim = "open"
+door_open_sfx = NodePath("../../temple/temple_door/open_sfx")
 
 [node name="shrine" parent="." instance=ExtResource("24_o8ni1")]
 transform = Transform3D(0.4602, 0, -0.887815, 0, 1, 0, 0.887815, 0, 0.4602, 72.1321, 9.74645, -41.936)
