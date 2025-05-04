@@ -383,10 +383,9 @@ bus = &"Master"
 [node name="well" parent="." instance=ExtResource("53_o8ni1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7568, 14.157, -65.2096)
 
-[node name="StaticBody3D" parent="well" index="2" node_paths=PackedStringArray("door_anim_player", "door_open_sfx")]
+[node name="StaticBody3D" parent="well" index="2" node_paths=PackedStringArray("door_anim_player")]
 door_anim_player = NodePath("../../temple/AnimationPlayer")
 door_open_anim = "open"
-door_open_sfx = NodePath("../../temple/temple_door/open_sfx")
 
 [node name="shrine" parent="." instance=ExtResource("24_o8ni1")]
 transform = Transform3D(0.4602, 0, -0.887815, 0, 1, 0, 0.887815, 0, 0.4602, 72.1321, 9.74645, -41.936)

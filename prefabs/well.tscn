@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://2mic4s312506"]
+[gd_scene load_steps=9 format=3 uid="uid://2mic4s312506"]
 
 [ext_resource type="Script" uid="uid://lteusmqfencu" path="res://scripts/well.gd" id="1_iv5ws"]
 [ext_resource type="ArrayMesh" uid="uid://bsjl5kmxu3wfx" path="res://Meshes/well.res" id="1_qunr5"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_iv5ws"]
 [ext_resource type="Texture2D" uid="uid://defbis5or73yy" path="res://textures/well_blood_tex -.png" id="2_lvp1g"]
 [ext_resource type="Texture2D" uid="uid://dfiqqktvn75cl" path="res://Meshes/well_well_tex.png" id="3_lvp1g"]
+[ext_resource type="AudioStream" uid="uid://cxoaqfflniaee" path="res://audio/audio assets/SFX_INT_WoodDoorOpen.ogg" id="6_tg3tp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tg3tp"]
 render_priority = 0
@@ -31,15 +32,19 @@ surface_material_override/0 = SubResource("ShaderMaterial_tg3tp")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("sfx", "mesh")]
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("sfx", "mesh", "door_open_sfx")]
 collision_layer = 3
 script = ExtResource("1_iv5ws")
 sfx = NodePath("../AudioStreamPlayer3D")
 mesh = NodePath("../mesh")
 blood_texture = ExtResource("2_lvp1g")
+door_open_sfx = NodePath("../AudioStreamPlayer")
 expected_item_ids = Array[int]([1])
 initial_score = 100.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_qunr5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_tg3tp")

@@ -5,7 +5,7 @@ extends Interactable
 @export var blood_texture: Texture2D
 @export var door_anim_player: AnimationPlayer
 @export var door_open_anim: String
-@export var door_open_sfx: AudioStreamPlayer3D
+@export var door_open_sfx: AudioStreamPlayer
 
 func interact(item_id: int):
 	sfx.play()
