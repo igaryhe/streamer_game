@@ -43,7 +43,7 @@
 [ext_resource type="Material" uid="uid://b7pu0dwfmykg5" path="res://materials/stonetower3.tres" id="50_yd4ix"]
 [ext_resource type="Material" uid="uid://cbu0lwihc0a2r" path="res://materials/dollbig1.tres" id="52_0rmfi"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="52_pf7vy"]
-[ext_resource type="PackedScene" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
+[ext_resource type="PackedScene" uid="uid://bwiqitpldw60u" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://2mic4s312506" path="res://prefabs/well.tscn" id="53_o8ni1"]
 [ext_resource type="AudioStream" uid="uid://njdaj4pgdmn7" path="res://audio/audio assets/SFX_AMB_General_Loop.ogg" id="54_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://bgfokwdyhvlj4" path="res://prefabs/jumpscare_1.tscn" id="54_q8j3a"]

@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://d3jnm4ktx8f26" path="res://scripts/chat/viewer_label.gd" id="3_gdt2y"]
 [ext_resource type="Script" uid="uid://dacou1axop0p3" path="res://scripts/chat/message_flow.gd" id="3_yev5y"]
 [ext_resource type="Texture2D" uid="uid://cukx871nqvnst" path="res://textures/UI_Q.png" id="5_wm3ai"]
-[ext_resource type="Texture2D" uid="uid://c1ejvfx25flwp" path="res://textures/end1.jpg" id="6_p7vwb"]
-[ext_resource type="Texture2D" uid="uid://c7x165yfgmc5e" path="res://textures/end2.jpg" id="7_cgfq5"]
+[ext_resource type="Texture2D" uid="uid://lysxwlmrvkk" path="res://textures/end1.jpg" id="6_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://cbem5tc2p10e1" path="res://textures/end2.jpg" id="7_cgfq5"]
 [ext_resource type="AudioStream" uid="uid://sbvc4fupmppy" path="res://audio/audio assets/MUS_Ending.ogg" id="7_ktti3"]
-[ext_resource type="Texture2D" uid="uid://dbt1tg0x4oifc" path="res://textures/check.jpg" id="8_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://chmq5wst2b2se" path="res://textures/check.jpg" id="8_7dvkv"]
 
 [sub_resource type="GDScript" id="GDScript_x4jx1"]
 script/source = "extends Control
