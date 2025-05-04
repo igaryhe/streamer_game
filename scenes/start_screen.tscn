@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bta5b48bcqcq6"]
+[gd_scene load_steps=13 format=3 uid="uid://bta5b48bcqcq6"]
 
 [ext_resource type="Script" uid="uid://b2ktbosx7u01g" path="res://scripts/ui/start_screen.gd" id="1_tx5wa"]
 [ext_resource type="PackedScene" uid="uid://db7tbedfgpq4e" path="res://scenes/game.tscn" id="2_hm208"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://djr31o4h5m6qq" path="res://textures/start.jpg" id="3_o30b1"]
 [ext_resource type="Script" uid="uid://dacou1axop0p3" path="res://scripts/chat/message_flow.gd" id="4_r2jwc"]
 [ext_resource type="AudioStream" uid="uid://5fg3pqkd80mh" path="res://audio/audio assets/SFX_GameStart.ogg" id="7_o30b1"]
+[ext_resource type="AudioStream" uid="uid://sbvc4fupmppy" path="res://audio/audio assets/MUS_Ending.ogg" id="8_ka6nf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecdxc"]
 bg_color = Color(0.788235, 0.105882, 0.105882, 1)
@@ -148,5 +149,9 @@ weight = 0.8
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_o30b1")
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ka6nf")
+autoplay = true
 
 [connection signal="pressed" from="StartScreen/StartStream" to="." method="_on_start_stream_pressed"]
