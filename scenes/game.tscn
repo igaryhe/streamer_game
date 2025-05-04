@@ -553,10 +553,10 @@ transform = Transform3D(0.0316201, 0, -0.9995, 0, 1, 0, 0.9995, 0, 0.0316201, -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14268, 1.46646, 0.250514)
 
 [node name="ghost_sequence_1" parent="." instance=ExtResource("56_n8ral")]
-score_watch_value = 20.0
+score_watch_value = 40.0
 
 [node name="ghost_sequence_2" parent="." instance=ExtResource("57_yd4ix")]
-score_watch_value = 40.0
+score_watch_value = 100.0
 
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("sprite_anim", "jump_scare_sfx", "score_manager")]
 transform = Transform3D(0.973455, 0, 0.228878, 0, 1, 0, -0.228878, 0, 0.973455, 39.8001, 3.95448, -8.00243)
