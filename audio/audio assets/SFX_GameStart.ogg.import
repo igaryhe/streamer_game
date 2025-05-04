@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://5fg3pqkd80mh"
+path="res://.godot/imported/SFX_GameStart.ogg-ab82e060de179cccab25ef197113b1c2.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/audio assets/SFX_GameStart.ogg"
+dest_files=["res://.godot/imported/SFX_GameStart.ogg-ab82e060de179cccab25ef197113b1c2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
