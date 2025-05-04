@@ -44,14 +44,14 @@
 [ext_resource type="Material" uid="uid://b7pu0dwfmykg5" path="res://materials/stonetower3.tres" id="50_yd4ix"]
 [ext_resource type="Material" uid="uid://cbu0lwihc0a2r" path="res://materials/dollbig1.tres" id="52_0rmfi"]
 [ext_resource type="PackedScene" uid="uid://bnpe5v6l03600" path="res://prefabs/item.tscn" id="52_pf7vy"]
-[ext_resource type="PackedScene" uid="uid://bwiqitpldw60u" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
+[ext_resource type="PackedScene" path="res://prefabs/forest_face.tscn" id="53_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://2mic4s312506" path="res://prefabs/well.tscn" id="53_o8ni1"]
 [ext_resource type="AudioStream" uid="uid://njdaj4pgdmn7" path="res://audio/audio assets/SFX_AMB_General_Loop.ogg" id="54_3hbvx"]
 [ext_resource type="PackedScene" uid="uid://bgfokwdyhvlj4" path="res://prefabs/jumpscare_1.tscn" id="54_q8j3a"]
 [ext_resource type="Material" uid="uid://bjsiwi87cg0nd" path="res://materials/dollbig2.tres" id="54_xbak0"]
 [ext_resource type="PackedScene" uid="uid://b0vmgwvn1hp8t" path="res://prefabs/first_encounter.tscn" id="55_q8j3a"]
 [ext_resource type="Material" uid="uid://5ns3pespid3a" path="res://materials/dollbig3.tres" id="56_3x28f"]
-[ext_resource type="Script" uid="uid://n1sb6cofj6f2" path="res://scripts/jumpscare_trigger.gd" id="56_ms3bu"]
+[ext_resource type="Script" path="res://scripts/jumpscare_trigger.gd" id="56_ms3bu"]
 [ext_resource type="PackedScene" uid="uid://cx3sigbl5ol6f" path="res://prefabs/ghost_sequence_1.tscn" id="56_n8ral"]
 [ext_resource type="PackedScene" uid="uid://c5neob5rs88xu" path="res://prefabs/ghost_sequence_2.tscn" id="57_yd4ix"]
 [ext_resource type="Script" uid="uid://c20pikh02iuww" path="res://scripts/open_area.gd" id="58_bk1p3"]
@@ -596,11 +596,11 @@ transform = Transform3D(0.0316201, 0, -0.9995, 0, 1, 0, 0.9995, 0, 0.0316201, -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14268, 1.46646, 0.250514)
 
 [node name="ghost_sequence_1" parent="." instance=ExtResource("56_n8ral")]
-score_watch_value = 40.0
+score_watch_value = 60.0
 
 [node name="ghost_sequence_2" parent="." instance=ExtResource("57_yd4ix")]
-score_watch_value = 100.0
-appear_offset = Vector3(0, 2, 8)
+score_watch_value = 140.0
+appear_offset = Vector3(0, 0, 8)
 
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("sprite_anim", "jump_scare_sfx", "score_manager")]
 transform = Transform3D(0.973455, 0, 0.228878, 0, 1, 0, -0.228878, 0, 0.973455, 39.8001, 3.95448, -8.00243)
@@ -629,7 +629,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4735, 15.0108, -25.3099)
 shape = SubResource("SphereShape3D_n8ral")
 
 [node name="pre_first_encounter_trigger" type="Area3D" parent="." node_paths=PackedStringArray("pre_jumpscare_sfx")]
-transform = Transform3D(0.930692, 0, 0.365802, 0, 1, 0, -0.365802, 0, 0.930692, 78.1055, -2, 5.93028)
+transform = Transform3D(0.985832, 0, 0.167732, 0, 1, 0, -0.167732, 0, 0.985832, 79.7658, -2, 5.85178)
 script = ExtResource("61_bnuda")
 pre_jumpscare_sfx = NodePath("AudioStreamPlayer")
 
