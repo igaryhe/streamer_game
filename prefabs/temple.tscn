@@ -167,10 +167,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44664, 0.722374, -2.32834)
 id = 2
 
 [node name="amulet" parent="." instance=ExtResource("9_kn3sp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48592, 2.38419e-07, -3.33218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37267, 0.774669, -0.378533)
 id = 4
 
 [node name="phone" parent="." instance=ExtResource("7_r7x07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22268, 0.994512, -3.09995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.293749, 0.994512, -3.23959)
 
 [editable path="temple_door"]
