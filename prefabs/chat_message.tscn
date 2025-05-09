@@ -23,31 +23,33 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -4.0
-offset_right = -17.0
+offset_right = 26.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_0qc4v")
 
 [node name="ColorRect2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -4.0
-offset_right = -17.0
+offset_right = 26.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_yoobf")
 
 [node name="ColorRect3" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -4.0
-offset_right = -17.0
+offset_right = 26.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
