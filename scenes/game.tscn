@@ -76,8 +76,7 @@ sky_material = SubResource("ProceduralSkyMaterial_dinhu")
 background_mode = 2
 sky = SubResource("Sky_kvuet")
 tonemap_mode = 3
-tonemap_exposure = 0.81
-tonemap_white = 1.08
+tonemap_exposure = 1.59
 fog_light_color = Color(0.1, 0.1, 0.1, 1)
 fog_density = 0.05
 volumetric_fog_density = 0.0157
@@ -87,9 +86,9 @@ volumetric_fog_emission_energy = 2.0
 volumetric_fog_length = 71.75
 volumetric_fog_sky_affect = 0.18
 adjustment_enabled = true
-adjustment_brightness = 1.06
-adjustment_contrast = 1.08
-adjustment_saturation = 0.9
+adjustment_brightness = 1.1
+adjustment_contrast = 1.1
+adjustment_saturation = 0.8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wljb1"]
 render_priority = 0
@@ -621,7 +620,7 @@ transform = Transform3D(1.085, 0, 0, 0, 1.085, 0, 0, 0, 1.085, -10.4789, 18.8566
 shape = SubResource("SphereShape3D_7ixpq")
 
 [node name="OpenArea_2" type="CollisionShape3D" parent="OpenArea"]
-transform = Transform3D(1.095, 0, 0, 0, 1.095, 0, 0, 0, 1.095, 82.6198, -7.62939e-06, -68.5942)
+transform = Transform3D(0.809, 0, 0, 0, 0.706, 0, 0, 0, 0.809, 79.0721, -7.62939e-06, -63.4451)
 shape = SubResource("SphereShape3D_bk1p3")
 
 [node name="OpenArea_3" type="CollisionShape3D" parent="OpenArea"]

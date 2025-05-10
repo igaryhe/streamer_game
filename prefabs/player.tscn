@@ -715,14 +715,15 @@ current = true
 
 [node name="light" type="SpotLight3D" parent="head/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-light_energy = 8.977
+light_color = Color(0.772246, 0.772247, 0.772246, 1)
+light_energy = 7.0
 light_volumetric_fog_energy = 0.0
 light_specular = 0.25
 shadow_enabled = true
-spot_range = 33.639
-spot_attenuation = 0.39
-spot_angle = 57.44
-spot_angle_attenuation = 3.73213
+spot_range = 21.432
+spot_attenuation = -0.11
+spot_angle = 46.49
+spot_angle_attenuation = 4.43828
 
 [node name="raycast" type="RayCast3D" parent="head"]
 target_position = Vector3(0, 0, -3)
@@ -755,11 +756,11 @@ texture = ExtResource("2_4dohe")
 stretch_mode = 3
 
 [node name="holding_item" type="TextureRect" parent="."]
-offset_left = 42.0
-offset_top = 98.0
-offset_right = 170.0
-offset_bottom = 226.0
-scale = Vector2(1.766, 1.766)
+offset_left = 9.0
+offset_top = 51.0
+offset_right = 137.0
+offset_bottom = 179.0
+scale = Vector2(2.061, 2.061)
 expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
