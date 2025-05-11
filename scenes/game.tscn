@@ -553,19 +553,13 @@ id = 1
 transform = Transform3D(0.390426, 0, 0.920634, 0, 1, 0, -0.920634, 0, 0.390426, 48.5697, 1.69582, -8.01786)
 
 [node name="shadow" parent="." instance=ExtResource("49_8qswn")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -34.0234, 22.2337, -3.99985)
-
-[node name="shadow4" parent="." instance=ExtResource("49_8qswn")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -33.9315, 22.5188, -4.68399)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -33.8999, 23.1954, -6.25467)
 
 [node name="shadow2" parent="." instance=ExtResource("49_8qswn")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -34.4576, 22.3059, -5.14247)
-interval = 22.0
-visible_duration = 3.0
-initial_delay = 8.0
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -34.1361, 23.9706, -10.72)
 
-[node name="shadow3" parent="." instance=ExtResource("49_8qswn")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -33.167, 22.4386, -4.00607)
+[node name="shadow4" parent="." instance=ExtResource("49_8qswn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -35.207, 24.0248, -7.86579)
 
 [node name="anomaly_test" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5858, 3.07282, 35.9673)
