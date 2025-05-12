@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://biwidmlp4p1bi"]
+[gd_scene load_steps=19 format=3 uid="uid://biwidmlp4p1bi"]
 
 [ext_resource type="ArrayMesh" uid="uid://3khpe2b0erl1" path="res://Meshes/cave.res" id="1_eb34q"]
 [ext_resource type="Texture2D" uid="uid://bpsima3bsj7ei" path="res://textures/tex2.png" id="3_rfyfr"]
@@ -45,6 +45,20 @@ size = Vector3(20.8073, 27.0356, 6.54268)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jgbjv"]
 size = Vector3(19.9855, 26.0601, 11.2417)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gs5pc"]
+render_priority = 0
+shader = ExtResource("4_8ygi1")
+shader_parameter/albedo = ExtResource("3_rfyfr")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k43pb"]
 size = Vector3(2.8, 3, 1.8)
@@ -116,31 +130,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7486, 12.53, 5.12084)
 shape = SubResource("BoxShape3D_jgbjv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1174, 1.78911, -4.89505)
-light_color = Color(1, 0.0666667, 0, 1)
-light_energy = 1.045
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08308, 1.78911, -10.7328)
+light_color = Color(0.922426, 0.0577241, 3.85046e-07, 1)
+light_energy = 3.239
 light_specular = 0.0
 shadow_enabled = true
-omni_range = 16.661
-omni_attenuation = -0.6
+omni_range = 13.398
+omni_attenuation = -1.211
 omni_shadow_mode = 0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3962, 1.38981, 6.70618)
-light_color = Color(1, 0.0666667, 0, 1)
-light_energy = 1.045
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8825, 1.38981, 6.49956)
+light_color = Color(0.813715, 0, 0.133139, 1)
+light_energy = 6.215
+light_indirect_energy = 3.934
+light_volumetric_fog_energy = 4.511
+light_size = 0.183
 light_specular = 0.0
 shadow_enabled = true
-omni_range = 13.0
-omni_attenuation = -0.8
+omni_range = 9.375
+omni_attenuation = -1.411
 omni_shadow_mode = 0
 
 [node name="cave_door" parent="." instance=ExtResource("3_wqp7x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43943, 0, 9.97833)
 
 [node name="cavealtar" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4932, 0, 9.5847)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.4932, 0, 9.5847)
 mesh = ExtResource("5_gs5pc")
+surface_material_override/0 = SubResource("ShaderMaterial_gs5pc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="cavealtar" node_paths=PackedStringArray("ambient", "sfx", "lights", "doll_spawn_pos")]
 collision_layer = 3

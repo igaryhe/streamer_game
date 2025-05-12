@@ -3,20 +3,20 @@
 [ext_resource type="Script" uid="uid://lteusmqfencu" path="res://scripts/well.gd" id="1_iv5ws"]
 [ext_resource type="ArrayMesh" uid="uid://bsjl5kmxu3wfx" path="res://Meshes/well.res" id="1_qunr5"]
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="2_iv5ws"]
-[ext_resource type="Texture2D" uid="uid://defbis5or73yy" path="res://textures/well_blood_tex -.png" id="2_lvp1g"]
-[ext_resource type="Texture2D" uid="uid://dfiqqktvn75cl" path="res://Meshes/well_well_tex.png" id="3_lvp1g"]
+[ext_resource type="Texture2D" uid="uid://knkdpiqbkout" path="res://textures/texwell.png" id="3_tg3tp"]
+[ext_resource type="Texture2D" uid="uid://dvurdq4vfd0if" path="res://textures/texwell_b.png" id="5_tg3tp"]
 [ext_resource type="AudioStream" uid="uid://cxoaqfflniaee" path="res://audio/audio assets/SFX_INT_WoodDoorOpen.ogg" id="6_tg3tp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tg3tp"]
 render_priority = 0
 shader = ExtResource("2_iv5ws")
-shader_parameter/albedo = ExtResource("3_lvp1g")
+shader_parameter/albedo = ExtResource("3_tg3tp")
 shader_parameter/jitter = 0.5
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/affine_texture_intensity = -2.0
-shader_parameter/alpha_scissor = 1.0
+shader_parameter/alpha_scissor = 0.907
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/texture_size = Vector2(1, 1)
@@ -37,7 +37,7 @@ collision_layer = 3
 script = ExtResource("1_iv5ws")
 sfx = NodePath("../AudioStreamPlayer3D")
 mesh = NodePath("../mesh")
-blood_texture = ExtResource("2_lvp1g")
+blood_texture = ExtResource("5_tg3tp")
 door_open_sfx = NodePath("../AudioStreamPlayer")
 expected_item_ids = Array[int]([1])
 initial_score = 100.0

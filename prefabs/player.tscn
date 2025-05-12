@@ -721,9 +721,9 @@ light_volumetric_fog_energy = 0.0
 light_specular = 0.25
 shadow_enabled = true
 spot_range = 21.432
-spot_attenuation = -0.11
-spot_angle = 46.49
-spot_angle_attenuation = 4.43828
+spot_attenuation = 0.03
+spot_angle = 49.82
+spot_angle_attenuation = 3.36359
 
 [node name="raycast" type="RayCast3D" parent="head"]
 target_position = Vector3(0, 0, -3)

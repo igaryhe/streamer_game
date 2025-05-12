@@ -1,7 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://7k4mwkqxhj5"]
 
 [ext_resource type="Script" uid="uid://sohl6e0e7rwp" path="res://scripts/altars.gd" id="1_6hn3d"]
-[ext_resource type="Material" uid="uid://k1ab5gaaxu0c" path="res://materials/altar0.tres" id="2_y5igh"]
 [ext_resource type="Material" uid="uid://c4giqvoaw7wgx" path="res://materials/altar1.tres" id="4_bgy5b"]
 [ext_resource type="Material" uid="uid://brjbqqhqlfy0h" path="res://materials/altar2.tres" id="6_kn0u8"]
 [ext_resource type="ArrayMesh" uid="uid://de4q1ouqwhuwv" path="res://Meshes/altar0.res" id="7_yy7gu"]
@@ -14,6 +13,20 @@
 [ext_resource type="Shader" uid="uid://3yynuph1rgsa" path="res://shaders/psx_lit.gdshader" id="12_bgy5b"]
 [ext_resource type="ArrayMesh" uid="uid://ct8l8urwmgdhu" path="res://Meshes/altar4.res" id="12_y5igh"]
 [ext_resource type="Texture2D" uid="uid://bpsima3bsj7ei" path="res://textures/tex2.png" id="13_bejcr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5igh"]
+render_priority = 0
+shader = ExtResource("12_bgy5b")
+shader_parameter/albedo = ExtResource("13_bejcr")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/affine_texture_intensity = -2.0
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_y5igh"]
 height = 5.0
@@ -62,9 +75,9 @@ lights = [NodePath("altar2/OmniLight3D"), NodePath("altar1/OmniLight3D")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010891, 0.445701, 1.12846)
 
 [node name="mesh" type="MeshInstance3D" parent="altar0"]
-transform = Transform3D(0.272885, 0, 0.962047, 0, 1, 0, -0.962047, 0, 0.272885, 0.0196201, 0, -1.10878)
+transform = Transform3D(0.166993, 0, 0.985958, 0, 1, 0, -0.985958, 0, 0.166993, 0.0196201, 2.38419e-07, -1.10878)
 mesh = ExtResource("7_yy7gu")
-surface_material_override/0 = ExtResource("2_y5igh")
+surface_material_override/0 = SubResource("ShaderMaterial_y5igh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="altar0"]
 
