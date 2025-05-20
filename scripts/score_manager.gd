@@ -89,8 +89,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# update baby state
+	if game_states.state != GameStates.Progression.Streaming:
+		return
 	if score <= 0:
 		game_states.set_progression(GameStates.Progression.DeadEnd1)
+		return
 	if score < negative_state_threshold:
 		baby_state = baby_state_t.sad
 	elif score < positive_state_threshold:
