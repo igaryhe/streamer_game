@@ -52,5 +52,5 @@ func set_progression(p: Progression) -> void:
 			if (!audio.playing): audio.play()
 			game_finished.visible = true
 			$Finished/lbDanmu.text = str(chat_window.message_count)
-			$Finished/lbAudianNum.text = "%.0f" % score_manager.score
+			$Finished/lbAudianNum.text = "%.0f" % clamp(score_manager.score, 0, 9999999)
 			$Finished/lbReward.text = str(chat_window.donation)
