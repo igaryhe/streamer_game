@@ -70,7 +70,8 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-		
+
+	holding_item_view.visible = !score_manager.is_selfing
 	if (!is_front_camera || lock_movement): return
 
 	# Handle Jump.
